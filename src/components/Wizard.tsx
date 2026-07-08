@@ -314,12 +314,12 @@ function StepView({ node, onContinue }: { node: StepNode; onContinue: () => void
       <ul className="mt-6 space-y-3">
         {node.steps.map((s, i) => (
           <li key={i}>
-            <label className="flex gap-3 items-start cursor-pointer">
+            <label className="flex gap-3 items-start cursor-pointer group">
               <input
                 type="checkbox"
                 checked={!!checked[i]}
                 onChange={(e) => setChecked((c) => ({ ...c, [i]: e.target.checked }))}
-                className="mt-1.5 h-4 w-4 accent-primary flex-none"
+                className="mt-1.5 h-4 w-4 flex-none appearance-none rounded border border-border bg-surface checked:bg-muted-foreground/50 checked:border-muted-foreground/50 group-hover:border-muted-foreground focus:outline-none"
               />
               <span className={`text-base ${checked[i] ? "text-muted-foreground line-through" : ""}`}>
                 {s}
