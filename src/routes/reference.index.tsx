@@ -61,21 +61,21 @@ function ReferenceIndex() {
             <a
               key={c.title}
               href={c.to}
-              className="group block h-full rounded-xl border border-border bg-surface p-5 hover:border-primary hover:shadow-sm transition-all"
+              className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 hover:border-primary hover:shadow-sm transition-all"
             >
               <h2 className="font-display text-xl font-semibold leading-snug">{c.title}</h2>
               <p className="mt-2 text-sm text-foreground/75">{c.desc}</p>
-              <p className="mt-4 text-sm text-primary font-medium">{c.cta}</p>
+              <p className="mt-auto pt-4 text-sm text-primary font-medium">{c.cta}</p>
             </a>
           ) : (
             <Link
               key={c.title}
               to={c.to}
-              className="group block h-full rounded-xl border border-border bg-surface p-5 hover:border-primary hover:shadow-sm transition-all"
+              className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 hover:border-primary hover:shadow-sm transition-all"
             >
               <h2 className="font-display text-xl font-semibold leading-snug">{c.title}</h2>
               <p className="mt-2 text-sm text-foreground/75">{c.desc}</p>
-              <p className="mt-4 text-sm text-primary font-medium">{c.cta}</p>
+              <p className="mt-auto pt-4 text-sm text-primary font-medium">{c.cta}</p>
             </Link>
           ),
         )}
