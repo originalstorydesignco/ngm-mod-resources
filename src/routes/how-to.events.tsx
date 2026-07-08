@@ -95,28 +95,26 @@ function EventsPage() {
   }, [q, activeCat, isOpen]);
 
   const items = [
-    { id: "s1", label: <span><strong>Pick what + when.</strong> Grab something from the Event Menu below or a member suggestion (!suggest / !event).</span> },
-    { id: "s2", label: <span><strong>Create the event.</strong> Let people know when, what, and which VC you’re hosting in. Check you’re not colliding with another Facilitator in the same VC, and avoid overlapping times as much as possible. Add a funny photo to entice people in + a short message on what you’re hosting and why they should come. Have your event up by 5pm Monday so it can make the event board.</span> },
-    { id: "s3", label: <span><strong>Block it in your calendar.</strong> Add it to your NGM Google Calendar so it’s locked in.</span> },
+    { id: "s1", label: <span><strong>Pick what and when.</strong> Grab something from the Event Menu below or a member suggestion (!suggest / !event).</span> },
+    { id: "s2", label: <span><strong>Create the event.</strong> Let people know when, what, and which voice channel you’re hosting in. Check you’re not colliding with another Facilitator in the same VC, and avoid overlapping times as much as possible. Add a funny photo to entice people in and a short message on what you’re hosting and why they should come. Have your event up by 5 PM on Mondays so it can make the event board.</span> },
+    { id: "s3", label: <span><strong>Block it in your calendar.</strong> Add it to your work calendar so it’s locked in.</span> },
     { id: "s4", label: <span><strong>Hype it uppppppp.</strong> DMing young people with the @role for that game/interest — or messaging newcomers and members who haven’t been online in a while — is a great way to pull more people in. Use the NGM Bot command /advanced-search to look up specific groups of kids by role, and DM them straight from there with the event link.</span> },
-    { id: "s5", label: <span><strong>Run it.</strong> Host in the right VC/channel. The Code of Conduct still applies at events.</span> },
+    { id: "s5", label: <span><strong>Run it.</strong> Host in the right voice channel. The Code of Conduct still applies at events.</span> },
     {
       id: "s6",
       label: (
         <span>
-          <strong>Log attendance.</strong> Fill the tracker after —{" "}
-          <a href="https://nextgenmen.ca/alliance/attendance" target="_blank" rel="noreferrer" className="text-primary underline underline-offset-2">Event Attendance Form →</a>
-          {" "}— then check it off once you’ve done it.
+          <strong>Log attendance.</strong> Fill the event tracker after, then check it off once you’ve done it.
         </span>
       ),
     },
-    { id: "s7", label: <span><strong>Houses points (if it’s a Houses event).</strong> /houses input_placements (1st/2nd/3rd) or /houses participation.</span> },
+    { id: "s7", label: <span><strong>Houses points (if it’s a Houses event).</strong> Use /houses points_add to give a point to every youth who participated.</span> },
   ];
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
       <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">How to host server events</h1>
-      <p className="mt-4 text-foreground/85">Events = how we keep the community alive so it can THRIVE. The flow:</p>
+      <p className="mt-4 text-foreground/85">Events are how we keep the community alive so it can thrive! This is the flow for putting together a suite of events that are likely to bring out youth participants.</p>
       <div className="mt-6">
         <Checklist items={items} />
       </div>
