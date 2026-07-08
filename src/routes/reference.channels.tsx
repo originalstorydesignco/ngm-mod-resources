@@ -22,9 +22,7 @@ function ChannelsPage() {
         <dl className="mt-4 space-y-3">
           {channels.map.map((c) => (
             <div key={c.name} className="rounded-md border border-border bg-card px-4 py-3">
-              <dt className="font-semibold">
-                <span className="mr-2" aria-hidden>{c.icon}</span>{c.name}
-              </dt>
+              <dt className="font-semibold">{c.name}</dt>
               <dd className="mt-1">
                 <PastePlaceholder slot={`one-line description for ${c.name}`} />
               </dd>
