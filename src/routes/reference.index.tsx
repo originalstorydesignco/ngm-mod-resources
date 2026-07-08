@@ -15,7 +15,7 @@ const cards = [
     to: "/reference/scope",
     external: false,
     title: "What we do and what we don’t",
-    desc: "Is this mine to do?",
+    desc: "A guide for how our role as Discord moderators compares to others.",
     cta: "Scope of Practice Tool →",
   },
   {
