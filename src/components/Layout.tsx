@@ -58,8 +58,9 @@ function Header() {
         </Link>
         <nav className="flex items-center gap-1 text-sm order-3 sm:order-2 w-full sm:w-auto">
           <Link
-            to="/decide/reporting"
+            to="/"
             className="px-3 py-2 rounded-md hover:bg-card"
+            activeOptions={{ exact: true }}
             activeProps={{ className: "px-3 py-2 rounded-md bg-card font-medium" }}
           >
             Decide
