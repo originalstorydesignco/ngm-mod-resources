@@ -57,7 +57,7 @@ function FlagsLogPage() {
           </ul>
         </div>
         <div className="rounded-xl border border-border bg-card p-4">
-          <h3 className="font-display text-lg font-semibold">🚫 Don’t put it here — it goes elsewhere</h3>
+          <h3 className="font-display text-lg font-semibold">Don’t put it here — it goes elsewhere</h3>
           <ul className="mt-3 space-y-2 text-sm text-foreground/85 list-disc pl-5">
             <li>
               <strong>A safeguarding / critical incident</strong> — danger to self or others, grooming or sexual exploitation, an abuse or neglect disclosure, credible threats, anything sexual involving a minor. → This isn’t a flag.{" "}
