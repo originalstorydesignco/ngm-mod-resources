@@ -122,12 +122,12 @@ function Index() {
             Reference
           </Link>
           <Link
-            to="/how-to/$"
-            params={{ _splat: "" }}
+            to="/how-to"
             className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-surface text-sm hover:border-primary"
           >
             How-to guides
           </Link>
+
         </div>
       </section>
     </div>
