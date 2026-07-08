@@ -53,8 +53,11 @@ function Header() {
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-30">
       <div className="mx-auto max-w-5xl px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
-        <Link to="/" className="font-display text-lg font-bold tracking-tight text-white whitespace-nowrap">
-          NGM Alliance <span style={{ color: "#5865F2" }}>Mod Resources</span>
+        <Link to="/" className="font-display text-lg font-bold tracking-tight text-white whitespace-nowrap inline-flex items-center gap-2">
+          NGM Alliance{" "}
+          <span className="inline-flex items-center rounded-full bg-[#5865F2] text-white font-semibold text-sm px-2.5 py-0.5 align-middle">
+            Mod Resources
+          </span>
         </Link>
         <nav className="flex items-center gap-1 text-sm order-3 sm:order-2 w-full sm:w-auto">
           <Link
