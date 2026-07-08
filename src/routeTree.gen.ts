@@ -17,7 +17,6 @@ import { Route as ReferenceLinksRouteImport } from './routes/reference.links'
 import { Route as ReferenceContactsRouteImport } from './routes/reference.contacts'
 import { Route as ReferenceChannelsRouteImport } from './routes/reference.channels'
 import { Route as ReferenceBotsRouteImport } from './routes/reference.bots'
-import { Route as HowToSplatRouteImport } from './routes/how-to.$'
 import { Route as DecideReportingRouteImport } from './routes/decide.reporting'
 import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.critical-incident'
 import { Route as DecideConflictRouteImport } from './routes/decide.conflict'
@@ -63,11 +62,6 @@ const ReferenceBotsRoute = ReferenceBotsRouteImport.update({
   path: '/reference/bots',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HowToSplatRoute = HowToSplatRouteImport.update({
-  id: '/how-to/$',
-  path: '/how-to/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DecideReportingRoute = DecideReportingRouteImport.update({
   id: '/decide/reporting',
   path: '/decide/reporting',
@@ -95,7 +89,6 @@ export interface FileRoutesByFullPath {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
-  '/how-to/$': typeof HowToSplatRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
@@ -110,7 +103,6 @@ export interface FileRoutesByTo {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
-  '/how-to/$': typeof HowToSplatRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
@@ -126,7 +118,6 @@ export interface FileRoutesById {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
-  '/how-to/$': typeof HowToSplatRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
@@ -143,7 +134,6 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
-    | '/how-to/$'
     | '/reference/bots'
     | '/reference/channels'
     | '/reference/contacts'
@@ -158,7 +148,6 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
-    | '/how-to/$'
     | '/reference/bots'
     | '/reference/channels'
     | '/reference/contacts'
@@ -173,7 +162,6 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
-    | '/how-to/$'
     | '/reference/bots'
     | '/reference/channels'
     | '/reference/contacts'
@@ -189,7 +177,6 @@ export interface RootRouteChildren {
   DecideConflictRoute: typeof DecideConflictRoute
   DecideCriticalIncidentRoute: typeof DecideCriticalIncidentRoute
   DecideReportingRoute: typeof DecideReportingRoute
-  HowToSplatRoute: typeof HowToSplatRoute
   ReferenceBotsRoute: typeof ReferenceBotsRoute
   ReferenceChannelsRoute: typeof ReferenceChannelsRoute
   ReferenceContactsRoute: typeof ReferenceContactsRoute
@@ -257,13 +244,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferenceBotsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/how-to/$': {
-      id: '/how-to/$'
-      path: '/how-to/$'
-      fullPath: '/how-to/$'
-      preLoaderRoute: typeof HowToSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/decide/reporting': {
       id: '/decide/reporting'
       path: '/decide/reporting'
@@ -301,7 +281,6 @@ const rootRouteChildren: RootRouteChildren = {
   DecideConflictRoute: DecideConflictRoute,
   DecideCriticalIncidentRoute: DecideCriticalIncidentRoute,
   DecideReportingRoute: DecideReportingRoute,
-  HowToSplatRoute: HowToSplatRoute,
   ReferenceBotsRoute: ReferenceBotsRoute,
   ReferenceChannelsRoute: ReferenceChannelsRoute,
   ReferenceContactsRoute: ReferenceContactsRoute,
