@@ -22,12 +22,12 @@ function FlagsLogPage() {
 
       {isMod && (
         <div className="mt-5 rounded-lg border-l-4 border-mod bg-mod/15 px-4 py-3 text-[15px] text-foreground">
-          <strong className="font-bold">Moderators:</strong> flags live in #flags-log, which is a Facilitator space — your version is simpler. Link the message in #mod-chat, ping @Facilitators, and add one line of context.
+          <strong className="font-bold">Moderators:</strong>&nbsp;Flags live in #flags-log, which is a Facilitator space — your version is simpler. Link the message in #mod-chat, ping @Facilitators, and add one line of context.
         </div>
       )}
 
       <p className="mt-6 text-foreground/85">
-        #flags-log is how we show up for the young people we work with — and for each other. When you notice something about a kid, this is where you bring the team in, so you’re not holding it alone. It’s a pointer, not a file: a short note here, and the real conversation can happen here too — or out loud at our weekly scorecard meeting. Keep it brief, factual, and kind — to the youth, and to whoever reads it next.
+        The #flags-log channel is how we show up for the young people we work with — and for each other. When you notice something about a kid, this is where you bring the team in, so you’re not holding it alone. It’s a pointer, not a file: a short note here, and the real conversation can happen here too — or out loud at our weekly scorecard meeting. Keep it brief, factual, and kind — to the youth, and to whoever reads it next.
       </p>
 
       <section className="mt-8">
@@ -37,8 +37,8 @@ function FlagsLogPage() {
             items={[
               { id: "s1", label: <span><strong>Create a thread.</strong> Title it with one plain line — who, where, what. e.g. “Marcus in #support-channel — rough week, keeping an eye out.”</span> },
               { id: "s2", label: <span><strong>Paste the message link</strong> in the thread, with any key details — observations, not opinions. We’re describing what happened, not deciding who someone is.</span> },
-              { id: "s3", label: <span><strong>If it’s sensitive, don’t type it.</strong> Write “→ flagging to bring up at scorecard meeting on (date)” and bring it to the weekly meeting, where we talk it through together.</span> },
-              { id: "s4", label: <span><strong>Say what you actually need.</strong> “Thoughts?” tends to get silence — we can’t tell what you need. Tell us plainly: an FYI, a second opinion, or a request for someone to take follow-up.</span> },
+              { id: "s3", label: <span><strong>If it’s sensitive, don’t type it.</strong> Write “Flagging to bring up at scorecard meeting on (date)” and bring it to the weekly meeting, where we talk it through together.</span> },
+              { id: "s4", label: <span><strong>Say what you actually need.</strong> “Thoughts?” tends to get silence — the team can’t tell what you need. Tell us plainly: an FYI, a second opinion, or a request for someone to take follow-up.</span> },
               { id: "s5", label: <span><strong>Hand it off cleanly.</strong> If follow-up’s needed, we figure out who has the strongest relationship with that young person, and they take it. If that’s you, close the loop in the thread when it’s done — with any need-to-knows — so nothing quietly falls off anyone’s plate.</span> },
             ]}
           />
@@ -60,18 +60,15 @@ function FlagsLogPage() {
           <h3 className="font-display text-lg font-semibold">Don’t put it here — it goes elsewhere</h3>
           <ul className="mt-3 space-y-2 text-sm text-foreground/85 list-disc pl-5">
             <li>
-              <strong>A safeguarding / critical incident</strong> — danger to self or others, grooming or sexual exploitation, an abuse or neglect disclosure, credible threats, anything sexual involving a minor. → This isn’t a flag.{" "}
-              <Link to="/decide/critical-incident" className="text-primary underline underline-offset-2">Critical Incident Tool →</Link>{" "}
-              (Never screenshot or save imagery of a minor — note context only.)
+              <strong>A safeguarding / critical incident</strong> — danger to self or others, grooming or sexual exploitation, an abuse or neglect disclosure, credible threats, anything sexual involving a minor. This isn’t just a flag — use the&nbsp;<Link to="/decide/critical-incident" className="text-primary underline underline-offset-2">Critical Incident Tool</Link>&nbsp;to navigate next steps.
             </li>
-            <li><strong>Sensitive personal details</strong> — a disclosure, mental-health specifics, home/family situations, anything shared in confidence. → Name only that there’s something (“[name] — something to raise”); keep the substance for the scorecard meeting, verbally.</li>
+            <li><strong>Sensitive personal details</strong> — a disclosure, mental-health specifics, home/family situations, anything shared in confidence. Name only that there’s something (“[name] — something to raise”); keep the substance for the scorecard meeting, verbally.</li>
             <li>
-              <strong>A concern about a staff member.</strong>{" "}
-              <Link to="/decide/reporting" className="text-primary underline underline-offset-2">Reporting Hierarchy Tool →</Link>, not here.
+              <strong>A concern about a staff member.</strong>&nbsp;Should go through the&nbsp;<Link to="/decide/reporting" className="text-primary underline underline-offset-2">Reporting Hierarchy Tool</Link>, not #flags-log.
             </li>
             <li>Private/contact info or screenshots of sensitive content.</li>
-            <li><strong>Already handled, parents involved, resolved.</strong> → Only post if you’d like advice; otherwise leave it.</li>
-            <li><strong>Venting or character judgments about a kid.</strong> → Describe the behaviour, not the person.</li>
+            <li><strong>Already handled, parents involved, resolved.</strong>&nbsp;Only post if you’d like advice; otherwise leave it.</li>
+            <li><strong>Venting or character judgments about a kid.</strong>&nbsp;Describe the behaviour, not the person.</li>
           </ul>
         </div>
       </section>
