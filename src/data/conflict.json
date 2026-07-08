@@ -1,0 +1,282 @@
+{
+  "id": "conflict",
+  "title": "Someone broke the Code of Conduct",
+  "intro": {
+    "description": "We respond with accountability and repair — the goal is to keep the space safe AND help a young person grow, not to push them out."
+  },
+  "start": "q0",
+  "nodes": {
+    "q0": {
+      "type": "question",
+      "text": "Is it serious — threats, doxxing, grooming, sexual content involving a minor, anything criminal?",
+      "answers": [
+        { "label": "Yes", "goto": "end-redirect" },
+        { "label": "No", "goto": "q1" }
+      ]
+    },
+    "q1": {
+      "type": "question",
+      "text": "Is it currently happening?",
+      "answers": [
+        { "label": "Yes", "goto": "s1" },
+        { "label": "No", "goto": "s2" }
+      ]
+    },
+    "s1": {
+      "type": "step",
+      "headline": "De-escalate in the moment.",
+      "steps": [
+        "Tell them to chill, use a short timeout, !breathe / !chill.",
+        "Keep it light where you can — the goal is a reset, not a scene."
+      ],
+      "continueLabel": "Done — continue",
+      "goto": "q2"
+    },
+    "s2": {
+      "type": "step",
+      "headline": "Address it so the space stays visibly safe.",
+      "steps": [
+        "Delete-with-dignity: say why, then remove — or ask them to. Reply, redirect.",
+        "Or empower them to address it themselves — :villager: reaction, MEE6 commands, targeted validation of others, humour if appropriate."
+      ],
+      "continueLabel": "Done — continue",
+      "goto": "q2"
+    },
+    "q2": {
+      "type": "question",
+      "text": "Did the incident involve more than one person?",
+      "answers": [
+        { "label": "Yes — it’s a conflict between people", "goto": "s3" },
+        { "label": "No — one person breaking rules", "goto": "q3" }
+      ]
+    },
+    "q3": {
+      "type": "question",
+      "text": "Did it involve images?",
+      "hint": {
+        "label": "Why does this matter?",
+        "body": "@Hush is the response ladder for repeat image misuse. Repeat non-image behaviour gets a belonging response instead — sometimes rapport does the work a mute can’t."
+      },
+      "answers": [
+        { "label": "Yes", "goto": "q4" },
+        { "label": "No", "goto": "q5" }
+      ]
+    },
+    "q4": {
+      "type": "question",
+      "text": "Has it happened more than twice in the last three months?",
+      "answers": [
+        { "label": "Yes", "goto": "q6" },
+        { "label": "No", "goto": "end-log" }
+      ]
+    },
+    "q5": {
+      "type": "question",
+      "text": "Has it happened more than twice that you’re aware of?",
+      "answers": [
+        { "label": "Yes", "goto": "end-house" },
+        { "label": "No", "goto": "end-log" }
+      ]
+    },
+    "q6": {
+      "type": "question",
+      "text": "Have they had the @Hush role before?",
+      "roleNote": "The @Hush ladder is a Facilitator action. If you’re a Moderator: post the pattern in #mod-chat and ping @Facilitators.",
+      "answers": [
+        { "label": "Yes", "goto": "q7" },
+        { "label": "No", "goto": "end-hush-3" }
+      ]
+    },
+    "q7": {
+      "type": "question",
+      "text": "What’s the longest they’ve had it?",
+      "roleNote": "The @Hush ladder is a Facilitator action. If you’re a Moderator: post the pattern in #mod-chat and ping @Facilitators.",
+      "answers": [
+        { "label": "3 days", "goto": "end-hush-7" },
+        { "label": "7 days", "goto": "end-hush-indef" }
+      ]
+    },
+    "s3": {
+      "type": "step",
+      "headline": "Post it, then wait at least 12 hours.",
+      "steps": [
+        "Post it in #mod-chat or #flags-log.",
+        "Then give it time — people often sort it out themselves. Give them the chance."
+      ],
+      "continueLabel": "It’s been 12+ hours — continue",
+      "goto": "q8"
+    },
+    "q8": {
+      "type": "question",
+      "text": "Have the people involved reached resolution on their own?",
+      "answers": [
+        { "label": "Yes", "goto": "end-resolved" },
+        { "label": "No", "goto": "s4" }
+      ]
+    },
+    "s4": {
+      "type": "step",
+      "headline": "The @Facilitator with the most rapport DMs to find out what they need.",
+      "steps": [
+        "Not a lecture — a check-in. What’s going on for them, and what would help?"
+      ],
+      "roleNote": "This is a Facilitator action. If you’re a Moderator: post it in #mod-chat and ping @Facilitators.",
+      "continueLabel": "Continue",
+      "goto": "q9"
+    },
+    "q9": {
+      "type": "question",
+      "text": "Is there a pattern of conflict in this relationship?",
+      "answers": [
+        { "label": "Yes", "goto": "q10" },
+        { "label": "No", "goto": "q11" }
+      ]
+    },
+    "q10": {
+      "type": "question",
+      "text": "Are they willing to get support disrupting the relational pattern in a group chat or call together?",
+      "answers": [
+        { "label": "Yes", "goto": "end-transform" },
+        { "label": "No", "goto": "q11" }
+      ]
+    },
+    "q11": {
+      "type": "question",
+      "text": "Are they willing to get support getting to a solution?",
+      "answers": [
+        { "label": "Yes", "goto": "end-resolve" },
+        { "label": "No", "goto": "q12" }
+      ]
+    },
+    "q12": {
+      "type": "question",
+      "text": "Are they willing to get support with self-regulation?",
+      "answers": [
+        { "label": "Yes", "goto": "end-skills" },
+        { "label": "No", "goto": "end-house-2" }
+      ]
+    },
+    "end-redirect": {
+      "type": "endpoint",
+      "urgency": "emergency",
+      "headline": "This ladder is for everyday stuff — that’s a critical incident.",
+      "steps": ["Go to the Critical Incident tool now."],
+      "actions": [
+        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" }
+      ]
+    },
+    "end-log": {
+      "type": "endpoint",
+      "urgency": "info",
+      "headline": "Post it in #mod-chat or #flags-log and move on.",
+      "steps": ["You handled it."]
+    },
+    "end-house": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Ask their House leader to ping them in their House channel to build rapport.",
+      "steps": [
+        "Support doesn’t have to be formal — sometimes belonging does the work.",
+        "Then post it in #mod-chat or #flags-log."
+      ]
+    },
+    "end-hush-3": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Add @Hush for 3 days.",
+      "steps": [
+        "The Facilitator with the most rapport DMs them about it — @Hush is a reset, not a punishment, with a path back via a Facilitator.",
+        "Then post in #mod-chat / update #hush-log."
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "The @Hush ladder is a Facilitator action.",
+          "steps": [
+            "Post the pattern in #mod-chat and ping @Facilitators — include message links.",
+            "A Facilitator applies the role and DMs the member."
+          ]
+        }
+      }
+    },
+    "end-hush-7": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Add @Hush for 7 days.",
+      "steps": [
+        "The Facilitator with the most rapport DMs them about it — @Hush is a reset, not a punishment, with a path back via a Facilitator.",
+        "Then post in #mod-chat / update #hush-log."
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "The @Hush ladder is a Facilitator action.",
+          "steps": [
+            "Post the pattern in #mod-chat and ping @Facilitators — include message links.",
+            "A Facilitator applies the role and DMs the member."
+          ]
+        }
+      }
+    },
+    "end-hush-indef": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Add @Hush indefinitely.",
+      "steps": [
+        "The Facilitator with the most rapport DMs them about it — @Hush is a reset, not a punishment, with a path back via a Facilitator.",
+        "Then post in #mod-chat / update #hush-log."
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "The @Hush ladder is a Facilitator action.",
+          "steps": [
+            "Post the pattern in #mod-chat and ping @Facilitators — include message links.",
+            "A Facilitator applies the role and DMs the member."
+          ]
+        }
+      }
+    },
+    "end-resolved": {
+      "type": "endpoint",
+      "urgency": "info",
+      "headline": "Update #mod-chat / #flags-log.",
+      "steps": [
+        "Optionally: ask their House leader to ping them in their House channel and build some rapport."
+      ]
+    },
+    "end-transform": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Use conflict transformation techniques.",
+      "steps": [
+        "Dialogue methods, circle process, transformative mediation.",
+        "Then log it in #mod-chat / #flags-log."
+      ]
+    },
+    "end-resolve": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Use conflict resolution techniques.",
+      "steps": [
+        "Shuttle diplomacy, joint problem-solving, planning next steps.",
+        "Then log it in #mod-chat / #flags-log."
+      ]
+    },
+    "end-skills": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Use skill-building techniques.",
+      "steps": [
+        "Self-awareness, mindfulness, communication.",
+        "Then log it in #mod-chat / #flags-log."
+      ]
+    },
+    "end-house-2": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Ask their House leader to ping them in their House channel to build rapport.",
+      "steps": [
+        "Support doesn’t have to be formal — sometimes belonging does the work.",
+        "Then log it in #mod-chat / #flags-log."
+      ]
+    }
+  }
+}

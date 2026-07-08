@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Placeholder } from "@/components/Placeholder";
+import { Wizard, type WizardData } from "@/components/Wizard";
+import data from "@/data/conflict.json";
 
 export const Route = createFileRoute("/decide/conflict")({
-  component: () => <Placeholder title="Conflict" kind="Decision tool" />,
+  head: () => ({
+    meta: [
+      { title: "Someone broke the Code of Conduct — NGMA Staff Hub" },
+      { name: "description", content: "Decision tool for Code of Conduct issues and conflict between members." },
+    ],
+  }),
+  component: () => <Wizard data={data as WizardData} />,
 });

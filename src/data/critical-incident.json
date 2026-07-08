@@ -1,0 +1,194 @@
+{
+  "id": "critical-incident",
+  "title": "Something serious is happening",
+  "intro": {
+    "description": "Something serious just happened — a kid in danger, an adult preying on a member, a disclosure of abuse, a real threat. The goal isn’t to handle it perfectly alone. It’s to act early enough, clearly enough, and with the right people.",
+    "roleVariants": {
+      "moderator": {
+        "banner": "Moderators: you don’t handle these. You’re a spotter, not the responder — escalate to @Facilitators immediately with a message link, and never screenshot imagery of a minor."
+      }
+    }
+  },
+  "closeout": {
+    "title": "Always close out",
+    "steps": [
+      "Complete the Incident Report — what happened (dates, times, message links), who was involved, what you did and who you looped in, what was reported and when, and what follow-up is owed and who owns it.",
+      "Log it in #flags-log so the Facilitator team has the picture — keep sensitive detail appropriate to the channel.",
+      "Debrief and check on whoever responded. This work carries real weight; don’t let the responder just move on alone.",
+      "If the concern involves a staff member, run the Reporting Hierarchy tool too."
+    ],
+    "actions": [
+      { "label": "Complete the Incident Report", "href": "https://nextgenmen.typeform.com/incidentreport" },
+      { "label": "Who do I tell?", "href": "/decide/reporting" }
+    ]
+  },
+  "start": "q1",
+  "nodes": {
+    "q1": {
+      "type": "question",
+      "text": "Is anyone in immediate physical danger right now?",
+      "answers": [
+        { "label": "Yes", "goto": "s-911" },
+        { "label": "No", "goto": "s1" }
+      ]
+    },
+    "s-911": {
+      "type": "step",
+      "urgency": "emergency",
+      "headline": "Call 911 / relevant emergency services now.",
+      "steps": [
+        "Discord can’t dispatch help — this is why we collect city/province and an emergency contact.",
+        "Use the location and emergency contact on file to direct responders."
+      ],
+      "continueLabel": "Done — continue",
+      "goto": "s1"
+    },
+    "s1": {
+      "type": "step",
+      "headline": "First, together",
+      "steps": [
+        "Don’t go it alone. Loop in the Manager of Youth Programs (critical-incident lead) — or the COO if unavailable — right away. Flag it in #flags-log.",
+        "Contain it. Take sensitive conversations private (DM); restrict the offending account (mute or @inactive role) if someone’s actively causing harm.",
+        "Preserve information — carefully. Note message links, usernames, timestamps, what happened, who’s involved. Hard exception: suspected sexual imagery of a minor — do NOT download, save, screenshot, or forward it. Possessing or sharing it can be a crime and re-victimizes the child. Note context only; Discord preserves the evidence on their end.",
+        "Stay in your lane. You’re not the investigator, therapist, or police. Your job: keep them safe, document, escalate, refer."
+      ],
+      "roleNote": "Moderators: your version of this list is one line — ping @Facilitators with the message link, now.",
+      "continueLabel": "Continue",
+      "goto": "q2"
+    },
+    "q2": {
+      "type": "question",
+      "text": "What kind of incident is it?",
+      "answers": [
+        { "label": "Danger to self or others — self-harm, suicide, threats", "goto": "end-a" },
+        { "label": "Grooming / sexual exploitation / sexual content involving a minor", "goto": "end-b" },
+        { "label": "Disclosure of abuse or neglect", "goto": "end-c" },
+        { "label": "Doxxing / credible threats / targeted harassment", "goto": "end-d" },
+        { "label": "Other criminal conduct", "goto": "end-e" }
+      ]
+    },
+    "end-a": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "headline": "Danger to self or others",
+      "steps": [
+        "Take it to a private space (DM).",
+        "Supportive listening: acknowledge feelings, don’t debate, don’t promise what you can’t deliver.",
+        "Active emergency → 911, using the location and emergency contact on file.",
+        "Offer vetted crisis lines: Canada — Kids Help Phone 1-800-668-6868, text CONNECT to 686868, or call/text 988. US — call/text 988, or text HOME to 741741.",
+        "Stay with them until support is in place, within your capacity.",
+        "In a crisis you ACT — you don’t clinically assess risk. That’s outside our Scope of Practice."
+      ],
+      "actions": [
+        { "label": "Call Kids Help Phone", "href": "tel:+18006686868" },
+        { "label": "Call or text 988", "href": "tel:988" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Danger to self or others — escalate, and stay kind.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link.",
+            "If a life is in danger, anyone calls 911 — you don’t wait.",
+            "You can share a crisis line and stay present in DM if the youth trusts you — supportive listening, no promises, no investigating."
+          ]
+        }
+      }
+    },
+    "end-b": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "headline": "Grooming / exploitation / sexual content involving a minor",
+      "steps": [
+        "Don’t engage or tip off the suspected predator.",
+        "Don’t delete the account if it would destroy the trail — restrict and contain instead.",
+        "Never save or screenshot imagery — note context only (who / where / when, links).",
+        "Report to Discord Trust & Safety (in-app), the child-exploitation tipline — Canada: Cybertip.ca · US: NCMEC CyberTipline (report.cybertip.org / 1-800-843-5678) — and police.",
+        "Support the affected youth gently — they may not see themselves as a victim. Loop the team on who has the best rapport for follow-up."
+      ],
+      "actions": [
+        { "label": "Cybertip.ca", "href": "https://www.cybertip.ca" },
+        { "label": "NCMEC CyberTipline", "href": "https://report.cybertip.org" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Grooming or exploitation — escalate now, touch nothing.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link.",
+            "Don’t engage the suspected predator, don’t warn them, don’t investigate.",
+            "Never save or screenshot imagery of a minor — note context only."
+          ]
+        }
+      }
+    },
+    "end-c": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "headline": "Disclosure of abuse or neglect",
+      "steps": [
+        "Run the Confidentiality tool to confirm the contact-vs-report path.",
+        "Our standard: a child is in need of intervention where there are reasonable and probable grounds to believe their survival, security, or development is endangered. Suspected abuse or neglect must be reported.",
+        "You report suspicions — no proof needed, you don’t investigate, and you can’t hand the duty to someone else. Unsure? Treat it as reportable and loop in the lead.",
+        "Report to the child-protection authority for where the youth lives."
+      ],
+      "actions": [
+        { "label": "Open the Confidentiality tool", "href": "/decide/confidentiality" },
+        { "label": "Who to call — child-protection lines", "href": "/reference/links" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "A disclosure of abuse or neglect — escalate now.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link.",
+            "Don’t promise the youth secrecy, and don’t investigate.",
+            "Stay with the youth in DM if you’re the one they trust."
+          ]
+        }
+      }
+    },
+    "end-d": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "headline": "Doxxing / credible threats / targeted harassment",
+      "steps": [
+        "Contain: remove the offending content from public view — preserve evidence first — and restrict the account.",
+        "Credible threat → treat like danger to self or others and involve police.",
+        "Report the account to Discord.",
+        "Support anyone targeted."
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Doxxing, threats, or harassment — contain what you can, then escalate.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link.",
+            "If you can, note usernames and message links before anything disappears.",
+            "Check in on anyone targeted."
+          ]
+        }
+      }
+    },
+    "end-e": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "headline": "Other criminal conduct",
+      "steps": [
+        "Contain the situation and preserve context — message links, usernames, timestamps.",
+        "Escalate to the team.",
+        "Involve police and/or Discord as appropriate."
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Something criminal — escalate now.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link.",
+            "Note context — who, where, when, links — and don’t investigate further."
+          ]
+        }
+      }
+    }
+  }
+}

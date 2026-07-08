@@ -1,0 +1,227 @@
+{
+  "id": "confidentiality",
+  "title": "Do I keep it private or report it?",
+  "intro": {
+    "description": "A young person disclosed something concerning and asked you not to tell anyone — now what? This walks you through whether you can keep it private or need to report, and what to do either way.",
+    "standingRules": [
+      "Respecting privacy is everyone’s job; deciding what gets shared and with whom is a Facilitator call.",
+      "When unsure, treat it as reportable and loop in @Facilitators."
+    ],
+    "roleVariants": {
+      "moderator": {
+        "banner": "Moderators: whether to report is a Facilitator decision. Use this tool to understand the path, and escalate to @Facilitators with a message link as soon as anything here points to reporting."
+      }
+    }
+  },
+  "start": "q1",
+  "nodes": {
+    "q1": {
+      "type": "question",
+      "text": "Do you have reasonable grounds to suspect that someone’s life is in imminent danger?",
+      "hint": {
+        "label": "What are ‘reasonable grounds’?",
+        "body": "What an average person, using honest judgement, would need in order to decide to report. You report suspicion — you don’t need to be certain, and investigating is not your job."
+      },
+      "answers": [
+        { "label": "Yes", "goto": "end-911" },
+        { "label": "No", "goto": "q2" },
+        { "label": "Unsure", "goto": "end-consult" }
+      ]
+    },
+    "q2": {
+      "type": "question",
+      "text": "Do you have reasonable grounds to suspect the youth is experiencing abuse, neglect, or exploitation?",
+      "answers": [
+        { "label": "Yes", "goto": "q3" },
+        { "label": "No", "goto": "q4" },
+        { "label": "Unsure", "goto": "end-consult" }
+      ]
+    },
+    "q3": {
+      "type": "question",
+      "text": "Would contacting the emergency contact / trusted adult on file put the youth at more risk?",
+      "hint": {
+        "label": "How do I judge that?",
+        "body": "Ask yourself: are they the source of harm? Does the youth live with the person causing harm? Could they retaliate, pressure the youth, or tip off the perpetrator?"
+      },
+      "answers": [
+        { "label": "Yes", "goto": "end-report-only" },
+        { "label": "No", "goto": "end-contact-report" }
+      ]
+    },
+    "q4": {
+      "type": "question",
+      "text": "Are you aware of the youth engaging in behaviour that concerns you — substance use, self-injury, disordered eating, illegal behaviour, high-risk activities?",
+      "answers": [
+        { "label": "Yes", "goto": "q5" },
+        { "label": "No", "goto": "q7" },
+        { "label": "Unsure", "goto": "end-consult" }
+      ]
+    },
+    "q5": {
+      "type": "question",
+      "text": "Are you aware of any irrevocable or serious consequences from that behaviour — major injuries, STIs?",
+      "answers": [
+        { "label": "Yes", "goto": "q8" },
+        { "label": "No", "goto": "q6" }
+      ]
+    },
+    "q6": {
+      "type": "question",
+      "text": "Are you aware of a pattern of increasing risk — higher frequency, more substance use?",
+      "answers": [
+        { "label": "Yes", "goto": "q8" },
+        { "label": "No", "goto": "q7" }
+      ]
+    },
+    "q7": {
+      "type": "question",
+      "text": "Is the youth withdrawing from friends, family, school, or things they used to enjoy — or worried, distressed, or feeling helpless to control their own behaviour?",
+      "answers": [
+        { "label": "Yes", "goto": "q8" },
+        { "label": "No", "goto": "q9" }
+      ]
+    },
+    "q8": {
+      "type": "question",
+      "text": "Are you aware of a caregiver or authority figure who already knows — a therapist, for example?",
+      "answers": [
+        { "label": "Yes", "goto": "end-support" },
+        { "label": "No", "goto": "q9" }
+      ]
+    },
+    "q9": {
+      "type": "question",
+      "text": "Does the youth want someone else to know?",
+      "answers": [
+        { "label": "Yes", "goto": "q10" },
+        { "label": "No", "goto": "end-support" }
+      ]
+    },
+    "q10": {
+      "type": "question",
+      "text": "Does the youth trust their parents or guardians in this context?",
+      "answers": [
+        { "label": "Yes", "goto": "end-assist-parents" },
+        { "label": "No", "goto": "end-community" }
+      ]
+    },
+    "end-911": {
+      "type": "endpoint",
+      "urgency": "emergency",
+      "headline": "Call 911 or relevant emergency services now.",
+      "steps": [
+        "Use the city/province and emergency contact on file to direct help if the youth can’t.",
+        "Then continue in the Critical Incident tool."
+      ],
+      "actions": [
+        { "label": "Call 911", "href": "tel:911" },
+        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Call 911, then escalate.",
+          "steps": [
+            "If a life is in danger, anyone calls 911 — you don’t wait for a Facilitator.",
+            "Then ping @Facilitators immediately with a link to the conversation.",
+            "Stay with the youth in DM if you’re the one they trust."
+          ]
+        }
+      }
+    },
+    "end-consult": {
+      "type": "endpoint",
+      "urgency": "info",
+      "headline": "Ask the youth for further clarification, and consult.",
+      "steps": [
+        "Gently ask the youth to help you understand more — you don’t need to interrogate, just clarify.",
+        "Consult colleagues or relevant experts — ping @Facilitators. You make better decisions with a second person.",
+        "Then come back through this tool."
+      ],
+      "actions": [
+        { "label": "Start this tool over", "href": "/decide/confidentiality" }
+      ]
+    },
+    "end-report-only": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Report to the child-protection authority — without contacting the emergency contact.",
+      "steps": [
+        "Contacting the adult on file could put the youth at more risk, so the report goes straight to the authority.",
+        "You report suspicion — no proof needed, you don’t investigate, and you can’t hand the duty to someone else.",
+        "Continue in the Critical Incident tool (disclosure of abuse or neglect) and complete an Incident Report."
+      ],
+      "actions": [
+        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" },
+        { "label": "Who to call — child-protection lines", "href": "/reference/links" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Escalate to @Facilitators now — reporting is a Facilitator action.",
+          "steps": [
+            "Ping @Facilitators immediately with a link to the conversation.",
+            "Don’t promise the youth secrecy, and don’t investigate.",
+            "Stay with the youth in DM if you’re the one they trust."
+          ]
+        }
+      }
+    },
+    "end-contact-report": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Contact the emergency contact / trusted adult AND report to the appropriate authority.",
+      "steps": [
+        "You report suspicion — no proof needed, you don’t investigate, and you can’t hand the duty to someone else.",
+        "Continue in the Critical Incident tool (disclosure of abuse or neglect) and complete an Incident Report."
+      ],
+      "actions": [
+        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" },
+        { "label": "Who to call — child-protection lines", "href": "/reference/links" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Escalate to @Facilitators now — reporting is a Facilitator action.",
+          "steps": [
+            "Ping @Facilitators immediately with a link to the conversation.",
+            "Don’t promise the youth secrecy, and don’t investigate.",
+            "Stay with the youth in DM if you’re the one they trust."
+          ]
+        }
+      }
+    },
+    "end-support": {
+      "type": "endpoint",
+      "urgency": "info",
+      "headline": "Continue to support the youth confidentially.",
+      "steps": [
+        "No new report is needed — either nothing crossed the reporting line, or an appropriate adult already has it in hand (your answer trail shows which).",
+        "Keep the relationship strong.",
+        "If anything changes, come back through this tool."
+      ]
+    },
+    "end-assist-parents": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Assist the youth to figure out how to communicate with their parents or guardians within a set timeframe.",
+      "steps": [
+        "Help them plan what to say, to whom, and by when.",
+        "Log it per the flags-log guide."
+      ],
+      "actions": [
+        { "label": "How to use #flags-log", "href": "/how-to/flags-log" }
+      ]
+    },
+    "end-community": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Refer the youth to a community resource.",
+      "steps": [
+        "Help them find support that’s able, available, and acceptable to them.",
+        "Log it per the flags-log guide."
+      ],
+      "actions": [
+        { "label": "How to use #flags-log", "href": "/how-to/flags-log" }
+      ]
+    }
+  }
+}
