@@ -1,0 +1,147 @@
+{
+  "id": "reporting",
+  "title": "Who do I tell?",
+  "intro": {
+    "description": "You’ve got a concern or a complaint about someone — this is the chain for who to bring it to, especially if it involves a staff member.",
+    "standingRules": [
+      "Moderators escalate to a Coordinator or @Facilitators — they don’t climb this ladder.",
+      "If the concern involves the person you’d normally report to, go one level up.",
+      "Concerns about an admin can also go straight to the CEO or through the anonymous report form."
+    ]
+  },
+  "start": "q1",
+  "nodes": {
+    "q1": {
+      "type": "question",
+      "text": "Is a young person at risk — safety, grooming, abuse, threats, self-harm?",
+      "answers": [
+        { "label": "Yes", "goto": "end-a" },
+        { "label": "No", "goto": "q2" }
+      ]
+    },
+    "q2": {
+      "type": "question",
+      "text": "Does the concern involve a staff member?",
+      "answers": [
+        { "label": "Yes", "goto": "q3" },
+        { "label": "No", "goto": "end-b" }
+      ]
+    },
+    "q3": {
+      "type": "question",
+      "text": "Does it involve a Manager?",
+      "answers": [
+        { "label": "Yes", "goto": "q4" },
+        { "label": "No", "goto": "end-c" }
+      ]
+    },
+    "q4": {
+      "type": "question",
+      "text": "Does it involve a Director?",
+      "answers": [
+        { "label": "Yes", "goto": "q5" },
+        { "label": "No", "goto": "end-d" }
+      ]
+    },
+    "q5": {
+      "type": "question",
+      "text": "Does it involve the CEO?",
+      "answers": [
+        { "label": "Yes", "goto": "end-f" },
+        { "label": "No", "goto": "end-e" }
+      ]
+    },
+    "end-a": {
+      "type": "endpoint",
+      "urgency": "emergency",
+      "headline": "This is a critical incident, not a chain-of-command question.",
+      "steps": [
+        "Go to the Critical Incident tool now.",
+        "Loop in the Manager of Youth Programs and/or COO.",
+        "If the concern is about a staff member harming a youth: it’s still a critical incident first. Report to child protection per that tool, loop in the level above whoever’s involved, and never let the internal hierarchy delay the report."
+      ],
+      "actions": [
+        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "This is a critical incident — escalate now.",
+          "steps": [
+            "Ping @Facilitators immediately with a link to the message or situation.",
+            "Don’t investigate and never screenshot imagery of a minor — note context only.",
+            "Stay available; a Facilitator takes it from here."
+          ]
+        }
+      }
+    },
+    "end-b": {
+      "type": "endpoint",
+      "urgency": "info",
+      "headline": "Raise it in #flags-log.",
+      "steps": [
+        "Post it as a flag in #flags-log — see the flags-log guide.",
+        "Keep it minimal, factual, and respectful; link the message rather than quoting sensitive detail."
+      ],
+      "actions": [
+        { "label": "How to use #flags-log", "href": "/how-to/flags-log" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Bring it to the Facilitator team.",
+          "steps": [
+            "Link the message in #mod-chat and ping @Facilitators.",
+            "Add one line of context — what you saw and when."
+          ]
+        }
+      }
+    },
+    "end-c": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Report to the Manager of Youth Programs.",
+      "steps": ["Contact info is pinned in #admin-chat."],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Moderators don’t climb this ladder.",
+          "steps": ["Bring it to a Coordinator or ping @Facilitators — they’ll take it up the chain."]
+        }
+      }
+    },
+    "end-d": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Report to the Chief Operations Officer.",
+      "steps": ["Contact info is pinned in #admin-chat."],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Moderators don’t climb this ladder.",
+          "steps": ["Bring it to a Coordinator or ping @Facilitators — they’ll take it up the chain."]
+        }
+      }
+    },
+    "end-e": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Report to the CEO.",
+      "steps": ["Contact info is pinned in #admin-chat."],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Moderators don’t climb this ladder.",
+          "steps": ["Bring it to a Coordinator or ping @Facilitators — they’ll take it up the chain."]
+        }
+      }
+    },
+    "end-f": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "Report to the Chair of the Board.",
+      "steps": ["Contact info is pinned in #admin-chat."],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Moderators don’t climb this ladder.",
+          "steps": ["Bring it to a Coordinator or ping @Facilitators — they’ll take it up the chain."]
+        }
+      }
+    }
+  }
+}
