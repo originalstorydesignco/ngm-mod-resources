@@ -247,9 +247,6 @@ function ContactsPage() {
         <strong>Last verified:</strong> July 8, 2026 by Jonathon Reed. #help-resources is our vetted source of truth for crisis lines — keep this table in sync with it.
       </div>
 
-      <p className="mt-4 text-sm">
-        <strong>Critical-incident lead:</strong> Manager of Youth Programs. <strong>Backup:</strong> COO. Contact info is pinned in #admin-chat.
-      </p>
 
       <section className="mt-8">
         <h2 className="font-display text-xl font-semibold">Immediate danger</h2>
@@ -316,7 +313,7 @@ function ContactsPage() {
       </section>
 
       <p className="mt-10 text-xs text-muted-foreground">
-        Confirm and localize every number before relying on this table — see #help-resources.
+        Confirm and localize every number before relying on this table.
       </p>
     </div>
   );

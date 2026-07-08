@@ -15,11 +15,12 @@ export const Route = createFileRoute("/reference/systems-of-care")({
   component: SystemsOfCarePage,
 });
 
-function Row({ name, items }: { name: string; items: string }) {
+function Row({ emoji, name, desc }: { emoji: string; name: string; desc: string }) {
   return (
     <p className="text-sm sm:text-base">
+      <span className="mr-1">{emoji}</span>
       <span className="font-semibold text-primary">{name}</span>
-      <span className="text-foreground/85"> — {items}</span>
+      <span className="text-foreground/85"> — {desc}</span>
     </p>
   );
 }
@@ -43,10 +44,10 @@ function SystemsOfCarePage() {
       </div>
 
       <div className="mt-8 space-y-2">
-        <Row name="Safety" items="screening, built-in safeguards, policies" />
-        <Row name="Engagement" items="bots, interest-based channels, events" />
-        <Row name="Connection" items="programs, facilitator moderation, identity-based channels" />
-        <Row name="Empowerment" items="youth moderation, co-leadership with youth, evaluation" />
+        <Row emoji="🛡️" name="System of Safety" desc="how we protect youth: screening, policies, safeguards." />
+        <Row emoji="🎮" name="System of Engagement" desc="how we build community: events, channels, bots." />
+        <Row emoji="🫂" name="System of Connection" desc="how we support belonging and mental health: moderation, conflict resolution, identity-based spaces." />
+        <Row emoji="🌱" name="System of Empowerment" desc="how we grow youth leaders: Youth Advisory Council, youth moderation, evaluation." />
       </div>
     </div>
   );

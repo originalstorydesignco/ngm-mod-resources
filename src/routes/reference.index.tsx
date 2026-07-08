@@ -35,8 +35,8 @@ const cards = [
   {
     to: "#",
     external: true,
-    title: "Bot & command reference",
-    desc: "MEE6, NGM Bot, Houses, and onboarding automations.",
+    title: "Bots & commands",
+    desc: "MEE6, NGM Bot, and onboarding automations.",
     cta: "#mod-resources on Discord →",
   },
   {
