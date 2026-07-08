@@ -2,11 +2,82 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-Normal.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-NormalItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-SemiboldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "gg sans";
+  src: url("/fonts/ggsans-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "gg sans", "Inter", system-ui, sans-serif;
+  --font-display: "gg sans", "Inter", system-ui, sans-serif;
 
   --color-background: var(--paper);
   --color-foreground: var(--ink);
@@ -22,15 +93,13 @@
   --color-primary-foreground: #ffffff;
   --color-secondary: var(--calm-grey);
   --color-secondary-foreground: var(--ink);
-  --color-accent: var(--ngm-orange);
+  --color-accent: var(--accent);
   --color-accent-foreground: #ffffff;
 
   --color-mod: var(--mod-yellow);
   --color-mod-foreground: var(--ink);
-  --color-urgent: var(--urgent);
-  --color-urgent-foreground: #ffffff;
 
-  --color-destructive: var(--urgent);
+  --color-destructive: var(--accent);
   --color-destructive-foreground: #ffffff;
 
   --radius: 0.75rem;
@@ -46,7 +115,7 @@
   --ink: #2D3436;
   --paper: #FAFAF7;
   --calm-grey: #ECEFF1;
-  --urgent: #C0392B;
+  --accent: #5865F2;
 }
 
 @layer base {
@@ -60,7 +129,6 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {

@@ -9,17 +9,17 @@ const cards = [
     to: "/decide/critical-incident" as const,
     title: "Critical incident",
     desc: "Immediate risk to a young person — safety, abuse, self-harm, threats.",
-    accent: "urgent" as const,
+    accent: "accent" as const,
   },
   {
     to: "/decide/confidentiality" as const,
     title: "Confidentiality",
-    desc: "A young person shared something private and you’re not sure what to do with it.",
+    desc: "A young person disclosed something and you’re not sure what to do with it.",
     accent: "primary" as const,
   },
   {
     to: "/decide/conflict" as const,
-    title: "Conflict",
+    title: "Code of Conduct issue",
     desc: "Two members are clashing, or a situation is escalating in-channel.",
     accent: "primary" as const,
   },
@@ -50,7 +50,7 @@ function Index() {
               <span
                 aria-hidden
                 className={`h-2.5 w-2.5 rounded-full ${
-                  c.accent === "urgent" ? "bg-urgent" : "bg-primary"
+                  c.accent === "accent" ? "bg-accent" : "bg-primary"
                 }`}
               />
               <h2 className="font-display text-xl font-semibold">{c.title}</h2>
