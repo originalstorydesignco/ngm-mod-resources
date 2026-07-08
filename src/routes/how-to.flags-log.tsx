@@ -86,8 +86,8 @@ function FlagsLogPage() {
         </ul>
       </section>
 
-      <div className="mt-8 rounded-md bg-accent/15 border border-accent/40 px-4 py-3 text-sm">
-        If you’re debating whether to flag something… that means you should flag it. This is our System of Safety in practice — showing up for each other the way we show up for our community members. 💛
+      <div className="mt-8 rounded-lg border-l-4 border-accent bg-card px-4 py-3 text-sm">
+        If you’re debating whether to flag something… that means you should flag it. This is our System of Safety in practice — showing up for each other the way we show up for our community members.
       </div>
     </div>
   );
