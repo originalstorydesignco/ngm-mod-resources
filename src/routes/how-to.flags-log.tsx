@@ -47,7 +47,7 @@ function FlagsLogPage() {
 
       <section className="mt-10 grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-border bg-card p-4">
-          <h3 className="font-display text-lg font-semibold">✅ Put it in #flags-log</h3>
+          <h3 className="font-display text-lg font-semibold">Put it in #flags-log</h3>
           <ul className="mt-3 space-y-2 text-sm text-foreground/85 list-disc pl-5">
             <li>A heads-up that might change how a youth shows up (had a setback, going through something, may be quieter or more reactive) — so we can meet them where they are.</li>
             <li>A pattern worth a second set of eyes (testing limits, withdrawing, conflict brewing, repeated small stuff).</li>
