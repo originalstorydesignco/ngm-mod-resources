@@ -14,7 +14,7 @@ const cards = [
   {
     to: "/reference/systems-of-care",
     external: false,
-    title: "Systems of Care",
+    title: "The overarching model",
     desc: "The framework behind everything else here — how we keep this space safe, fun, connected, and youth-led.",
     cta: "Systems of Care Framework →",
   },
@@ -42,15 +42,15 @@ const cards = [
   {
     to: "/reference/links",
     external: false,
-    title: "Common links",
+    title: "Quick links",
     desc: "Forms, invites, and everything staff reach for.",
     cta: "Common Links List →",
   },
   {
     to: "/reference/contacts",
     external: false,
-    title: "Critical Incident Contact List",
-    desc: "The vetted crisis-line and child-protection table.",
+    title: "Who to contact in a critical incident",
+    desc: "Vetted crisis lines and child protection services.",
     cta: "Critical Incident Contact List →",
   },
 ] as const;
