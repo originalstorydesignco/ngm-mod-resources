@@ -12,6 +12,13 @@ export const Route = createFileRoute("/reference/")({
 
 const cards = [
   {
+    to: "/reference/systems-of-care",
+    external: false,
+    title: "Systems of Care",
+    desc: "The framework behind everything else here — how we keep this space safe, fun, connected, and youth-led.",
+    cta: "Systems of Care Framework →",
+  },
+  {
     to: "/reference/scope",
     external: false,
     title: "What we do and what we don’t",

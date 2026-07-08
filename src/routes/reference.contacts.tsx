@@ -113,11 +113,7 @@ const canadaRows: Row[] = [
   },
   {
     jur: "Québec",
-    note: "Call the Director of Youth Protection for the region where the youth lives (24/7). Montréal: 514-896-3100 (French) / 514-935-6196 (English).",
-    extras: [
-      { tel: "514-896-3100", display: "514-896-3100", note: "Montréal, French" },
-      { tel: "514-935-6196", display: "514-935-6196", note: "Montréal, English" },
-    ],
+    note: "Call the Director of Youth Protection for the region where the youth lives.",
     links: [
       {
         label: "Find the local DYP (Government of Québec) →",
@@ -182,10 +178,10 @@ const canadaRows: Row[] = [
   },
   {
     jur: "Northwest Territories",
-    note: "Numbers are regional, with separate after-hours lines.",
+    note: "Numbers vary by region and business/after hours.",
     links: [
       {
-        label: "GNWT regional numbers →",
+        label: "Government of Northwest Territories →",
         href: "https://www.hss.gov.nt.ca/en/contact/reporting-suspected-child-maltreatment-and-neglect",
       },
     ],
