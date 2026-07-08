@@ -1,6 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Placeholder } from "@/components/Placeholder";
+import { Wizard, type WizardData } from "@/components/Wizard";
+import data from "@/data/critical-incident.json";
 
 export const Route = createFileRoute("/decide/critical-incident")({
-  component: () => <Placeholder title="Critical incident" kind="Decision tool" />,
+  head: () => ({
+    meta: [
+      { title: "Something serious is happening — NGMA Staff Hub" },
+      { name: "description", content: "Critical-incident decision tool for youth-program staff." },
+    ],
+  }),
+  component: () => <Wizard data={data as WizardData} />,
 });
