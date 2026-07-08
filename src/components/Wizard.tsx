@@ -267,7 +267,7 @@ function EndpointView({ node, trail }: { node: EndpointNode; trail: Crumb[] }) {
             <a
               key={i}
               href={a.href}
-              className="inline-flex items-center justify-center min-h-12 px-4 rounded-md border-2 border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
+              className={actionBtnClass}
             >
               {a.label}
             </a>
