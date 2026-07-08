@@ -45,7 +45,7 @@ export function PasswordGate({ children }: { children: ReactNode }) {
             setValue(e.target.value);
             setError(false);
           }}
-          className="w-full h-12 px-3 rounded-md border border-input bg-white"
+          className="w-full h-12 px-3 rounded-md border border-input bg-surface"
           placeholder="Password"
         />
         {error && <p className="text-sm text-destructive">That’s not it — try again.</p>}

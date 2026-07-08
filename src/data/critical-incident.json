@@ -64,7 +64,7 @@
         { "label": "Grooming / sexual exploitation / sexual content involving a minor", "goto": "end-b" },
         { "label": "Disclosure of abuse or neglect", "goto": "end-c" },
         { "label": "Doxxing / credible threats / targeted harassment", "goto": "end-d" },
-        { "label": "Other criminal conduct", "goto": "end-e" }
+        { "label": "Other illegal activity", "goto": "end-e" }
       ]
     },
     "end-a": {
@@ -174,7 +174,7 @@
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
-      "headline": "Other criminal conduct",
+      "headline": "Other illegal activity",
       "steps": [
         "Contain the situation and preserve context — message links, usernames, timestamps.",
         "Escalate to the team.",
@@ -182,7 +182,7 @@
       ],
       "roleVariants": {
         "moderator": {
-          "headline": "Something criminal — escalate now.",
+          "headline": "Something illegal — escalate now.",
           "steps": [
             "Ping @Facilitators immediately with the message link.",
             "Note context — who, where, when, links — and don’t investigate further."

@@ -83,21 +83,23 @@
   --color-foreground: var(--ink);
   --color-card: var(--calm-grey);
   --color-card-foreground: var(--ink);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
   --color-muted: var(--calm-grey);
-  --color-muted-foreground: color-mix(in oklab, var(--ink) 70%, white);
-  --color-border: color-mix(in oklab, var(--ink) 12%, white);
-  --color-input: color-mix(in oklab, var(--ink) 12%, white);
+  --color-muted-foreground: var(--ink-muted);
+  --color-border: var(--border-color);
+  --color-input: var(--surface);
   --color-ring: var(--ngm-orange);
 
   --color-primary: var(--ngm-orange);
   --color-primary-foreground: #ffffff;
-  --color-secondary: var(--calm-grey);
+  --color-secondary: var(--surface);
   --color-secondary-foreground: var(--ink);
   --color-accent: var(--accent);
   --color-accent-foreground: #ffffff;
 
   --color-mod: var(--mod-yellow);
-  --color-mod-foreground: var(--ink);
+  --color-mod-foreground: #2D3436;
 
   --color-destructive: var(--accent);
   --color-destructive-foreground: #ffffff;
@@ -112,10 +114,16 @@
 :root {
   --ngm-orange: #FD6B35;
   --mod-yellow: #F1C40F;
-  --ink: #2D3436;
-  --paper: #FAFAF7;
-  --calm-grey: #ECEFF1;
   --accent: #5865F2;
+
+  /* Dark theme (Discord-style) */
+  --paper: #4A4C51;         /* page background */
+  --calm-grey: #3F4147;     /* sunken card / muted panel */
+  --surface: #55575E;       /* raised clickable surface (was bg-white) */
+  --surface-hover: #62646B; /* raised surface hover */
+  --border-color: #55575E;
+  --ink: #F2F3F5;
+  --ink-muted: #C9CBD1;
 }
 
 @layer base {

@@ -8,7 +8,7 @@
   "nodes": {
     "q0": {
       "type": "question",
-      "text": "Is it serious — threats, doxxing, grooming, sexual content involving a minor, anything criminal?",
+      "text": "Is it serious — threats, doxxing, grooming, sexual content involving a minor, anything illegal?",
       "answers": [
         { "label": "Yes", "goto": "end-redirect" },
         { "label": "No", "goto": "q1" }
