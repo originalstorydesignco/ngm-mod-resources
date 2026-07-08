@@ -23,7 +23,7 @@ function RoleToggle() {
     <div
       role="radiogroup"
       aria-label="Your role"
-      className="inline-flex rounded-full border border-border bg-white p-1 text-sm"
+      className="inline-flex rounded-full border border-border bg-surface p-1 text-sm"
     >
       <button
         role="radio"

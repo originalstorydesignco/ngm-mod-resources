@@ -42,7 +42,7 @@ function Card({ c }: { c: (typeof cards)[number] }) {
   return (
     <a
       href={c.to}
-      className="group block h-full rounded-xl border border-border bg-white p-5 hover:border-primary hover:shadow-sm transition-all"
+      className="group block h-full rounded-xl border border-border bg-surface p-5 hover:border-primary hover:shadow-sm transition-all"
     >
       <div className="flex items-start gap-2">
         <span
@@ -108,14 +108,14 @@ function Index() {
           <Link
             to="/reference/$"
             params={{ _splat: "" }}
-            className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-white text-sm hover:border-primary"
+            className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-surface text-sm hover:border-primary"
           >
             Reference
           </Link>
           <Link
             to="/how-to/$"
             params={{ _splat: "" }}
-            className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-white text-sm hover:border-primary"
+            className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-surface text-sm hover:border-primary"
           >
             How-to guides
           </Link>

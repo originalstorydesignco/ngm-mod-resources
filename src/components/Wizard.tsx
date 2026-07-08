@@ -129,7 +129,7 @@ export function Wizard({ data }: { data: WizardData }) {
         <button
           type="button"
           onClick={back}
-          className="h-10 px-3 rounded-md border border-border bg-white hover:bg-card"
+          className="h-10 px-3 rounded-md border border-border bg-surface hover:bg-card"
         >
           ← Back
         </button>
@@ -279,7 +279,7 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
             key={i}
             type="button"
             onClick={() => onAnswer(a)}
-            className="w-full min-h-12 px-4 py-3 rounded-lg border border-border bg-white text-left text-base font-medium hover:border-primary hover:bg-primary/5 transition-colors"
+            className="w-full min-h-12 px-4 py-3 rounded-lg border border-border bg-surface text-left text-base font-medium hover:border-primary hover:bg-primary/5 transition-colors"
           >
             {a.label}
           </button>
@@ -407,7 +407,7 @@ function EndpointView({
       {node.roleNote && <RoleNote note={node.roleNote} />}
 
       {showModPrimary && (
-        <div className="mt-6 rounded-lg border border-border bg-white">
+        <div className="mt-6 rounded-lg border border-border bg-surface">
           <button
             type="button"
             onClick={() => setShowFacBelow((v) => !v)}
@@ -441,7 +441,7 @@ function EndpointView({
               <li key={i} className="flex gap-3">
                 <span
                   aria-hidden
-                  className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white text-xs font-semibold"
+                  className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-surface text-xs font-semibold"
                 >
                   {i + 1}
                 </span>
@@ -455,7 +455,7 @@ function EndpointView({
                 <a
                   key={i}
                   href={a.href}
-                  className="inline-flex items-center justify-center min-h-11 px-4 rounded-md border border-border bg-white text-sm font-medium hover:border-primary hover:text-primary transition-colors"
+                  className="inline-flex items-center justify-center min-h-11 px-4 rounded-md border border-border bg-surface text-sm font-medium hover:border-primary hover:text-primary transition-colors"
                 >
                   {a.label}
                 </a>
