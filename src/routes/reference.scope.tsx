@@ -142,7 +142,7 @@ function ScopePage() {
         </div>
       </section>
 
-      <div className="mt-10 rounded-lg border border-accent bg-card px-4 py-3 text-sm">
+      <div className="mt-10 rounded-lg border-l-4 border-accent bg-card px-4 py-3 text-sm">
         We don’t diagnose, prescribe, do therapy, give legal advice, or make a youth’s personal-life decisions. When in doubt, escalate to a Facilitator — we’re happy to help.
       </div>
     </div>
