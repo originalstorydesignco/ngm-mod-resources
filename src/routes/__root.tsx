@@ -131,6 +131,7 @@ function RootComponent() {
           <Layout>
             <Outlet />
           </Layout>
+          <Toaster />
         </PasswordGate>
       </RoleProvider>
     </QueryClientProvider>
