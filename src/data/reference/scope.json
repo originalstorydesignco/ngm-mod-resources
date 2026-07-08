@@ -1,0 +1,71 @@
+{
+  "inScope": {
+    "title": "In our wheelhouse.",
+    "items": [
+      { "role": "everyone", "text": "support social-emotional development", "keywords": ["social", "emotional", "development"] },
+      { "role": "everyone", "text": "foster a meaningful, trusted relationship", "keywords": ["relationship", "trust"] },
+      { "role": "everyone", "text": "provide emotional support", "keywords": ["emotional", "support"] },
+      { "role": "everyone", "text": "ask questions & support problem solving", "keywords": ["questions", "problem solving"] },
+      { "role": "everyone", "text": "respond to questions with developmentally appropriate information", "keywords": ["questions", "information", "developmental"] },
+      { "role": "everyone", "text": "support youth questioning their gender or sexuality", "keywords": ["gender", "sexuality", "lgbtq", "questioning"] },
+      { "role": "everyone", "text": "support youth to find support and information from trusted sources", "keywords": ["referral", "resources", "information"] },
+      { "role": "everyone", "text": "talk & game with youth in NGMA", "keywords": ["game", "chat", "talk"] },
+      { "role": "everyone", "text": "give and receive handmade gifts", "keywords": ["gifts", "handmade"] },
+      { "role": "everyone", "text": "explore mistakes and make plans for growth or amends", "keywords": ["mistakes", "amends", "growth"] },
+      { "role": "everyone", "text": "address conflict in the moment", "keywords": ["conflict"] },
+      { "role": "everyone", "text": "drive a youth in a vehicle with parental consent", "keywords": ["drive", "driving", "vehicle", "transport"] },
+      { "role": "everyone", "text": "administer simple first aid", "keywords": ["first aid", "medical", "bandage"] },
+      { "role": "everyone", "text": "call 911", "keywords": ["911", "emergency"] },
+      { "role": "facilitators", "text": "maintain confidentiality when appropriate", "keywords": ["confidentiality", "privacy"] },
+      { "role": "facilitators", "text": "apply suicide intervention (ASIST-trained Facilitators)", "keywords": ["suicide", "asist", "intervention", "crisis"] },
+      { "role": "facilitators", "text": "make a referral to a community medical service or youth counselling", "keywords": ["referral", "counselling", "medical"] },
+      { "role": "facilitators", "text": "speak with a social worker, provide case notes if subpoenaed", "keywords": ["social worker", "subpoena", "case notes"] },
+      { "role": "facilitators", "text": "report a concern for child welfare", "keywords": ["child welfare", "report", "cps"] },
+      { "role": "facilitators", "text": "lead restorative practices in the conflict framework or lead the @Hush process", "keywords": ["restorative", "hush", "conflict"] },
+      { "role": "facilitators", "text": "provide advocacy, testimony, or act as character witness", "keywords": ["advocacy", "testimony", "witness"] }
+    ]
+  },
+  "outOfScope": {
+    "title": "Not our role — it belongs to someone else.",
+    "groups": [
+      {
+        "who": "Psychologist / therapist",
+        "items": ["therapy practices (CBT, DBT)", "charging for therapeutic services", "diagnosing mental illness", "suicide risk assessment", "individualized growth plans"],
+        "note": "We ACT in a crisis — stay with them, connect them to a crisis line, call 911. We don’t clinically assess risk.",
+        "keywords": ["therapy", "therapist", "psychologist", "cbt", "dbt", "diagnose", "suicide", "risk"]
+      },
+      {
+        "who": "Parent / guardian",
+        "items": [
+          "decisions about a young person’s welfare (health, education, custody)",
+          "managing their personal life (screen time, school attendance)",
+          "providing accommodation or transportation",
+          "lending/borrowing money",
+          "gifts of monetary value"
+        ],
+        "keywords": ["parent", "guardian", "money", "gifts", "custody", "school", "housing"]
+      },
+      {
+        "who": "Friend",
+        "items": [
+          "visiting a young person’s home or vice versa",
+          "hanging out 1:1 without parental involvement",
+          "consuming alcohol or substances together",
+          "adding youth on personal socials",
+          "meeting or gaming off-platform without parental consent or NGM manager permission"
+        ],
+        "keywords": ["friend", "1:1", "socials", "instagram", "off-platform", "alcohol", "drugs"]
+      },
+      {
+        "who": "Doctor / EMS",
+        "items": ["evaluating medical conditions", "diagnosing", "prescribing medication"],
+        "keywords": ["doctor", "ems", "medical", "medication", "prescribe", "diagnose"]
+      },
+      {
+        "who": "Lawyer",
+        "items": ["legal advice", "legal representation", "recommending a lawyer", "acting as financial agent in any capacity"],
+        "keywords": ["lawyer", "legal", "attorney", "financial"]
+      }
+    ]
+  }
+}

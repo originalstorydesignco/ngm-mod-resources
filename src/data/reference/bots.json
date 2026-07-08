@@ -1,0 +1,16 @@
+{
+  "groups": [
+    { "title": "MEE6 / Delta commands", "pasteSlot": "command list with one-line descriptions" },
+    {
+      "title": "NGM Bot",
+      "commands": [
+        { "cmd": "/message" },
+        { "cmd": "/privacy-policy" },
+        { "cmd": "/code-of-conduct" }
+      ],
+      "pasteSlot": "descriptions + any additional commands"
+    },
+    { "title": "Screening & onboarding automations", "pasteSlot": "Onboarding Form setup, leave form, 6-month inactive role, grade advancement" },
+    { "title": "Houses", "pasteSlot": "the /houses command set" }
+  ]
+}

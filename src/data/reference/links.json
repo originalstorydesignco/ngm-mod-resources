@@ -1,0 +1,70 @@
+{
+  "keyLinks": [
+    { "label": "Server invite", "href": "https://nextgenmen.ca/discord" },
+    { "label": "Event attendance", "href": "https://nextgenmen.ca/alliance/attendance" },
+    { "label": "Incident Report", "href": "https://nextgenmen.typeform.com/incidentreport" },
+    { "label": "Anonymous report form", "pasteSlot": "URL" }
+  ],
+  "sections": [
+    {
+      "title": "Immediate danger",
+      "entries": [{ "label": "Emergency", "tel": "911", "display": "911" }]
+    },
+    {
+      "title": "Crisis support",
+      "groups": [
+        {
+          "region": "Canada",
+          "entries": [
+            { "label": "Kids Help Phone", "tel": "1-800-668-6868", "display": "1-800-668-6868" },
+            { "label": "Kids Help Phone (text)", "note": "text CONNECT to 686868" },
+            { "label": "988 Suicide Crisis Helpline", "tel": "988", "display": "call/text 988" }
+          ]
+        },
+        {
+          "region": "US",
+          "entries": [
+            { "label": "988 Suicide & Crisis Lifeline", "tel": "988", "display": "call/text 988" },
+            { "label": "Crisis Text Line", "note": "text HOME to 741741" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Online child exploitation",
+      "entries": [
+        { "label": "Cybertip.ca", "href": "https://cybertip.ca" },
+        { "label": "NCMEC CyberTipline", "href": "https://report.cybertip.org", "tel": "1-800-843-5678", "display": "report.cybertip.org / 1-800-843-5678" },
+        { "label": "Discord Trust & Safety", "note": "in-app report" }
+      ]
+    },
+    {
+      "title": "Abuse / neglect — child protection, Canada",
+      "entries": [
+        { "label": "BC", "tel": "1-800-663-9122", "display": "1-800-663-9122" },
+        { "label": "AB", "tel": "1-800-638-0715", "display": "1-800-638-0715" },
+        { "label": "SK — Regina", "tel": "306-569-2724", "display": "306-569-2724" },
+        { "label": "SK — Saskatoon", "tel": "306-933-6200", "display": "306-933-6200" },
+        { "label": "MB", "tel": "1-866-345-9241", "display": "1-866-345-9241" },
+        { "label": "MB — Winnipeg", "tel": "204-944-4200", "display": "204-944-4200" },
+        { "label": "YT", "tel": "1-800-661-0408", "display": "1-800-661-0408 ext. 3002" },
+        { "label": "NWT", "tel": "811", "display": "811" },
+        { "label": "NU", "note": "local Community Social Services or RCMP" },
+        { "label": "ON — Children’s Aid Society directory", "href": "https://www.oacas.org" },
+        { "label": "QC — DPJ", "tel": "1-800-567-6810", "display": "1-800-567-6810" },
+        { "label": "NB", "tel": "1-833-733-7835", "display": "1-833-733-7835" },
+        { "label": "NS", "tel": "1-866-922-2434", "display": "1-866-922-2434 (after-hours)" },
+        { "label": "PEI", "tel": "1-877-341-3101", "display": "1-877-341-3101" },
+        { "label": "PEI — after-hours", "tel": "1-800-341-6868", "display": "1-800-341-6868" },
+        { "label": "NL", "tel": "1-833-552-2368", "display": "1-833-552-2368" }
+      ]
+    },
+    {
+      "title": "Abuse / neglect — US",
+      "lead": "Report to the state CPS where the youth lives. Childhelp is a routing/guidance line — it is not the report itself and not a substitute for 911.",
+      "entries": [
+        { "label": "Childhelp (routing/guidance)", "tel": "1-800-422-4453", "display": "1-800-422-4453" }
+      ]
+    }
+  ]
+}

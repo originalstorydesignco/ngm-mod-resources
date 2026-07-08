@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ReferenceSplatRouteImport } from './routes/reference.$'
 import { Route as HowToSplatRouteImport } from './routes/how-to.$'
 import { Route as DecideReportingRouteImport } from './routes/decide.reporting'
 import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.critical-incident'
@@ -20,11 +19,6 @@ import { Route as DecideConfidentialityRouteImport } from './routes/decide.confi
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReferenceSplatRoute = ReferenceSplatRouteImport.update({
-  id: '/reference/$',
-  path: '/reference/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowToSplatRoute = HowToSplatRouteImport.update({
@@ -60,7 +54,6 @@ export interface FileRoutesByFullPath {
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
   '/how-to/$': typeof HowToSplatRoute
-  '/reference/$': typeof ReferenceSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +62,6 @@ export interface FileRoutesByTo {
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
   '/how-to/$': typeof HowToSplatRoute
-  '/reference/$': typeof ReferenceSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +71,6 @@ export interface FileRoutesById {
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
   '/how-to/$': typeof HowToSplatRoute
-  '/reference/$': typeof ReferenceSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +81,6 @@ export interface FileRouteTypes {
     | '/decide/critical-incident'
     | '/decide/reporting'
     | '/how-to/$'
-    | '/reference/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +89,6 @@ export interface FileRouteTypes {
     | '/decide/critical-incident'
     | '/decide/reporting'
     | '/how-to/$'
-    | '/reference/$'
   id:
     | '__root__'
     | '/'
@@ -108,7 +97,6 @@ export interface FileRouteTypes {
     | '/decide/critical-incident'
     | '/decide/reporting'
     | '/how-to/$'
-    | '/reference/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,7 +106,6 @@ export interface RootRouteChildren {
   DecideCriticalIncidentRoute: typeof DecideCriticalIncidentRoute
   DecideReportingRoute: typeof DecideReportingRoute
   HowToSplatRoute: typeof HowToSplatRoute
-  ReferenceSplatRoute: typeof ReferenceSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -128,13 +115,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reference/$': {
-      id: '/reference/$'
-      path: '/reference/$'
-      fullPath: '/reference/$'
-      preLoaderRoute: typeof ReferenceSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-to/$': {
@@ -182,7 +162,6 @@ const rootRouteChildren: RootRouteChildren = {
   DecideCriticalIncidentRoute: DecideCriticalIncidentRoute,
   DecideReportingRoute: DecideReportingRoute,
   HowToSplatRoute: HowToSplatRoute,
-  ReferenceSplatRoute: ReferenceSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
