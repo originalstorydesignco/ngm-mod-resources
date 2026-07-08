@@ -18,7 +18,7 @@ function ChannelsPage() {
       <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Channels &amp; rituals</h1>
 
       <section className="mt-8">
-        <h2 className="font-display text-xl font-semibold">The map</h2>
+        <h2 className="font-display text-xl font-semibold">The map of admin spaces on Discord</h2>
         <dl className="mt-4 space-y-3">
           {channels.map.map((c) => (
             <div key={c.name} className="rounded-md border border-border bg-card px-4 py-3">
