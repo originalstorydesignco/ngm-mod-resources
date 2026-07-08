@@ -7,7 +7,7 @@ import { PastePlaceholder } from "@/components/PastePlaceholder";
 export const Route = createFileRoute("/reference/bots")({
   head: () => ({
     meta: [
-      { title: "Bot & command reference — NGMA Staff Hub" },
+      { title: "Bots & commands — NGMA Staff Hub" },
       { name: "description", content: "Slash commands for MEE6, NGM Bot, Houses, and onboarding automations." },
     ],
   }),
@@ -39,7 +39,7 @@ function BotsPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
-      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Bot &amp; command reference</h1>
+      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Bots &amp; commands</h1>
       <p className="mt-2 text-muted-foreground">Tap a chip to copy.</p>
 
       <div className="mt-6">

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/reference/links")({
   component: LinksPage,
 });
 
-type LinkItem = { label: string; href: string; meta?: string };
+type LinkItem = { label: string; href: string; meta?: string; displayUrl?: string };
 type Group = { heading: string; links: LinkItem[] };
 
 function stripProtocol(url: string) {
@@ -35,7 +35,7 @@ function LinkRow({ item }: { item: LinkItem }) {
         <div className="min-w-0 flex-1">
           <p className="font-medium">{item.label}</p>
           <p className="mt-0.5 text-xs font-mono text-muted-foreground break-all">
-            {stripProtocol(item.href)}
+            {item.displayUrl ?? stripProtocol(item.href)}
           </p>
         </div>
         {item.meta && (
