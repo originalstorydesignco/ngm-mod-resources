@@ -132,16 +132,20 @@
   }
   html {
     -webkit-text-size-adjust: 100%;
+    font-size: 17px;
   }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+    line-height: 1.15;
   }
   :focus-visible {
     outline: 3px solid var(--ngm-orange);

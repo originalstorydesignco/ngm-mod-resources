@@ -14,13 +14,13 @@ const cards = {
   },
   confidentiality: {
     to: "/decide/confidentiality",
-    title: "A young person disclosed something — do I keep it private or report it?",
+    title: "A young person disclosed something — do I keep it private?",
     desc: "No one’s in immediate danger; I’m weighing privacy against reporting.",
     accent: "primary",
   },
   reporting: {
     to: "/decide/reporting",
-    title: "Who do I tell?",
+    title: "I’m not sure who to tell",
     desc: "A concern or complaint, especially about a staff member.",
     accent: "primary",
   },
