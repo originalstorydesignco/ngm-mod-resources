@@ -116,7 +116,7 @@
       ],
       "actions": [
         { "label": "Call 911", "href": "tel:911" },
-        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" }
       ],
       "roleVariants": {
         "moderator": {
@@ -139,7 +139,7 @@
         "Then come back through this tool."
       ],
       "actions": [
-        { "label": "Start this tool over", "href": "/decide/confidentiality" }
+        { "label": "Start this tool over →", "href": "/decide/confidentiality" }
       ]
     },
     "end-report-only": {
@@ -152,8 +152,8 @@
         "Continue in the Critical Incident tool (disclosure of abuse or neglect) and complete an Incident Report."
       ],
       "actions": [
-        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" },
-        { "label": "Who to call — child-protection lines", "href": "/reference/contacts" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" },
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
         "moderator": {
@@ -175,8 +175,8 @@
         "Continue in the Critical Incident tool (disclosure of abuse or neglect) and complete an Incident Report."
       ],
       "actions": [
-        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" },
-        { "label": "Who to call — child-protection lines", "href": "/reference/contacts" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" },
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
         "moderator": {
@@ -208,7 +208,7 @@
         "Log it per the flags-log guide."
       ],
       "actions": [
-        { "label": "How to use #flags-log", "href": "/how-to/flags-log" }
+        { "label": "How to use #flags-log →", "href": "/how-to/flags-log" }
       ]
     },
     "end-community": {
@@ -220,7 +220,7 @@
         "Log it per the flags-log guide."
       ],
       "actions": [
-        { "label": "How to use #flags-log", "href": "/how-to/flags-log" }
+        { "label": "How to use #flags-log →", "href": "/how-to/flags-log" }
       ]
     }
   }
