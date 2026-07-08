@@ -40,7 +40,7 @@ function ScreeningPage() {
 
       {isMod && (
         <div className="mt-5 rounded-lg border-l-4 border-mod bg-mod/15 px-4 py-3 text-[15px] text-foreground">
-          <strong className="font-bold">Moderators:</strong> only admins on the Discord server can see pending membership applications, so onboarding isn’t in your wheelhouse — this guide is here so you can see how new members reach the community.
+          <strong className="font-bold">Moderators:</strong> Only admins on the Discord server can see pending membership applications, so onboarding isn’t in your wheelhouse — this guide is here so you can see how new members reach the community.
         </div>
       )}
 
