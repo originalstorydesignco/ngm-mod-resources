@@ -274,7 +274,7 @@ function ContactsPage() {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-foreground/85">US</p>
+            <p className="text-sm font-semibold text-foreground/85">United States</p>
             <ul>
               <EntryLine e={{ label: "988 Suicide & Crisis Lifeline", tel: "988", display: "call/text 988" }} />
               <EntryLine e={{ label: "Crisis Text Line", note: "text HOME to 741741" }} />
