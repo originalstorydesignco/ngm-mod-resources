@@ -5,40 +5,42 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const cards = [
-  {
-    to: "/decide/conflict",
-    title: "Someone broke the Code of Conduct",
-    desc: "A rule break or a conflict between members.",
+const cards = {
+  criticalIncident: {
+    to: "/decide/critical-incident",
+    title: "Something serious is happening — I need to respond.",
+    desc: "Danger, grooming, abuse, threats, anything illegal.",
     accent: "primary",
   },
-  {
+  confidentiality: {
     to: "/decide/confidentiality",
     title: "A young person disclosed something — do I keep it private or report it?",
     desc: "No one’s in immediate danger; I’m weighing privacy against reporting.",
     accent: "primary",
   },
-  {
-    to: "/decide/critical-incident",
-    title: "Something serious is happening — I need to respond.",
-    desc: "Danger, grooming, abuse, threats, anything criminal.",
-    accent: "accent",
-  },
-  {
+  reporting: {
     to: "/decide/reporting",
     title: "Who do I tell?",
     desc: "A concern or complaint, especially about a staff member.",
     accent: "primary",
   },
-  {
+  conflict: {
+    to: "/decide/conflict",
+    title: "Someone broke the Code of Conduct",
+    desc: "A rule break or a conflict between members.",
+    accent: "primary",
+  },
+  flagsLog: {
     to: "/how-to/flags-log",
     title: "I just want to flag something for the team",
     desc: "A heads-up or second opinion.",
     accent: "primary",
   },
-] as const;
+} as const;
 
-function Card({ c }: { c: (typeof cards)[number] }) {
+type CardData = (typeof cards)[keyof typeof cards];
+
+function Card({ c }: { c: CardData }) {
   return (
     <a
       href={c.to}
@@ -70,9 +72,8 @@ function Index() {
       <p className="mt-2 text-muted-foreground">Pick the closest match. It’ll walk you through the rest.</p>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <Card c={cards[0]} />
-        <Card c={cards[1]} />
-        <Card c={cards[2]} />
+        <Card c={cards.criticalIncident} />
+        <Card c={cards.confidentiality} />
 
         <div className="sm:col-span-2 rounded-lg border border-border bg-card">
           <button
@@ -91,8 +92,12 @@ function Index() {
           )}
         </div>
 
-        <Card c={cards[3]} />
-        <Card c={cards[4]} />
+        <Card c={cards.reporting} />
+        <Card c={cards.conflict} />
+
+        <div className="sm:col-span-2">
+          <Card c={cards.flagsLog} />
+        </div>
       </div>
 
       <p className="mt-6 text-sm text-muted-foreground">
