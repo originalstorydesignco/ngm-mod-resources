@@ -226,7 +226,7 @@ function EndpointView({ node, trail }: { node: EndpointNode; trail: Crumb[] }) {
 
   const urgencyClass =
     node.urgency === "emergency"
-      ? "bg-urgent text-urgent-foreground"
+      ? "bg-accent text-accent-foreground"
       : node.urgency === "action"
         ? "bg-primary text-primary-foreground"
         : "bg-card text-foreground";
