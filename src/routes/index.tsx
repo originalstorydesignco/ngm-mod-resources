@@ -38,7 +38,7 @@ const cards = {
   },
 } as const;
 
-type CardData = (typeof cards)[keyof typeof cards];
+type CardData = { to: string; title: string; desc: string; accent: "primary" | "accent" };
 
 function Card({ c }: { c: CardData }) {
   return (
