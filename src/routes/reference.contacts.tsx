@@ -64,7 +64,7 @@ type Row = {
 
 const canadaRows: Row[] = [
   {
-    jur: "BC",
+    jur: "British Columbia",
     primary: { tel: "1-800-663-9122", display: "1-800-663-9122", note: "24/7" },
     links: [
       {
@@ -74,31 +74,34 @@ const canadaRows: Row[] = [
     ],
   },
   {
-    jur: "AB",
-    primary: { tel: "1-800-638-0715", display: "1-800-638-0715", note: "Provincial Intake Line, 24/7" },
+    jur: "Alberta",
+    primary: { tel: "1-800-638-0715", display: "1-800-638-0715", note: "24/7" },
     links: [{ label: "Government of Alberta →", href: "https://www.alberta.ca/report-child-abuse" }],
   },
   {
-    jur: "SK",
+    jur: "Saskatchewan",
     note: "Numbers vary by region and business/after hours.",
     links: [
       {
-        label: "Saskatchewan child protection intake (211) →",
+        label: "Government of Saskatchewan (211) →",
         href: "https://sk.211.ca/services/87728256/government-of-saskatchewan-social-services-child-protection-child-abuse-and-neglect/",
       },
     ],
   },
   {
-    jur: "MB",
+    jur: "Manitoba",
     primary: {
       tel: "1-866-345-9241",
       display: "1-866-345-9241",
-      note: "province-wide intake & emergency after-hours",
+      note: "province-wide, 24/7",
     },
+    extras: [
+      { tel: "204-944-4200", display: "204-944-4200", note: "Winnipeg, 24/7" },
+    ],
     links: [{ label: "Government of Manitoba →", href: "https://www.gov.mb.ca/fs/childfam/reporting.html" }],
   },
   {
-    jur: "ON",
+    jur: "Ontario",
     note: "Call the local Children’s Aid Society (24/7) where the youth lives.",
     links: [
       {
@@ -109,22 +112,22 @@ const canadaRows: Row[] = [
     ],
   },
   {
-    jur: "QC",
-    note: "DPJ numbers are regional; call the DPJ for the region where the youth lives (24/7).",
+    jur: "Québec",
+    note: "Call the Director of Youth Protection for the region where the youth lives (24/7). Montréal: 514-896-3100 (French) / 514-935-6196 (English).",
     extras: [
       { tel: "514-896-3100", display: "514-896-3100", note: "Montréal, French" },
       { tel: "514-935-6196", display: "514-935-6196", note: "Montréal, English" },
     ],
     links: [
       {
-        label: "DPJ regional directory (Québec.ca) →",
+        label: "Find the local DYP (Government of Québec) →",
         href: "https://www.quebec.ca/en/family-and-support-for-individuals/childhood/youth-protection/reporting-a-situation-to-the-director-of-youth-protection/contact-informations-of-the-dyp",
       },
     ],
   },
   {
-    jur: "NB",
-    primary: { tel: "1-833-733-7835", display: "1-833-733-7835" },
+    jur: "New Brunswick",
+    primary: { tel: "1-833-733-7835", display: "1-833-733-7835", note: "business hours" },
     afterHours: { tel: "1-800-442-9799", display: "1-800-442-9799", note: "after-hours" },
     links: [
       {
@@ -134,8 +137,8 @@ const canadaRows: Row[] = [
     ],
   },
   {
-    jur: "NS",
-    primary: { tel: "1-877-424-1177", display: "1-877-424-1177, option 1", note: "business hours" },
+    jur: "Nova Scotia",
+    primary: { tel: "1-877-424-1177", display: "1-877-424-1177", note: "business hours" },
     afterHours: { tel: "1-866-922-2434", display: "1-866-922-2434", note: "after-hours" },
     extras: [
       {
@@ -147,7 +150,7 @@ const canadaRows: Row[] = [
     links: [{ label: "Government of Nova Scotia →", href: "https://novascotia.ca/report-child-abuse-or-neglect" }],
   },
   {
-    jur: "PEI",
+    jur: "Prince Edward Island",
     primary: { tel: "1-877-341-3101", display: "1-877-341-3101", note: "business hours" },
     afterHours: { tel: "1-800-341-6868", display: "1-800-341-6868", note: "after-hours" },
     links: [
@@ -158,8 +161,8 @@ const canadaRows: Row[] = [
     ],
   },
   {
-    jur: "NL",
-    primary: { tel: "1-833-552-2368", display: "1-833-552-2368", note: "24/7, all regions" },
+    jur: "Newfoundland and Labrador",
+    primary: { tel: "1-833-552-2368", display: "1-833-552-2368", note: "24/7" },
     links: [
       {
         label: "Government of Newfoundland and Labrador →",
@@ -168,17 +171,17 @@ const canadaRows: Row[] = [
     ],
   },
   {
-    jur: "YT",
+    jur: "Yukon",
     primary: {
-      tel: "1-800-661-0408",
-      display: "1-800-661-0408 ext. 6",
-      note: "Family and Children’s Services",
+      tel: "867-667-3002",
+      display: "867-667-3002",
+      note: "Whitehorse, 24/7",
     },
-    note: "Regional numbers on the official page.",
+    note: "If the youth lives outside of Whitehorse, call the social worker for the appropriate region.",
     links: [{ label: "Government of Yukon →", href: "https://yukon.ca/en/report-child-abuse" }],
   },
   {
-    jur: "NWT",
+    jur: "Northwest Territories",
     note: "Numbers are regional, with separate after-hours lines.",
     links: [
       {
@@ -188,8 +191,8 @@ const canadaRows: Row[] = [
     ],
   },
   {
-    jur: "NU",
-    note: "Call the local Community Social Services Worker / family wellness office; if unavailable, the local RCMP.",
+    jur: "Nunavut",
+    note: "Call the local Community Social Services Worker; if unavailable, the local RCMP.",
     links: [
       {
         label: "Government of Nunavut →",
