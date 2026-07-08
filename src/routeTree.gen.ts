@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReferenceIndexRouteImport } from './routes/reference.index'
 import { Route as ReferenceScopeRouteImport } from './routes/reference.scope'
 import { Route as ReferenceLinksRouteImport } from './routes/reference.links'
+import { Route as ReferenceContactsRouteImport } from './routes/reference.contacts'
 import { Route as ReferenceChannelsRouteImport } from './routes/reference.channels'
 import { Route as ReferenceBotsRouteImport } from './routes/reference.bots'
 import { Route as HowToSplatRouteImport } from './routes/how-to.$'
@@ -39,6 +40,11 @@ const ReferenceScopeRoute = ReferenceScopeRouteImport.update({
 const ReferenceLinksRoute = ReferenceLinksRouteImport.update({
   id: '/reference/links',
   path: '/reference/links',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenceContactsRoute = ReferenceContactsRouteImport.update({
+  id: '/reference/contacts',
+  path: '/reference/contacts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReferenceChannelsRoute = ReferenceChannelsRouteImport.update({
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/how-to/$': typeof HowToSplatRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
+  '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
   '/reference/': typeof ReferenceIndexRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/how-to/$': typeof HowToSplatRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
+  '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
   '/reference': typeof ReferenceIndexRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/how-to/$': typeof HowToSplatRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
+  '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
   '/reference/': typeof ReferenceIndexRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/how-to/$'
     | '/reference/bots'
     | '/reference/channels'
+    | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
     | '/reference/'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/how-to/$'
     | '/reference/bots'
     | '/reference/channels'
+    | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
     | '/reference'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/how-to/$'
     | '/reference/bots'
     | '/reference/channels'
+    | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
     | '/reference/'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   HowToSplatRoute: typeof HowToSplatRoute
   ReferenceBotsRoute: typeof ReferenceBotsRoute
   ReferenceChannelsRoute: typeof ReferenceChannelsRoute
+  ReferenceContactsRoute: typeof ReferenceContactsRoute
   ReferenceLinksRoute: typeof ReferenceLinksRoute
   ReferenceScopeRoute: typeof ReferenceScopeRoute
   ReferenceIndexRoute: typeof ReferenceIndexRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/reference/links'
       fullPath: '/reference/links'
       preLoaderRoute: typeof ReferenceLinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reference/contacts': {
+      id: '/reference/contacts'
+      path: '/reference/contacts'
+      fullPath: '/reference/contacts'
+      preLoaderRoute: typeof ReferenceContactsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reference/channels': {
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   HowToSplatRoute: HowToSplatRoute,
   ReferenceBotsRoute: ReferenceBotsRoute,
   ReferenceChannelsRoute: ReferenceChannelsRoute,
+  ReferenceContactsRoute: ReferenceContactsRoute,
   ReferenceLinksRoute: ReferenceLinksRoute,
   ReferenceScopeRoute: ReferenceScopeRoute,
   ReferenceIndexRoute: ReferenceIndexRoute,
