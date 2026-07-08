@@ -1,28 +1,53 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useRole } from "@/lib/role";
 
 type Answer = { label: string; goto: string };
+type Action = { label: string; href: string };
+type Hint = string | { label: string; body: string };
+
 type QuestionNode = {
   type: "question";
   text: string;
-  hint?: string;
+  hint?: Hint;
+  roleNote?: string;
   answers: Answer[];
 };
+
+type StepNode = {
+  type: "step";
+  urgency?: "emergency" | "action" | "info";
+  headline: string;
+  steps: string[];
+  roleNote?: string;
+  continueLabel: string;
+  goto: string;
+};
+
 type RoleVariant = {
   headline: string;
   steps: string[];
-  actions?: { label: string; href: string }[];
+  actions?: Action[];
 };
+
 type EndpointNode = {
   type: "endpoint";
   urgency: "emergency" | "action" | "info";
   headline: string;
   steps: string[];
-  actions?: { label: string; href: string }[];
+  actions?: Action[];
+  roleNote?: string;
+  closeout?: boolean;
   roleVariants?: { moderator?: RoleVariant };
 };
-type Node = QuestionNode | EndpointNode;
+
+type Node = QuestionNode | StepNode | EndpointNode;
+
+type Closeout = {
+  title: string;
+  steps: string[];
+  actions?: Action[];
+};
 
 export type WizardData = {
   id: string;
@@ -30,12 +55,14 @@ export type WizardData = {
   intro: {
     description: string;
     standingRules?: string[];
+    roleVariants?: { moderator?: { banner: string } };
   };
+  closeout?: Closeout;
   start: string;
   nodes: Record<string, Node>;
 };
 
-type Crumb = { nodeId: string; question: string; answer: string };
+type Crumb = { nodeId: string; kind: "question" | "step"; label: string; value: string };
 
 export function Wizard({ data }: { data: WizardData }) {
   const [started, setStarted] = useState(false);
@@ -60,8 +87,14 @@ export function Wizard({ data }: { data: WizardData }) {
 
   const answer = (a: Answer) => {
     if (current.type !== "question") return;
-    setTrail((t) => [...t, { nodeId: currentId, question: current.text, answer: a.label }]);
+    setTrail((t) => [...t, { nodeId: currentId, kind: "question", label: current.text, value: a.label }]);
     setCurrentId(a.goto);
+  };
+
+  const continueStep = () => {
+    if (current.type !== "step") return;
+    setTrail((t) => [...t, { nodeId: currentId, kind: "step", label: current.headline, value: "Step done" }]);
+    setCurrentId(current.goto);
   };
 
   const rewindTo = (idx: number) => {
@@ -86,8 +119,10 @@ export function Wizard({ data }: { data: WizardData }) {
 
       {current.type === "question" ? (
         <QuestionView node={current} onAnswer={answer} />
+      ) : current.type === "step" ? (
+        <StepView node={current} onContinue={continueStep} />
       ) : (
-        <EndpointView node={current} trail={trail} />
+        <EndpointView node={current} trail={trail} closeout={data.closeout} />
       )}
 
       <div className="mt-8 flex items-center justify-between text-sm">
@@ -116,10 +151,21 @@ export function Wizard({ data }: { data: WizardData }) {
 }
 
 function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
+  const { role } = useRole();
+  const banner = data.intro.roleVariants?.moderator?.banner;
+  const showBanner = role === "moderator" && banner;
+
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
       <h1 className="font-display text-3xl sm:text-4xl font-semibold">{data.title}</h1>
       <p className="mt-3 text-base text-foreground/80">{data.intro.description}</p>
+
+      {showBanner && (
+        <div className="mt-5 rounded-lg border-l-4 border-mod bg-mod/15 px-4 py-3 text-[15px] text-foreground">
+          {banner}
+        </div>
+      )}
+
       {data.intro.standingRules && data.intro.standingRules.length > 0 && (
         <div className="mt-6 rounded-lg bg-card p-4">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -135,6 +181,7 @@ function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
           </ul>
         </div>
       )}
+
       <button
         type="button"
         onClick={onStart}
@@ -142,6 +189,10 @@ function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
       >
         Start
       </button>
+
+      <p className="mt-6 text-sm text-muted-foreground">
+        When in doubt, it’s not yours to carry alone — ping @Facilitators.
+      </p>
     </div>
   );
 }
@@ -156,10 +207,19 @@ function Breadcrumbs({ trail, onRewind }: { trail: Crumb[]; onRewind: (i: number
               type="button"
               onClick={() => onRewind(i)}
               className="rounded-full bg-card px-2 py-1 hover:bg-primary/10 text-foreground/80"
-              title="Rewind to this question"
+              title="Rewind to this step"
             >
-              <span className="text-muted-foreground">{shortQ(c.question)}</span>{" "}
-              <span className="font-medium">{c.answer}</span>
+              {c.kind === "step" ? (
+                <>
+                  <span className="text-muted-foreground">Step:</span>{" "}
+                  <span className="font-medium">{shortText(c.label)}</span>
+                </>
+              ) : (
+                <>
+                  <span className="text-muted-foreground">{shortQ(c.label)}</span>{" "}
+                  <span className="font-medium">{c.value}</span>
+                </>
+              )}
             </button>
             {i < trail.length - 1 && <span aria-hidden className="text-muted-foreground">·</span>}
           </li>
@@ -170,14 +230,30 @@ function Breadcrumbs({ trail, onRewind }: { trail: Crumb[]; onRewind: (i: number
 }
 
 function shortQ(q: string) {
-  // Trim to first sentence-ish for the crumb
   const stripped = q.replace(/[?.!]$/, "");
   const short = stripped.length > 40 ? stripped.slice(0, 38) + "…" : stripped;
   return short + ":";
 }
+function shortText(s: string) {
+  return s.length > 40 ? s.slice(0, 38) + "…" : s;
+}
+
+function RoleNote({ note }: { note: string }) {
+  const { role } = useRole();
+  if (role !== "moderator") return null;
+  return (
+    <div className="mt-4 rounded-md border-l-4 border-mod bg-mod/15 px-3 py-2 text-sm text-foreground">
+      {note}
+    </div>
+  );
+}
 
 function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: Answer) => void }) {
   const [showHint, setShowHint] = useState(false);
+  const hintLabel =
+    typeof node.hint === "string" ? "What counts?" : node.hint?.label ?? "What counts?";
+  const hintBody = typeof node.hint === "string" ? node.hint : node.hint?.body;
+
   return (
     <div>
       <h1 className="font-display text-[28px] leading-tight sm:text-[32px] font-semibold">
@@ -191,11 +267,12 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
             aria-expanded={showHint}
             className="text-sm text-primary underline underline-offset-2"
           >
-            {showHint ? "Hide" : "What counts?"}
+            {showHint ? "Hide" : hintLabel}
           </button>
-          {showHint && <p className="mt-2 text-sm text-foreground/80">{node.hint}</p>}
+          {showHint && <p className="mt-2 text-sm text-foreground/80">{hintBody}</p>}
         </div>
       )}
+      {node.roleNote && <RoleNote note={node.roleNote} />}
       <div className="mt-6 space-y-3">
         {node.answers.map((a, i) => (
           <button
@@ -212,7 +289,63 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
   );
 }
 
-function EndpointView({ node, trail }: { node: EndpointNode; trail: Crumb[] }) {
+function StepView({ node, onContinue }: { node: StepNode; onContinue: () => void }) {
+  const [checked, setChecked] = useState<Record<number, boolean>>({});
+  const urgency = node.urgency ?? "info";
+  const urgencyClass =
+    urgency === "emergency"
+      ? "bg-accent text-accent-foreground"
+      : urgency === "action"
+        ? "bg-primary text-primary-foreground"
+        : "bg-card text-foreground";
+
+  return (
+    <div>
+      <div className={`rounded-lg px-4 py-4 ${urgencyClass}`}>
+        <p className="text-xs uppercase tracking-wide opacity-80">Do this, then continue</p>
+        <h1 className="mt-1 font-display text-2xl sm:text-3xl font-semibold">{node.headline}</h1>
+      </div>
+
+      <ul className="mt-6 space-y-3">
+        {node.steps.map((s, i) => (
+          <li key={i}>
+            <label className="flex gap-3 items-start cursor-pointer">
+              <input
+                type="checkbox"
+                checked={!!checked[i]}
+                onChange={(e) => setChecked((c) => ({ ...c, [i]: e.target.checked }))}
+                className="mt-1.5 h-4 w-4 accent-primary flex-none"
+              />
+              <span className={`text-base ${checked[i] ? "text-muted-foreground line-through" : ""}`}>
+                {s}
+              </span>
+            </label>
+          </li>
+        ))}
+      </ul>
+
+      {node.roleNote && <RoleNote note={node.roleNote} />}
+
+      <button
+        type="button"
+        onClick={onContinue}
+        className="mt-8 w-full sm:w-auto h-12 px-6 rounded-md bg-primary text-primary-foreground font-medium"
+      >
+        {node.continueLabel}
+      </button>
+    </div>
+  );
+}
+
+function EndpointView({
+  node,
+  trail,
+  closeout,
+}: {
+  node: EndpointNode;
+  trail: Crumb[];
+  closeout?: Closeout;
+}) {
   const { role } = useRole();
   const modVariant = node.roleVariants?.moderator;
   const showModPrimary = role === "moderator" && modVariant;
@@ -264,16 +397,14 @@ function EndpointView({ node, trail }: { node: EndpointNode; trail: Crumb[] }) {
       {primaryActions.length > 0 && (
         <div className="mt-6 flex flex-col sm:flex-row gap-2">
           {primaryActions.map((a, i) => (
-            <a
-              key={i}
-              href={a.href}
-              className={actionBtnClass}
-            >
+            <a key={i} href={a.href} className={actionBtnClass}>
               {a.label}
             </a>
           ))}
         </div>
       )}
+
+      {node.roleNote && <RoleNote note={node.roleNote} />}
 
       {showModPrimary && (
         <div className="mt-6 rounded-lg border border-border bg-white">
@@ -302,6 +433,38 @@ function EndpointView({ node, trail }: { node: EndpointNode; trail: Crumb[] }) {
         </div>
       )}
 
+      {node.closeout && closeout && (
+        <section className="mt-8 rounded-lg border border-border bg-card p-4">
+          <h2 className="font-display text-lg font-semibold">{closeout.title}</h2>
+          <ol className="mt-3 space-y-3">
+            {closeout.steps.map((s, i) => (
+              <li key={i} className="flex gap-3">
+                <span
+                  aria-hidden
+                  className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white text-xs font-semibold"
+                >
+                  {i + 1}
+                </span>
+                <p className="pt-0.5 text-sm">{s}</p>
+              </li>
+            ))}
+          </ol>
+          {closeout.actions && closeout.actions.length > 0 && (
+            <div className="mt-4 flex flex-col sm:flex-row gap-2">
+              {closeout.actions.map((a, i) => (
+                <a
+                  key={i}
+                  href={a.href}
+                  className="inline-flex items-center justify-center min-h-11 px-4 rounded-md border border-border bg-white text-sm font-medium hover:border-primary hover:text-primary transition-colors"
+                >
+                  {a.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
       {trail.length > 0 && (
         <div className="mt-6 rounded-lg border border-border">
           <button
@@ -317,8 +480,17 @@ function EndpointView({ node, trail }: { node: EndpointNode; trail: Crumb[] }) {
             <ul className="px-4 pb-4 space-y-2 text-sm border-t border-border pt-3">
               {trail.map((c, i) => (
                 <li key={i}>
-                  <span className="text-muted-foreground">{c.question}</span>{" "}
-                  <span className="font-medium">{c.answer}</span>
+                  {c.kind === "step" ? (
+                    <>
+                      <span className="text-muted-foreground">Step:</span>{" "}
+                      <span className="font-medium">{c.label}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-muted-foreground">{c.label}</span>{" "}
+                      <span className="font-medium">{c.value}</span>
+                    </>
+                  )}
                 </li>
               ))}
             </ul>
