@@ -68,7 +68,7 @@ function LinksPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
-      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Key links</h1>
+      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Common Links List</h1>
       <p className="mt-3 text-foreground/85">
         Every link you reach for as NGMA staff — invites, registration and release forms, and reporting forms — in one place. All of these open outside the portal.
       </p>
