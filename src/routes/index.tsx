@@ -5,14 +5,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-type Card = {
-  to: string;
-  title: string;
-  desc: string;
-  accent: "accent" | "primary";
-};
-
-const cards: Card[] = [
+const cards = [
   {
     to: "/decide/conflict",
     title: "Someone broke the Code of Conduct",
@@ -43,7 +36,7 @@ const cards: Card[] = [
     desc: "A heads-up or second opinion.",
     accent: "primary",
   },
-];
+] as const;
 
 function Index() {
   const [showHandoff, setShowHandoff] = useState(false);
