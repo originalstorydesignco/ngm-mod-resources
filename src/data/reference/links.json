@@ -3,8 +3,8 @@
     {
       "heading": "Promotion",
       "links": [
-        { "label": "Server invite (for pasting on Discord)", "href": "https://discord.gg/PXSJw2PFSx" },
-        { "label": "Server invite (for pasting elsewhere)", "href": "https://nextgenmen.ca/discord" },
+        { "label": "Server invite", "href": "https://discord.gg/PXSJw2PFSx", "meta": "For pasting on Discord" },
+        { "label": "Server invite", "href": "https://nextgenmen.ca/discord", "meta": "For pasting elsewhere" },
         { "label": "Server poster", "href": "https://nextgenmen.ca/alliance/poster", "meta": "Downloadable PDF" }
       ]
     },

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReferenceIndexRouteImport } from './routes/reference.index'
+import { Route as ReferenceSystemsOfCareRouteImport } from './routes/reference.systems-of-care'
 import { Route as ReferenceScopeRouteImport } from './routes/reference.scope'
 import { Route as ReferenceLinksRouteImport } from './routes/reference.links'
 import { Route as ReferenceContactsRouteImport } from './routes/reference.contacts'
@@ -30,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 const ReferenceIndexRoute = ReferenceIndexRouteImport.update({
   id: '/reference/',
   path: '/reference/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenceSystemsOfCareRoute = ReferenceSystemsOfCareRouteImport.update({
+  id: '/reference/systems-of-care',
+  path: '/reference/systems-of-care',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReferenceScopeRoute = ReferenceScopeRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
+  '/reference/systems-of-care': typeof ReferenceSystemsOfCareRoute
   '/reference/': typeof ReferenceIndexRoute
 }
 export interface FileRoutesByTo {
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
+  '/reference/systems-of-care': typeof ReferenceSystemsOfCareRoute
   '/reference': typeof ReferenceIndexRoute
 }
 export interface FileRoutesById {
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
+  '/reference/systems-of-care': typeof ReferenceSystemsOfCareRoute
   '/reference/': typeof ReferenceIndexRoute
 }
 export interface FileRouteTypes {
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
+    | '/reference/systems-of-care'
     | '/reference/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
+    | '/reference/systems-of-care'
     | '/reference'
   id:
     | '__root__'
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
+    | '/reference/systems-of-care'
     | '/reference/'
   fileRoutesById: FileRoutesById
 }
@@ -183,6 +195,7 @@ export interface RootRouteChildren {
   ReferenceContactsRoute: typeof ReferenceContactsRoute
   ReferenceLinksRoute: typeof ReferenceLinksRoute
   ReferenceScopeRoute: typeof ReferenceScopeRoute
+  ReferenceSystemsOfCareRoute: typeof ReferenceSystemsOfCareRoute
   ReferenceIndexRoute: typeof ReferenceIndexRoute
 }
 
@@ -200,6 +213,13 @@ declare module '@tanstack/react-router' {
       path: '/reference'
       fullPath: '/reference/'
       preLoaderRoute: typeof ReferenceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reference/systems-of-care': {
+      id: '/reference/systems-of-care'
+      path: '/reference/systems-of-care'
+      fullPath: '/reference/systems-of-care'
+      preLoaderRoute: typeof ReferenceSystemsOfCareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reference/scope': {
@@ -287,6 +307,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReferenceContactsRoute: ReferenceContactsRoute,
   ReferenceLinksRoute: ReferenceLinksRoute,
   ReferenceScopeRoute: ReferenceScopeRoute,
+  ReferenceSystemsOfCareRoute: ReferenceSystemsOfCareRoute,
   ReferenceIndexRoute: ReferenceIndexRoute,
 }
 export const routeTree = rootRouteImport
