@@ -18,8 +18,8 @@
       "If the concern involves a staff member, run the Reporting Hierarchy tool too."
     ],
     "actions": [
-      { "label": "Critical Incident Report on Typeform →", "href": "https://nextgenmen.ca/alliance/incident" },
-      { "label": "Who do I tell?", "href": "/decide/reporting" }
+      { "label": "Critical Incident Report Form →", "href": "https://nextgenmen.ca/alliance/incident" },
+      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting" }
     ]
   },
   "start": "q1",
@@ -28,20 +28,22 @@
       "type": "question",
       "text": "Is anyone in immediate physical danger right now?",
       "answers": [
-        { "label": "Yes", "goto": "s-911" },
+        { "label": "Yes", "goto": "end-911" },
         { "label": "No", "goto": "s1" }
       ]
     },
-    "s-911": {
-      "type": "step",
+    "end-911": {
+      "type": "endpoint",
       "urgency": "emergency",
+      "closeout": true,
       "headline": "Call 911 / relevant emergency services now.",
       "steps": [
         "Discord can’t dispatch help — this is why we collect city/province and an emergency contact.",
         "Use the location and emergency contact on file to direct responders."
       ],
-      "continueLabel": "Done — continue",
-      "goto": "s1"
+      "actions": [
+        { "label": "Call 911", "href": "tel:911" }
+      ]
     },
     "s1": {
       "type": "step",
@@ -76,13 +78,12 @@
         "Take it to a private space (DM).",
         "Supportive listening: acknowledge feelings, don’t debate, don’t promise what you can’t deliver.",
         "Active emergency → 911, using the location and emergency contact on file.",
-        "Offer vetted crisis lines: Canada — Kids Help Phone 1-800-668-6868, text CONNECT to 686868, or call/text 988. US — call/text 988, or text HOME to 741741.",
+        "Offer vetted crisis lines.",
         "Stay with them until support is in place, within your capacity.",
-        "In a crisis you ACT — you don’t clinically assess risk. That’s outside our Scope of Practice."
+        "In a crisis you ACT — you don’t clinically assess risk. That’s outside our scope of practice."
       ],
       "actions": [
-        { "label": "Call Kids Help Phone", "href": "tel:+18006686868" },
-        { "label": "Call or text 988", "href": "tel:988" }
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
         "moderator": {
@@ -104,12 +105,11 @@
         "Don’t engage or tip off the suspected predator.",
         "Don’t delete the account if it would destroy the trail — restrict and contain instead.",
         "Never save or screenshot imagery — note context only (who / where / when, links).",
-        "Report to Discord Trust & Safety (in-app), the child-exploitation tipline — Canada: Cybertip.ca · US: NCMEC CyberTipline (report.cybertip.org / 1-800-843-5678) — and police.",
+        "Report to Discord Trust & Safety (in-app), the child-exploitation tipline, and police.",
         "Support the affected youth gently — they may not see themselves as a victim. Loop the team on who has the best rapport for follow-up."
       ],
       "actions": [
-        { "label": "Cybertip.ca", "href": "https://www.cybertip.ca" },
-        { "label": "NCMEC CyberTipline", "href": "https://report.cybertip.org" }
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
         "moderator": {
@@ -134,8 +134,8 @@
         "Report to the child-protection authority for where the youth lives."
       ],
       "actions": [
-        { "label": "Open the Confidentiality tool", "href": "/decide/confidentiality" },
-        { "label": "Who to call — child-protection lines", "href": "/reference/contacts" }
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality" },
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
         "moderator": {
