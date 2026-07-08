@@ -154,6 +154,14 @@
   }
 }
 
+/* Unlayered typography overrides — win against utility classes so headings/card titles stay 700+ */
+h1, h2 {
+  font-weight: 700;
+}
+h3, h4 {
+  font-weight: 700;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
