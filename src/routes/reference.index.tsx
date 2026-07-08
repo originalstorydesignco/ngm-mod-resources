@@ -23,7 +23,7 @@ const cards = [
     external: false,
     title: "What we do and what we don’t",
     desc: "A guide for how our role as Discord moderators compares to others.",
-    cta: "Scope of Practice Tool →",
+    cta: "Scope of Practice Framework →",
   },
   {
     to: "#",
@@ -42,16 +42,16 @@ const cards = [
   {
     to: "/reference/links",
     external: false,
-    title: "Key links",
+    title: "Common links",
     desc: "Forms, invites, and everything staff reach for.",
-    cta: "Open →",
+    cta: "Common Links List →",
   },
   {
     to: "/reference/contacts",
     external: false,
-    title: "Critical incident contacts",
+    title: "Critical Incident Contact List",
     desc: "The vetted crisis-line and child-protection table.",
-    cta: "Who to call →",
+    cta: "Critical Incident Contact List →",
   },
 ] as const;
 

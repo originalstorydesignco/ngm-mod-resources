@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Checklist, FacilitatorsBadge } from "@/components/Checklist";
+import { Checklist } from "@/components/Checklist";
 
 export const Route = createFileRoute("/how-to/screening")({
   head: () => ({
     meta: [
-      { title: "Screening & onboarding — NGMA Staff Hub" },
+      { title: "How to onboard new youth — NGMA Staff Hub" },
       { name: "description", content: "The 15-step onboarding check every new member goes through." },
     ],
   }),
@@ -26,20 +26,13 @@ function ScreeningPage() {
     <span><strong>Approve them.</strong> Click Approve on their application.</span>,
     <span><strong>Set their nickname.</strong> Go to the All Members tab → click their username → Change Nickname → their first name. If we’ve already got a young person with that name, check with them that it’s cool to add an initial beside it so we can tell everyone apart.</span>,
     <span><strong>Forward the join message.</strong> As they join they’ll be picking their channels and roles — that’s your window to write the intro. An automated “they joined” message shows up in #general-chat; click it → Forward it into the #introductions thread.</span>,
-    <span>
-      <strong>Write their intro 🥳</strong> Using what you learned in the call, write it up. Make it warm and use as many @roles as you can — games, hobbies, interests — so everyone with something in common sees it. Always tag @Welcome Team.
-      <span className="mt-2 block rounded-md border border-primary/60 bg-primary/10 px-3 py-2 text-foreground">
-        <strong className="block mb-1">Here’s the energy:</strong>
-        “WELCOME WELCOME WELCOME. This is @example, he has just about EVERYTHING YOU COULD HAVE in common with our boys on the server. He plays @Rainbow Six Siege, @Counter Strike, @Valorant as well as Tarkov and other FPS games, he likes sci fi including 3 Body Problem and Dark Matter if any of you have read those, he likes shows including Chainsaw Man, JJK and Frieren so I’m sure there’ll be some anime chats in #books-and-movies AND he likes EDM and rap including The Weeknd, Travis Scott and Alok. Plus he has one cat named Grey. @Welcome Team give @example a warm welcome.”
-      </span>
-    </span>,
+    <span><strong>Write their intro 🥳</strong> Using what you learned in the call, write it up. Make it warm and use as many @roles as you can — games, hobbies, interests — so everyone with something in common sees it. Always tag @Welcome Team. Look at past intros in #introductions for the energy to aim for.</span>,
     <span><strong>Wrap up.</strong> Circle back to 📮 registration-forms and flip their thread emoji to ✅. Then add their birthday with /set-user-birthday so they get the love on their day 🎂 That’s it — you just brought someone new into the fold 💛 You rock.</span>,
   ].map((label, i) => ({ id: `s${i + 1}`, label }));
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
-      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Screening &amp; onboarding</h1>
-      <div className="mt-3"><FacilitatorsBadge /></div>
+      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">How to onboard new youth</h1>
       <p className="mt-4 text-foreground/85">
         Every new member goes through the same 15 steps — consistency is the safeguard.
       </p>

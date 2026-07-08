@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Checklist, FacilitatorsBadge } from "@/components/Checklist";
+import { Checklist } from "@/components/Checklist";
 import { useRole } from "@/lib/role";
 
 export const Route = createFileRoute("/how-to/flags-log")({
@@ -19,10 +19,9 @@ function FlagsLogPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
       <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">How to use #flags-log</h1>
-      <div className="mt-3"><FacilitatorsBadge /></div>
 
       {isMod && (
-        <div className="mt-4 rounded-md bg-mod text-mod-foreground px-4 py-3 text-sm">
+        <div className="mt-5 rounded-lg border-l-4 border-mod bg-mod/15 px-4 py-3 text-[15px] text-foreground">
           <strong className="font-bold">Moderators:</strong> flags live in #flags-log, which is a Facilitator space — your version is simpler. Link the message in #mod-chat, ping @Facilitators, and add one line of context.
         </div>
       )}
@@ -48,7 +47,7 @@ function FlagsLogPage() {
 
       <section className="mt-10 grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-border bg-card p-4">
-          <h3 className="font-display text-lg font-semibold">✅ Flag it here</h3>
+          <h3 className="font-display text-lg font-semibold">✅ Put it in #flags-log</h3>
           <ul className="mt-3 space-y-2 text-sm text-foreground/85 list-disc pl-5">
             <li>A heads-up that might change how a youth shows up (had a setback, going through something, may be quieter or more reactive) — so we can meet them where they are.</li>
             <li>A pattern worth a second set of eyes (testing limits, withdrawing, conflict brewing, repeated small stuff).</li>

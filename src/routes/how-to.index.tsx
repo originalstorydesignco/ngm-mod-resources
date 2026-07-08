@@ -7,7 +7,7 @@ export const Route = createFileRoute("/how-to/")({
       {
         name: "description",
         content:
-          "Step-by-step guides for the recurring work — flagging, screening, events, and announcements.",
+          "Step-by-step guides for the recurring work — flagging, onboarding, and events.",
       },
     ],
   }),
@@ -19,37 +19,19 @@ const cards = [
     to: "/how-to/flags-log",
     title: "How to use #flags-log",
     desc: "Post a flag cleanly — minimal, factual, respectful.",
-    cta: "Flags Log Guide →",
+    cta: "How to use #flags-log →",
   },
   {
     to: "/how-to/screening",
-    title: "Screening & onboarding",
+    title: "How to onboard new youth",
     desc: "The 15-step check every new member goes through.",
-    cta: "Screening Guide →",
+    cta: "How to onboard new youth →",
   },
   {
     to: "/how-to/events",
-    title: "How to host an event",
+    title: "How to host server events",
     desc: "From pick-what-and-when to Houses points.",
-    cta: "Event Guide →",
-  },
-  {
-    to: "/how-to/event-board",
-    title: "Weekly event board",
-    desc: "NGMA Coordinator, Mondays after 5pm.",
-    cta: "Event Board Guide →",
-  },
-  {
-    to: "/how-to/announcement",
-    title: "Monthly announcement",
-    desc: "NGMA Coordinator, start of each month.",
-    cta: "Announcement Guide →",
-  },
-  {
-    to: "/how-to/event-menu",
-    title: "Event menu",
-    desc: "Run-anytime ideas you can pull off the shelf.",
-    cta: "Event Menu →",
+    cta: "How to host server events →",
   },
 ] as const;
 
@@ -58,7 +40,7 @@ function HowToIndex() {
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
       <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">How-to</h1>
       <p className="mt-2 text-muted-foreground">
-        Step-by-step guides for the recurring work — flagging, screening, events, and announcements. Read them while you do the thing.
+        Step-by-step guides for the recurring work — flagging, onboarding, and events. Read them while you do the thing.
       </p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {cards.map((c) => (

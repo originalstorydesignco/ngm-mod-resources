@@ -39,7 +39,7 @@ const cards = {
     title: "I just want to flag something for the team",
     desc: "A heads-up or second opinion.",
     accent: "primary",
-    cta: "Flags Log Guide →",
+    cta: "How to use #flags-log →",
   },
 } as const;
 

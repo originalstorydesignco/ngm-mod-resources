@@ -23,7 +23,7 @@ export function Checklist({ items }: { items: ChecklistItem[] }) {
         </span>
         <div className="h-1 flex-1 max-w-40 ml-3 rounded-full bg-card overflow-hidden">
           <div
-            className="h-full bg-primary transition-[width]"
+            className="h-full bg-muted-foreground/60 transition-[width]"
             style={{ width: `${items.length ? (doneCount / items.length) * 100 : 0}%` }}
           />
         </div>
@@ -34,7 +34,7 @@ export function Checklist({ items }: { items: ChecklistItem[] }) {
           return (
             <li key={it.id}>
               <label
-                className={`flex items-start gap-3 rounded-md border border-border bg-card px-3 py-2 cursor-pointer hover:border-primary transition-colors ${
+                className={`group flex items-start gap-3 rounded-md border border-border bg-card px-3 py-2 cursor-pointer hover:border-muted-foreground transition-colors ${
                   isDone ? "opacity-70" : ""
                 }`}
               >
@@ -44,7 +44,7 @@ export function Checklist({ items }: { items: ChecklistItem[] }) {
                   onChange={(e) =>
                     setChecked((prev) => ({ ...prev, [it.id]: e.target.checked }))
                   }
-                  className="mt-1 h-4 w-4 accent-primary flex-none"
+                  className="mt-1 h-4 w-4 flex-none appearance-none rounded border border-border bg-surface checked:bg-muted-foreground/50 checked:border-muted-foreground/50 group-hover:border-muted-foreground focus:outline-none"
                 />
                 <span className="text-sm">
                   <span className="mr-2 font-mono text-xs text-muted-foreground">
