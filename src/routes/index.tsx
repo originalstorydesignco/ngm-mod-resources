@@ -38,6 +38,27 @@ const cards = [
   },
 ] as const;
 
+function Card({ c }: { c: (typeof cards)[number] }) {
+  return (
+    <a
+      href={c.to}
+      className="group block h-full rounded-xl border border-border bg-white p-5 hover:border-primary hover:shadow-sm transition-all"
+    >
+      <div className="flex items-start gap-2">
+        <span
+          aria-hidden
+          className={`mt-2 h-2.5 w-2.5 flex-none rounded-full ${
+            c.accent === "accent" ? "bg-accent" : "bg-primary"
+          }`}
+        />
+        <h2 className="font-display text-xl font-semibold leading-snug">{c.title}</h2>
+      </div>
+      <p className="mt-2 text-sm text-foreground/75">{c.desc}</p>
+      <p className="mt-4 text-sm text-primary font-medium">Open →</p>
+    </a>
+  );
+}
+
 function Index() {
   const [showHandoff, setShowHandoff] = useState(false);
 
@@ -49,45 +70,29 @@ function Index() {
       <p className="mt-2 text-muted-foreground">Pick the closest match. It’ll walk you through the rest.</p>
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        {cards.map((c, i) => (
-          <div key={c.to} className={i === 2 ? "sm:col-span-2" : undefined}>
-            <Link
-              to={c.to}
-              className="group block h-full rounded-xl border border-border bg-white p-5 hover:border-primary hover:shadow-sm transition-all"
-            >
-              <div className="flex items-start gap-2">
-                <span
-                  aria-hidden
-                  className={`mt-2 h-2.5 w-2.5 flex-none rounded-full ${
-                    c.accent === "accent" ? "bg-accent" : "bg-primary"
-                  }`}
-                />
-                <h2 className="font-display text-xl font-semibold leading-snug">{c.title}</h2>
-              </div>
-              <p className="mt-2 text-sm text-foreground/75">{c.desc}</p>
-              <p className="mt-4 text-sm text-primary font-medium">Open →</p>
-            </Link>
+        <Card c={cards[0]} />
+        <Card c={cards[1]} />
+        <Card c={cards[2]} />
 
-            {i === 2 && (
-              <div className="mt-3 rounded-lg border border-border bg-card">
-                <button
-                  type="button"
-                  onClick={() => setShowHandoff((v) => !v)}
-                  aria-expanded={showHandoff}
-                  className="w-full flex items-center justify-between px-4 py-3 text-left"
-                >
-                  <span className="text-sm font-medium">Which one? These two hand off to each other.</span>
-                  <span aria-hidden className="text-muted-foreground">{showHandoff ? "−" : "+"}</span>
-                </button>
-                {showHandoff && (
-                  <p className="px-4 pb-4 text-sm text-foreground/80 border-t border-border pt-3">
-                    The Confidentiality tool is for a decision: a youth trusted you with something, and you’re working out whether it stays private. The Critical Incident tool is for a response: something is clearly serious, and you’re working out what to do. They’re built to hand off — the Confidentiality tool routes you into the Critical Incident tool the moment a disclosure crosses the reporting line, and the Critical Incident tool runs abuse disclosures through confidentiality logic to decide who gets contacted. Responding to a critical incident sometimes means breaking confidentiality; that’s by design, not a mistake. Starting in the ‘wrong’ one is fine — you’ll land in the right place.
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-        ))}
+        <div className="sm:col-span-2 rounded-lg border border-border bg-card">
+          <button
+            type="button"
+            onClick={() => setShowHandoff((v) => !v)}
+            aria-expanded={showHandoff}
+            className="w-full flex items-center justify-between px-4 py-3 text-left"
+          >
+            <span className="text-sm font-medium">Which one? These two hand off to each other.</span>
+            <span aria-hidden className="text-muted-foreground">{showHandoff ? "−" : "+"}</span>
+          </button>
+          {showHandoff && (
+            <p className="px-4 pb-4 text-sm text-foreground/80 border-t border-border pt-3">
+              The Confidentiality tool is for a decision: a youth trusted you with something, and you’re working out whether it stays private. The Critical Incident tool is for a response: something is clearly serious, and you’re working out what to do. They’re built to hand off — the Confidentiality tool routes you into the Critical Incident tool the moment a disclosure crosses the reporting line, and the Critical Incident tool runs abuse disclosures through confidentiality logic to decide who gets contacted. Responding to a critical incident sometimes means breaking confidentiality; that’s by design, not a mistake. Starting in the ‘wrong’ one is fine — you’ll land in the right place.
+            </p>
+          )}
+        </div>
+
+        <Card c={cards[3]} />
+        <Card c={cards[4]} />
       </div>
 
       <p className="mt-6 text-sm text-muted-foreground">
