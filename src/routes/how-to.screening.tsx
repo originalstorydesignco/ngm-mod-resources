@@ -6,7 +6,7 @@ export const Route = createFileRoute("/how-to/screening")({
   head: () => ({
     meta: [
       { title: "How to onboard new youth — NGMA Staff Hub" },
-      { name: "description", content: "The 15-step onboarding check every new member goes through." },
+      { name: "description", content: "The steps every new member goes through." },
     ],
   }),
   component: ScreeningPage,
@@ -25,13 +25,13 @@ function ScreeningPage() {
     <span><strong>Set up their thread in #registration-forms.</strong> Once they submit, it pops into #registration-forms. Make a thread for their application. Put their first name in the thread title with a quick status (e.g. “Alex — waiting on VC call”) and mark it as in-progress. Flip it to done once they’re fully onboarded, so we can always see who’s mid-process at a glance.</span>,
     <span><strong>Double-check the form.</strong> Give it a proper look — does it all seem legit? Is the trusted adult actually a trusted adult to them?</span>,
     <span><strong>The voice call.</strong> Ask if they’re free to hop on. If not, schedule it or tell them when you’re around — sooner is better; the quicker we do this the more likely they actually join. If they’re nervous, let them know we call because we personally introduce everyone to the server, and we just need to know a bit more about them to write that intro.</span>,
-    <span><strong>On the call.</strong> Get to know them for real — jot down what they share. Ask the good stuff: what grade they’re in, what games they play, hobbies or sports, a fun fact. This is also where you’re quietly listening for any red flags that this isn’t a young person. If you’re unsure, just keep asking questions — if you keep someone talking long enough, you can always tell when you’re talking to a kid. (Real talk: this system has never failed us — we’ve never had someone get in who wasn’t who they said they were.)</span>,
+    <span><strong>On the call.</strong> Get to know them for real — jot down what they share. Ask the good stuff: what grade they’re in, what games they play, hobbies or sports, a fun fact. This is also where you’re quietly listening for any red flags that this isn’t a young person. If you’re unsure, just keep asking questions — if you keep someone talking long enough, you can always tell when you’re talking to a kid. (Real talk: this system has never failed us — we’ve never had someone get in who wasn’t who they said they were.) Ask what House they’re interested in joining, or send them the Houses questionnaire if they’re not sure.</span>,
     <span><strong>Tell them about the server.</strong> Walk them through the Server Guide, the limited-access channels, the help resources, and the Get Help Now button. Then tell them you’re hyped they’re joining.</span>,
     <span><strong>Approve them.</strong> Click Approve on their application.</span>,
-    <span><strong>Set their nickname.</strong> Go to the All Members tab → click their username → Change Nickname → their first name. If we’ve already got a young person with that name, check with them that it’s cool to add an initial beside it so we can tell everyone apart.</span>,
-    <span><strong>Forward the join message.</strong> As they join they’ll be picking their channels and roles — that’s your window to write the intro. An automated “they joined” message shows up in #general-chat; click it → Forward it into the #introductions thread.</span>,
+    <span><strong>Set their nickname.</strong> Right-click their username and change their server nickname to their first name. If we’ve already got a young person with that name, check with them that it’s cool to add an initial beside it so we can tell everyone apart.</span>,
+    <span><strong>Forward the join message.</strong> As they join they’ll be picking their channels and roles — that’s your window to write the intro. An automated “they joined” message shows up in #general-chat; click it and forward it into the #introductions thread.</span>,
     <span><strong>Write their intro.</strong> Using what you learned in the call, write it up. Make it warm and use as many @roles as you can — games, hobbies, interests — so everyone with something in common sees it. Always tag @Welcome Team. Look at past intros in #introductions for the energy to aim for.</span>,
-    <span><strong>Wrap up.</strong> Circle back to #registration-forms and flip their thread to done. Then add their birthday with /set-user-birthday so they get the love on their day. That’s it — you just brought someone new into the fold. You rock.</span>,
+    <span><strong>Wrap up.</strong> Circle back to #registration-forms and flip their thread to done. Then configure their birthday through MEE6 and add them to their chosen House through their profile roles as well as NGM Bot. That’s it — you just brought someone new into the community!</span>,
   ].map((label, i) => ({ id: `s${i + 1}`, label }));
 
   return (
@@ -45,7 +45,7 @@ function ScreeningPage() {
       )}
 
       <p className="mt-4 text-foreground/85">
-        Every new member goes through the same 15 steps — consistency is the safeguard.
+        Every new member goes through the same steps to join the server — consistency is the safeguard.
       </p>
 
       <div className="mt-6">
