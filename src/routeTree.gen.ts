@@ -16,8 +16,6 @@ import { Route as ReferenceSystemsOfCareRouteImport } from './routes/reference.s
 import { Route as ReferenceScopeRouteImport } from './routes/reference.scope'
 import { Route as ReferenceLinksRouteImport } from './routes/reference.links'
 import { Route as ReferenceContactsRouteImport } from './routes/reference.contacts'
-import { Route as ReferenceChannelsRouteImport } from './routes/reference.channels'
-import { Route as ReferenceBotsRouteImport } from './routes/reference.bots'
 import { Route as HowToScreeningRouteImport } from './routes/how-to.screening'
 import { Route as HowToFlagsLogRouteImport } from './routes/how-to.flags-log'
 import { Route as HowToEventsRouteImport } from './routes/how-to.events'
@@ -59,16 +57,6 @@ const ReferenceLinksRoute = ReferenceLinksRouteImport.update({
 const ReferenceContactsRoute = ReferenceContactsRouteImport.update({
   id: '/reference/contacts',
   path: '/reference/contacts',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReferenceChannelsRoute = ReferenceChannelsRouteImport.update({
-  id: '/reference/channels',
-  path: '/reference/channels',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReferenceBotsRoute = ReferenceBotsRouteImport.update({
-  id: '/reference/bots',
-  path: '/reference/bots',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowToScreeningRoute = HowToScreeningRouteImport.update({
@@ -116,8 +104,6 @@ export interface FileRoutesByFullPath {
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
   '/how-to/screening': typeof HowToScreeningRoute
-  '/reference/bots': typeof ReferenceBotsRoute
-  '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
@@ -134,8 +120,6 @@ export interface FileRoutesByTo {
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
   '/how-to/screening': typeof HowToScreeningRoute
-  '/reference/bots': typeof ReferenceBotsRoute
-  '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
@@ -153,8 +137,6 @@ export interface FileRoutesById {
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
   '/how-to/screening': typeof HowToScreeningRoute
-  '/reference/bots': typeof ReferenceBotsRoute
-  '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
@@ -173,8 +155,6 @@ export interface FileRouteTypes {
     | '/how-to/events'
     | '/how-to/flags-log'
     | '/how-to/screening'
-    | '/reference/bots'
-    | '/reference/channels'
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
@@ -191,8 +171,6 @@ export interface FileRouteTypes {
     | '/how-to/events'
     | '/how-to/flags-log'
     | '/how-to/screening'
-    | '/reference/bots'
-    | '/reference/channels'
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
@@ -209,8 +187,6 @@ export interface FileRouteTypes {
     | '/how-to/events'
     | '/how-to/flags-log'
     | '/how-to/screening'
-    | '/reference/bots'
-    | '/reference/channels'
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
@@ -228,8 +204,6 @@ export interface RootRouteChildren {
   HowToEventsRoute: typeof HowToEventsRoute
   HowToFlagsLogRoute: typeof HowToFlagsLogRoute
   HowToScreeningRoute: typeof HowToScreeningRoute
-  ReferenceBotsRoute: typeof ReferenceBotsRoute
-  ReferenceChannelsRoute: typeof ReferenceChannelsRoute
   ReferenceContactsRoute: typeof ReferenceContactsRoute
   ReferenceLinksRoute: typeof ReferenceLinksRoute
   ReferenceScopeRoute: typeof ReferenceScopeRoute
@@ -287,20 +261,6 @@ declare module '@tanstack/react-router' {
       path: '/reference/contacts'
       fullPath: '/reference/contacts'
       preLoaderRoute: typeof ReferenceContactsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reference/channels': {
-      id: '/reference/channels'
-      path: '/reference/channels'
-      fullPath: '/reference/channels'
-      preLoaderRoute: typeof ReferenceChannelsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reference/bots': {
-      id: '/reference/bots'
-      path: '/reference/bots'
-      fullPath: '/reference/bots'
-      preLoaderRoute: typeof ReferenceBotsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-to/screening': {
@@ -364,8 +324,6 @@ const rootRouteChildren: RootRouteChildren = {
   HowToEventsRoute: HowToEventsRoute,
   HowToFlagsLogRoute: HowToFlagsLogRoute,
   HowToScreeningRoute: HowToScreeningRoute,
-  ReferenceBotsRoute: ReferenceBotsRoute,
-  ReferenceChannelsRoute: ReferenceChannelsRoute,
   ReferenceContactsRoute: ReferenceContactsRoute,
   ReferenceLinksRoute: ReferenceLinksRoute,
   ReferenceScopeRoute: ReferenceScopeRoute,

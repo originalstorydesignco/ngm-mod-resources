@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Checklist } from "@/components/Checklist";
 
 export const Route = createFileRoute("/how-to/events")({
@@ -117,6 +117,21 @@ function EventsPage() {
       <p className="mt-4 text-foreground/85">Events are how we keep the community alive so it can thrive! This is the flow for putting together a suite of events that are likely to bring out youth participants.</p>
       <div className="mt-6">
         <Checklist items={items} />
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-2">
+        <a
+          href="#"
+          className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-surface text-sm hover:border-primary"
+        >
+          Bots &amp; commands →
+        </a>
+        <Link
+          to="/reference/links"
+          className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-surface text-sm hover:border-primary"
+        >
+          Common Links List →
+        </Link>
       </div>
 
       <section className="mt-12">

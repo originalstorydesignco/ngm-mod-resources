@@ -54,9 +54,7 @@ function Card({ c }: { c: CardData }) {
       <div className="flex items-start gap-2">
         <span
           aria-hidden
-          className={`mt-2 h-2.5 w-2.5 flex-none rounded-full ${
-            c.accent === "accent" ? "bg-accent" : "bg-primary"
-          }`}
+          className="mt-2 h-2.5 w-2.5 flex-none rounded-full bg-muted-foreground/40 transition-colors group-hover:bg-primary"
         />
         <h2 className="font-display text-xl font-semibold leading-snug">{c.title}</h2>
       </div>

@@ -1,5 +1,3 @@
-import botsData from "@/data/reference/bots.json";
-import channelsData from "@/data/reference/channels.json";
 import linksData from "@/data/reference/links.json";
 import scopeData from "@/data/reference/scope.json";
 
@@ -50,59 +48,7 @@ for (const g of (scopeData.outOfScope.groups as Array<{ who: string; items: stri
   }
 }
 
-// --- Reference: Channels ---
-add({
-  id: "ref-channels",
-  title: "Channels & rituals",
-  section: "Channels & rituals",
-  snippet: "The map of admin spaces and what happens where.",
-  path: "/reference/channels",
-});
-for (const c of (channelsData.map as Array<{ name: string; icon: string }>)) {
-  add({
-    id: `chan-${c.name}`,
-    title: c.name,
-    section: "Channels · map",
-    snippet: c.name,
-    path: "/reference/channels",
-  });
-}
-for (const r of (channelsData.rituals as string[])) {
-  add({
-    id: `ritual-${r}`,
-    title: r,
-    section: "Channels · rituals",
-    snippet: r,
-    path: "/reference/channels",
-  });
-}
 
-// --- Reference: Bots ---
-add({
-  id: "ref-bots",
-  title: "Bots & commands",
-  section: "Bots & commands",
-  snippet: "MEE6, NGM Bot, and onboarding automations.",
-  path: "/reference/bots",
-});
-for (const g of (botsData.groups as Array<{ title: string; commands?: Array<{ cmd: string; desc?: string }> }>)) {
-  add({
-    id: `bots-${g.title}`,
-    title: g.title,
-    section: "Bots & commands",
-    snippet: g.title,
-    path: "/reference/bots",
-  });
-  for (const c of g.commands ?? []) {
-    add({
-      id: `bot-cmd-${c.cmd}`,
-      title: c.cmd,
-      section: `Bots · ${g.title}`,
-      snippet: c.desc ?? c.cmd,
-      path: "/reference/bots",
-    });
-  }
-}
 
 // --- Reference: Common Links ---
 add({
