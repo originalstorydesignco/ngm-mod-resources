@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { RoleProvider } from "@/lib/role";
 import { PasswordGate } from "@/components/PasswordGate";
 import { Layout } from "@/components/Layout";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
