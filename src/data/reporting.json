@@ -4,10 +4,14 @@
   "intro": {
     "description": "You’ve got a concern or a complaint about someone — this is the chain for who to bring it to, especially if it involves a staff member.",
     "standingRules": [
-      "If you’re a Moderator, your one step is simple: bring the concern to your supervisor or ping @Facilitators. The chain below is how staff take it from there.",
       "If the concern involves the person you’d normally report to, go one level up.",
-      "Concerns about an admin can also go straight to the CEO or through the anonymous report form."
-    ]
+      "Concerns about an admin can also go straight to the CEO or through the Anonymous Report Form."
+    ],
+    "roleVariants": {
+      "moderator": {
+        "banner": "Moderators: your one step is simple — bring the concern to a Coordinator or ping @Facilitators. The chain below is how staff take it from there."
+      }
+    }
   },
   "start": "q1",
   "nodes": {
@@ -61,7 +65,7 @@
         "If the concern is about a staff member harming a youth: it’s still a critical incident first. Report to child protection per that tool, loop in the level above whoever’s involved, and never let the internal hierarchy delay the report."
       ],
       "actions": [
-        { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" }
       ],
       "roleVariants": {
         "moderator": {
@@ -83,7 +87,7 @@
         "Keep it minimal, factual, and respectful; link the message rather than quoting sensitive detail."
       ],
       "actions": [
-        { "label": "How to use #flags-log", "href": "/how-to/flags-log" }
+        { "label": "How to use #flags-log →", "href": "/how-to/flags-log" }
       ],
       "roleVariants": {
         "moderator": {
