@@ -153,7 +153,7 @@
       ],
       "actions": [
         { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" },
-        { "label": "Who to call — child-protection lines", "href": "/reference/links" }
+        { "label": "Who to call — child-protection lines", "href": "/reference/contacts" }
       ],
       "roleVariants": {
         "moderator": {
@@ -176,7 +176,7 @@
       ],
       "actions": [
         { "label": "Open the Critical Incident tool", "href": "/decide/critical-incident" },
-        { "label": "Who to call — child-protection lines", "href": "/reference/links" }
+        { "label": "Who to call — child-protection lines", "href": "/reference/contacts" }
       ],
       "roleVariants": {
         "moderator": {

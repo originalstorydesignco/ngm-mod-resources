@@ -11,34 +11,39 @@ const cards = {
     title: "Something serious is happening — I need to respond.",
     desc: "Danger, grooming, abuse, threats, anything illegal.",
     accent: "primary",
+    cta: "Critical Incident Tool →",
   },
   confidentiality: {
     to: "/decide/confidentiality",
     title: "A young person disclosed something — do I keep it private?",
     desc: "No one’s in immediate danger; I’m weighing privacy against reporting.",
     accent: "primary",
+    cta: "Confidentiality Tool →",
   },
   reporting: {
     to: "/decide/reporting",
     title: "I’m not sure who to tell",
     desc: "A concern or complaint, especially about a staff member.",
     accent: "primary",
+    cta: "Reporting Hierarchy Tool →",
   },
   conflict: {
     to: "/decide/conflict",
     title: "Someone broke the Code of Conduct",
     desc: "A rule break or a conflict between members.",
     accent: "primary",
+    cta: "Conflict Resolution Tool →",
   },
   flagsLog: {
     to: "/how-to/flags-log",
     title: "I just want to flag something for the team",
     desc: "A heads-up or second opinion.",
     accent: "primary",
+    cta: "Flags Log Guide →",
   },
 } as const;
 
-type CardData = { to: string; title: string; desc: string; accent: "primary" | "accent" };
+type CardData = { to: string; title: string; desc: string; accent: "primary" | "accent"; cta: string };
 
 function Card({ c }: { c: CardData }) {
   return (
@@ -56,7 +61,7 @@ function Card({ c }: { c: CardData }) {
         <h2 className="font-display text-xl font-semibold leading-snug">{c.title}</h2>
       </div>
       <p className="mt-2 text-sm text-foreground/75">{c.desc}</p>
-      <p className="mt-4 text-sm text-primary font-medium">Open →</p>
+      <p className="mt-4 text-sm text-primary font-medium">{c.cta}</p>
     </a>
   );
 }

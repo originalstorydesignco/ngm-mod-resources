@@ -70,6 +70,9 @@ function ScopePage() {
         Is this mine to do?
       </h1>
       <p className="mt-2 text-muted-foreground">Scope of Practice.</p>
+      <p className="mt-3 text-foreground/85">
+        What’s in the wheelhouse of NGM Alliance staff — and what belongs to a therapist, a parent, a doctor, or a lawyer instead. Search it like a question: can I drive a youth? Can I give a gift?
+      </p>
 
       <div className="mt-6">
         <label htmlFor="scope-search" className="sr-only">Search scope items</label>
@@ -140,7 +143,7 @@ function ScopePage() {
         </div>
       </section>
 
-      <div className="mt-10 rounded-lg border-l-4 border-accent bg-card px-4 py-3 text-sm">
+      <div className="mt-10 rounded-lg border border-accent bg-card px-4 py-3 text-sm">
         We don’t diagnose, prescribe, do therapy, give legal advice, or make a youth’s personal-life decisions. When in doubt, escalate to a Facilitator — we’re happy to help.
       </div>
     </div>
