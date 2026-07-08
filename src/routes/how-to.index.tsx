@@ -24,13 +24,13 @@ const cards = [
   {
     to: "/how-to/screening",
     title: "How to onboard new youth",
-    desc: "The 15-step check every new member goes through.",
+    desc: "The steps every new member goes through.",
     cta: "How to onboard new youth →",
   },
   {
     to: "/how-to/events",
     title: "How to host server events",
-    desc: "From pick-what-and-when to Houses points.",
+    desc: "Suggestions on what to host, when and how.",
     cta: "How to host server events →",
   },
 ] as const;
