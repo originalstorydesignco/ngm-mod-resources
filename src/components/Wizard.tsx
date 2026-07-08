@@ -260,16 +260,21 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
         {node.text}
       </h1>
       {node.hint && (
-        <div className="mt-3">
+        <div className="mt-4 rounded-lg border border-border bg-card">
           <button
             type="button"
             onClick={() => setShowHint((v) => !v)}
             aria-expanded={showHint}
-            className="text-sm text-primary underline underline-offset-2"
+            className="w-full flex items-center justify-between px-4 py-3 text-left"
           >
-            {showHint ? "Hide" : hintLabel}
+            <span className="text-sm font-medium">{hintLabel}</span>
+            <span aria-hidden className="text-muted-foreground">{showHint ? "−" : "+"}</span>
           </button>
-          {showHint && <p className="mt-2 text-sm text-foreground/80">{hintBody}</p>}
+          {showHint && (
+            <p className="px-4 pb-4 border-t border-border pt-3 text-sm text-foreground/80">
+              {hintBody}
+            </p>
+          )}
         </div>
       )}
       {node.roleNote && <RoleNote note={node.roleNote} />}
