@@ -47,7 +47,7 @@ function FlagsLogPage() {
 
       <section className="mt-10 grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-border bg-card p-4">
-          <h3 className="font-display text-lg font-semibold">✅ Put it in #flags-log</h3>
+          <h3 className="font-display text-lg font-semibold">Put it in #flags-log</h3>
           <ul className="mt-3 space-y-2 text-sm text-foreground/85 list-disc pl-5">
             <li>A heads-up that might change how a youth shows up (had a setback, going through something, may be quieter or more reactive) — so we can meet them where they are.</li>
             <li>A pattern worth a second set of eyes (testing limits, withdrawing, conflict brewing, repeated small stuff).</li>
@@ -57,7 +57,7 @@ function FlagsLogPage() {
           </ul>
         </div>
         <div className="rounded-xl border border-border bg-card p-4">
-          <h3 className="font-display text-lg font-semibold">🚫 Don’t put it here — it goes elsewhere</h3>
+          <h3 className="font-display text-lg font-semibold">Don’t put it here — it goes elsewhere</h3>
           <ul className="mt-3 space-y-2 text-sm text-foreground/85 list-disc pl-5">
             <li>
               <strong>A safeguarding / critical incident</strong> — danger to self or others, grooming or sexual exploitation, an abuse or neglect disclosure, credible threats, anything sexual involving a minor. → This isn’t a flag.{" "}
@@ -86,8 +86,8 @@ function FlagsLogPage() {
         </ul>
       </section>
 
-      <div className="mt-8 rounded-md bg-accent/15 border border-accent/40 px-4 py-3 text-sm">
-        If you’re debating whether to flag something… that means you should flag it. This is our System of Safety in practice — showing up for each other the way we show up for our community members. 💛
+      <div className="mt-8 rounded-lg border-l-4 border-accent bg-card px-4 py-3 text-sm">
+        If you’re debating whether to flag something… that means you should flag it. This is our System of Safety in practice — showing up for each other the way we show up for our community members.
       </div>
     </div>
   );

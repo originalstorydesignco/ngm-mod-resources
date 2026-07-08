@@ -1,15 +1,15 @@
 {
   "map": [
-    { "icon": "⛳", "name": "#admin-chat" },
-    { "icon": "🧭", "name": "#mod-chat" },
-    { "icon": "📮", "name": "#registration-forms" },
-    { "icon": "🚩", "name": "#flags-log" },
-    { "icon": "📥", "name": "#message-inbox" },
-    { "icon": "📄", "name": "#activity-log" },
-    { "icon": "📚", "name": "#mod-resources" }
+    { "name": "#admin-chat" },
+    { "name": "#mod-chat" },
+    { "name": "#registration-forms" },
+    { "name": "#flags-log" },
+    { "name": "#message-inbox" },
+    { "name": "#activity-log" },
+    { "name": "#mod-resources" }
   ],
   "rituals": [
-    "✅ green-check a message in #message-inbox once a flagged message is checked and nothing’s needed.",
+    "Green-check a message in #message-inbox once a flagged message is checked and nothing’s needed.",
     "One thread per situation in #flags-log, with a named owner.",
     "Resources live in the library; chatter stays in chat."
   ]

@@ -109,7 +109,7 @@ function Index() {
         When two might apply, pick the more serious one and loop in @Facilitators.
       </p>
 
-      <section className="mt-12 rounded-xl bg-card p-5">
+      <section className="mt-12 rounded-lg border-l-4 border-accent bg-card px-4 py-4">
         <h3 className="font-display text-lg font-semibold">Just looking something up?</h3>
         <p className="mt-1 text-sm text-foreground/75">
           Quick references and step-by-step how-tos live over here.
