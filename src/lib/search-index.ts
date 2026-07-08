@@ -104,11 +104,11 @@ for (const g of (botsData.groups as Array<{ title: string; commands?: Array<{ cm
   }
 }
 
-// --- Reference: Links ---
+// --- Reference: Common Links ---
 add({
   id: "ref-links",
-  title: "Key links",
-  section: "Key links",
+  title: "Common Links List",
+  section: "Common Links List",
   snippet: "Invites, registration and release forms, reporting forms.",
   path: "/reference/links",
 });
@@ -117,17 +117,17 @@ for (const g of (linksData.groups as Array<{ heading: string; links: Array<{ lab
     add({
       id: `link-${g.heading}-${l.label}`,
       title: l.label,
-      section: `Key links · ${g.heading}`,
+      section: `Common Links · ${g.heading}`,
       snippet: [l.meta, l.href].filter(Boolean).join(" · "),
       path: "/reference/links",
     });
   }
 }
 
-// --- Reference: Critical incident contacts ---
+// --- Reference: Critical Incident Contact List ---
 add({
   id: "ref-contacts",
-  title: "Critical incident contacts",
+  title: "Critical Incident Contact List",
   section: "Contacts",
   snippet: "The vetted crisis-line and child-protection table.",
   path: "/reference/contacts",
@@ -152,7 +152,7 @@ for (const j of jurisdictions) {
   add({
     id: `contact-${j}`,
     title: j,
-    section: "Critical incident contacts",
+    section: "Critical Incident Contact List",
     snippet: `Child protection line for ${j}.`,
     path: "/reference/contacts",
   });
@@ -173,7 +173,7 @@ const howto: Array<{ path: string; title: string; snippet: string; keywords?: st
   {
     path: "/how-to",
     title: "How-to guides",
-    snippet: "Step-by-step guides for the recurring work — flagging, screening, events, announcements.",
+    snippet: "Step-by-step guides for the recurring work — flagging, onboarding, and events.",
   },
   {
     path: "/how-to/flags-log",
@@ -183,33 +183,15 @@ const howto: Array<{ path: string; title: string; snippet: string; keywords?: st
   },
   {
     path: "/how-to/screening",
-    title: "Screening & onboarding",
+    title: "How to onboard new youth",
     snippet: "The 15-step check every new member goes through — pending, interview, emergency contact, intro.",
-    keywords: "onboarding new member intro pending emergency contact registration voice call nickname welcome team",
+    keywords: "onboarding new member intro pending emergency contact registration voice call nickname welcome team screening",
   },
   {
     path: "/how-to/events",
-    title: "How to host an event",
-    snippet: "Pick what + when, create, calendar, hype, run, log attendance, Houses points.",
-    keywords: "event host schedule houses points attendance advanced-search calendar VC",
-  },
-  {
-    path: "/how-to/event-board",
-    title: "Weekly event board",
-    snippet: "NGMA Coordinator, Mondays after 5pm. Confirm events, write hype, drop links.",
-    keywords: "weekly board hype coordinator monday admin-chat",
-  },
-  {
-    path: "/how-to/announcement",
-    title: "Monthly announcement",
-    snippet: "NGMA Coordinator, start of each month. Statbot stats, roster, celebrations, programs, TL;DR.",
-    keywords: "announcement monthly tldr statbot roster celebrations programs ROPE esports YAC",
-  },
-  {
-    path: "/how-to/event-menu",
-    title: "Event menu",
-    snippet: "Fortnite Valorant Minecraft movie nights art baking Skribbl Gartic Phone Geoguessr trivia advice storytime Houses launches.",
-    keywords: "event menu ideas gaming watch listen creative quick connect houses draws Fortnite Valorant Minecraft Roblox Among Us Skribbl Gartic Geoguessr Jeopardy trivia Wordle baking movie",
+    title: "How to host server events",
+    snippet: "Pick what + when, create, calendar, hype, run, log attendance, Houses points. Plus the Event Menu bank.",
+    keywords: "event host schedule houses points attendance advanced-search calendar VC event menu Fortnite Valorant Minecraft Roblox Among Us Skribbl Gartic Geoguessr Jeopardy trivia Wordle baking movie storytime advice",
   },
 ];
 for (const h of howto) {
@@ -217,3 +199,4 @@ for (const h of howto) {
 }
 
 export const searchIndex = entries;
+
