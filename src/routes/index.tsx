@@ -56,7 +56,7 @@ function Index() {
               <h2 className="font-display text-xl font-semibold">{c.title}</h2>
             </div>
             <p className="mt-2 text-sm text-foreground/75">{c.desc}</p>
-            <p className="mt-4 text-sm text-primary font-medium group-hover:underline">
+            <p className="mt-4 text-sm text-primary font-medium">
               Open →
             </p>
           </Link>
