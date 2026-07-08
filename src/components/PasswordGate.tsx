@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 
-const PASSWORD = "changeme-later";
+const PASSWORD = "ngmalliance";
 const KEY = "ngma:unlocked";
 
 export function PasswordGate({ children }: { children: ReactNode }) {
@@ -35,7 +35,7 @@ export function PasswordGate({ children }: { children: ReactNode }) {
         }}
         className="w-full max-w-sm space-y-4"
       >
-        <h1 className="text-2xl font-semibold">Staff hub</h1>
+        <h1 className="text-2xl font-semibold">NGM Alliance Mod Resources</h1>
         <p className="text-sm text-muted-foreground">Enter the shared password to continue.</p>
         <input
           type="password"
@@ -45,13 +45,14 @@ export function PasswordGate({ children }: { children: ReactNode }) {
             setValue(e.target.value);
             setError(false);
           }}
-          className="w-full h-12 px-3 rounded-md border border-input bg-surface"
+          className="w-full h-12 px-3 rounded-md border border-input bg-surface focus:outline-none focus:border-[#5865F2] focus:ring-2 focus:ring-[#5865F2]"
           placeholder="Password"
         />
         {error && <p className="text-sm text-destructive">That’s not it — try again.</p>}
         <button
           type="submit"
-          className="w-full h-12 rounded-md bg-primary text-primary-foreground font-medium"
+          className="w-full h-12 rounded-md text-white font-medium"
+          style={{ backgroundColor: "#5865F2" }}
         >
           Enter
         </button>
