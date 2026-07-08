@@ -287,14 +287,8 @@ function ContactsPage() {
         <h2 className="font-display text-xl font-semibold">Online child exploitation</h2>
         <ul className="mt-2">
           <EntryLine e={{ label: "Cybertip.ca", href: "https://cybertip.ca" }} />
-          <EntryLine
-            e={{
-              label: "NCMEC CyberTipline",
-              href: "https://report.cybertip.org",
-              tel: "1-800-843-5678",
-              display: "report.cybertip.org / 1-800-843-5678",
-            }}
-          />
+          <EntryLine e={{ label: "NCMEC CyberTipline", href: "https://report.cybertip.org" }} />
+          <EntryLine e={{ label: "NCMEC CyberTipline (phone)", tel: "1-800-843-5678", display: "1-800-843-5678" }} />
           <EntryLine e={{ label: "Discord Trust & Safety", note: "in-app report" }} />
         </ul>
       </section>
