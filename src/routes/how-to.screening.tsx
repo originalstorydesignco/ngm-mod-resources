@@ -51,6 +51,15 @@ function ScreeningPage() {
       <div className="mt-6">
         <Checklist items={steps} />
       </div>
+
+      <div className="mt-8 flex flex-wrap gap-2">
+        <a
+          href="#"
+          className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-surface text-sm hover:border-primary"
+        >
+          Bots &amp; commands →
+        </a>
+      </div>
     </div>
   );
 }
