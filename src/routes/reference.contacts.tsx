@@ -235,7 +235,7 @@ function JurisdictionRow({ r }: { r: Row }) {
 function ContactsPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12 print-page">
-      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Critical incident contacts</h1>
+      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Critical Incident Contact List</h1>
       <p className="mt-3 text-foreground/85">
         Who to call when it’s serious: emergency services, crisis support, exploitation reporting, and the child-protection line for wherever the youth lives. Every number is checked against official sources — the banner shows when.
       </p>
@@ -257,18 +257,18 @@ function ContactsPage() {
 
       <section className="mt-8">
         <h2 className="font-display text-xl font-semibold">Crisis support</h2>
-        <div className="mt-3 space-y-3">
+        <div className="mt-3 space-y-4">
           <div>
-            <p className="text-sm font-semibold text-foreground/85">Canada</p>
-            <ul>
+            <PillHeader>Canada</PillHeader>
+            <ul className="mt-3">
               <EntryLine e={{ label: "Kids Help Phone", tel: "1-800-668-6868", display: "1-800-668-6868" }} />
               <EntryLine e={{ label: "Kids Help Phone (text)", note: "text CONNECT to 686868" }} />
               <EntryLine e={{ label: "988 Suicide Crisis Helpline", tel: "988", display: "call/text 988" }} />
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-foreground/85">United States</p>
-            <ul>
+            <PillHeader>United States</PillHeader>
+            <ul className="mt-3">
               <EntryLine e={{ label: "988 Suicide & Crisis Lifeline", tel: "988", display: "call/text 988" }} />
               <EntryLine e={{ label: "Crisis Text Line", note: "text HOME to 741741" }} />
             </ul>
