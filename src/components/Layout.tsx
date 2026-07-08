@@ -53,29 +53,31 @@ function Header() {
   return (
     <header className="border-b border-border bg-background/95 backdrop-blur sticky top-0 z-30">
       <div className="mx-auto max-w-5xl px-4 py-3 flex flex-wrap items-center gap-3 justify-between">
-        <Link to="/" className="font-display text-lg font-semibold tracking-tight text-foreground whitespace-nowrap">
-          NGM Alliance <span className="text-primary">Mod Resources</span>
+        <Link to="/" className="font-display text-lg font-bold tracking-tight text-white whitespace-nowrap">
+          NGM Alliance <span style={{ color: "#5865F2" }}>Mod Resources</span>
         </Link>
         <nav className="flex items-center gap-1 text-sm order-3 sm:order-2 w-full sm:w-auto">
           <Link
             to="/"
-            className="px-3 py-2 rounded-md hover:bg-card"
+            className="px-3 py-2 rounded-md text-muted-foreground font-semibold hover:bg-card hover:text-white"
             activeOptions={{ exact: true }}
-            activeProps={{ className: "px-3 py-2 rounded-md bg-card font-medium" }}
+            activeProps={{ className: "px-3 py-2 rounded-md bg-card font-semibold text-white" }}
           >
             Decide
           </Link>
           <Link
             to="/reference/$"
             params={{ _splat: "" }}
-            className="px-3 py-2 rounded-md hover:bg-card"
+            className="px-3 py-2 rounded-md text-muted-foreground font-semibold hover:bg-card hover:text-white"
+            activeProps={{ className: "px-3 py-2 rounded-md bg-card font-semibold text-white" }}
           >
             Reference
           </Link>
           <Link
             to="/how-to/$"
             params={{ _splat: "" }}
-            className="px-3 py-2 rounded-md hover:bg-card"
+            className="px-3 py-2 rounded-md text-muted-foreground font-semibold hover:bg-card hover:text-white"
+            activeProps={{ className: "px-3 py-2 rounded-md bg-card font-semibold text-white" }}
           >
             How-to
           </Link>
