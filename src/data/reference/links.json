@@ -22,7 +22,7 @@
       "heading": "Reporting & admin",
       "links": [
         { "label": "Event Attendance Form", "href": "https://nextgenmen.ca/alliance/attendance", "meta": "Typeform" },
-        { "label": "Critical Incident Form", "href": "https://nextgenmen.ca/alliance/incident", "meta": "Typeform" },
+        { "label": "Critical Incident Report on Typeform", "href": "https://nextgenmen.ca/alliance/incident", "meta": "Typeform" },
         { "label": "Anonymous Report Form", "href": "https://nextgenmen.ca/alliance/anonymous", "meta": "Typeform" }
       ]
     },

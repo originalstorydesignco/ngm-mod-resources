@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useRole } from "@/lib/role";
+import { SearchBox } from "@/components/SearchBox";
+
 
 function EmergencyBanner() {
   return (
@@ -76,17 +78,18 @@ function Header() {
             Reference
           </Link>
           <Link
-            to="/how-to/$"
-            params={{ _splat: "" }}
+            to="/how-to"
             className="px-3 py-2 rounded-md text-muted-foreground font-semibold hover:bg-card hover:text-white"
             activeProps={{ className: "px-3 py-2 rounded-md bg-card font-semibold text-white" }}
           >
             How-to
           </Link>
         </nav>
-        <div className="order-2 sm:order-3">
+        <div className="order-2 sm:order-3 flex items-center gap-2">
+          <SearchBox />
           <RoleToggle />
         </div>
+
       </div>
     </header>
   );

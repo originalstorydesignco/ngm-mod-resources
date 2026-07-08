@@ -11,13 +11,19 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReferenceIndexRouteImport } from './routes/reference.index'
+import { Route as HowToIndexRouteImport } from './routes/how-to.index'
 import { Route as ReferenceSystemsOfCareRouteImport } from './routes/reference.systems-of-care'
 import { Route as ReferenceScopeRouteImport } from './routes/reference.scope'
 import { Route as ReferenceLinksRouteImport } from './routes/reference.links'
 import { Route as ReferenceContactsRouteImport } from './routes/reference.contacts'
 import { Route as ReferenceChannelsRouteImport } from './routes/reference.channels'
 import { Route as ReferenceBotsRouteImport } from './routes/reference.bots'
-import { Route as HowToSplatRouteImport } from './routes/how-to.$'
+import { Route as HowToScreeningRouteImport } from './routes/how-to.screening'
+import { Route as HowToFlagsLogRouteImport } from './routes/how-to.flags-log'
+import { Route as HowToEventsRouteImport } from './routes/how-to.events'
+import { Route as HowToEventMenuRouteImport } from './routes/how-to.event-menu'
+import { Route as HowToEventBoardRouteImport } from './routes/how-to.event-board'
+import { Route as HowToAnnouncementRouteImport } from './routes/how-to.announcement'
 import { Route as DecideReportingRouteImport } from './routes/decide.reporting'
 import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.critical-incident'
 import { Route as DecideConflictRouteImport } from './routes/decide.conflict'
@@ -31,6 +37,11 @@ const IndexRoute = IndexRouteImport.update({
 const ReferenceIndexRoute = ReferenceIndexRouteImport.update({
   id: '/reference/',
   path: '/reference/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToIndexRoute = HowToIndexRouteImport.update({
+  id: '/how-to/',
+  path: '/how-to/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReferenceSystemsOfCareRoute = ReferenceSystemsOfCareRouteImport.update({
@@ -63,9 +74,34 @@ const ReferenceBotsRoute = ReferenceBotsRouteImport.update({
   path: '/reference/bots',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HowToSplatRoute = HowToSplatRouteImport.update({
-  id: '/how-to/$',
-  path: '/how-to/$',
+const HowToScreeningRoute = HowToScreeningRouteImport.update({
+  id: '/how-to/screening',
+  path: '/how-to/screening',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToFlagsLogRoute = HowToFlagsLogRouteImport.update({
+  id: '/how-to/flags-log',
+  path: '/how-to/flags-log',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToEventsRoute = HowToEventsRouteImport.update({
+  id: '/how-to/events',
+  path: '/how-to/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToEventMenuRoute = HowToEventMenuRouteImport.update({
+  id: '/how-to/event-menu',
+  path: '/how-to/event-menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToEventBoardRoute = HowToEventBoardRouteImport.update({
+  id: '/how-to/event-board',
+  path: '/how-to/event-board',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToAnnouncementRoute = HowToAnnouncementRouteImport.update({
+  id: '/how-to/announcement',
+  path: '/how-to/announcement',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DecideReportingRoute = DecideReportingRouteImport.update({
@@ -95,13 +131,19 @@ export interface FileRoutesByFullPath {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
-  '/how-to/$': typeof HowToSplatRoute
+  '/how-to/announcement': typeof HowToAnnouncementRoute
+  '/how-to/event-board': typeof HowToEventBoardRoute
+  '/how-to/event-menu': typeof HowToEventMenuRoute
+  '/how-to/events': typeof HowToEventsRoute
+  '/how-to/flags-log': typeof HowToFlagsLogRoute
+  '/how-to/screening': typeof HowToScreeningRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
   '/reference/systems-of-care': typeof ReferenceSystemsOfCareRoute
+  '/how-to/': typeof HowToIndexRoute
   '/reference/': typeof ReferenceIndexRoute
 }
 export interface FileRoutesByTo {
@@ -110,13 +152,19 @@ export interface FileRoutesByTo {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
-  '/how-to/$': typeof HowToSplatRoute
+  '/how-to/announcement': typeof HowToAnnouncementRoute
+  '/how-to/event-board': typeof HowToEventBoardRoute
+  '/how-to/event-menu': typeof HowToEventMenuRoute
+  '/how-to/events': typeof HowToEventsRoute
+  '/how-to/flags-log': typeof HowToFlagsLogRoute
+  '/how-to/screening': typeof HowToScreeningRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
   '/reference/systems-of-care': typeof ReferenceSystemsOfCareRoute
+  '/how-to': typeof HowToIndexRoute
   '/reference': typeof ReferenceIndexRoute
 }
 export interface FileRoutesById {
@@ -126,13 +174,19 @@ export interface FileRoutesById {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
-  '/how-to/$': typeof HowToSplatRoute
+  '/how-to/announcement': typeof HowToAnnouncementRoute
+  '/how-to/event-board': typeof HowToEventBoardRoute
+  '/how-to/event-menu': typeof HowToEventMenuRoute
+  '/how-to/events': typeof HowToEventsRoute
+  '/how-to/flags-log': typeof HowToFlagsLogRoute
+  '/how-to/screening': typeof HowToScreeningRoute
   '/reference/bots': typeof ReferenceBotsRoute
   '/reference/channels': typeof ReferenceChannelsRoute
   '/reference/contacts': typeof ReferenceContactsRoute
   '/reference/links': typeof ReferenceLinksRoute
   '/reference/scope': typeof ReferenceScopeRoute
   '/reference/systems-of-care': typeof ReferenceSystemsOfCareRoute
+  '/how-to/': typeof HowToIndexRoute
   '/reference/': typeof ReferenceIndexRoute
 }
 export interface FileRouteTypes {
@@ -143,13 +197,19 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
-    | '/how-to/$'
+    | '/how-to/announcement'
+    | '/how-to/event-board'
+    | '/how-to/event-menu'
+    | '/how-to/events'
+    | '/how-to/flags-log'
+    | '/how-to/screening'
     | '/reference/bots'
     | '/reference/channels'
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
     | '/reference/systems-of-care'
+    | '/how-to/'
     | '/reference/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -158,13 +218,19 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
-    | '/how-to/$'
+    | '/how-to/announcement'
+    | '/how-to/event-board'
+    | '/how-to/event-menu'
+    | '/how-to/events'
+    | '/how-to/flags-log'
+    | '/how-to/screening'
     | '/reference/bots'
     | '/reference/channels'
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
     | '/reference/systems-of-care'
+    | '/how-to'
     | '/reference'
   id:
     | '__root__'
@@ -173,13 +239,19 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
-    | '/how-to/$'
+    | '/how-to/announcement'
+    | '/how-to/event-board'
+    | '/how-to/event-menu'
+    | '/how-to/events'
+    | '/how-to/flags-log'
+    | '/how-to/screening'
     | '/reference/bots'
     | '/reference/channels'
     | '/reference/contacts'
     | '/reference/links'
     | '/reference/scope'
     | '/reference/systems-of-care'
+    | '/how-to/'
     | '/reference/'
   fileRoutesById: FileRoutesById
 }
@@ -189,13 +261,19 @@ export interface RootRouteChildren {
   DecideConflictRoute: typeof DecideConflictRoute
   DecideCriticalIncidentRoute: typeof DecideCriticalIncidentRoute
   DecideReportingRoute: typeof DecideReportingRoute
-  HowToSplatRoute: typeof HowToSplatRoute
+  HowToAnnouncementRoute: typeof HowToAnnouncementRoute
+  HowToEventBoardRoute: typeof HowToEventBoardRoute
+  HowToEventMenuRoute: typeof HowToEventMenuRoute
+  HowToEventsRoute: typeof HowToEventsRoute
+  HowToFlagsLogRoute: typeof HowToFlagsLogRoute
+  HowToScreeningRoute: typeof HowToScreeningRoute
   ReferenceBotsRoute: typeof ReferenceBotsRoute
   ReferenceChannelsRoute: typeof ReferenceChannelsRoute
   ReferenceContactsRoute: typeof ReferenceContactsRoute
   ReferenceLinksRoute: typeof ReferenceLinksRoute
   ReferenceScopeRoute: typeof ReferenceScopeRoute
   ReferenceSystemsOfCareRoute: typeof ReferenceSystemsOfCareRoute
+  HowToIndexRoute: typeof HowToIndexRoute
   ReferenceIndexRoute: typeof ReferenceIndexRoute
 }
 
@@ -213,6 +291,13 @@ declare module '@tanstack/react-router' {
       path: '/reference'
       fullPath: '/reference/'
       preLoaderRoute: typeof ReferenceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to/': {
+      id: '/how-to/'
+      path: '/how-to'
+      fullPath: '/how-to/'
+      preLoaderRoute: typeof HowToIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reference/systems-of-care': {
@@ -257,11 +342,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferenceBotsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/how-to/$': {
-      id: '/how-to/$'
-      path: '/how-to/$'
-      fullPath: '/how-to/$'
-      preLoaderRoute: typeof HowToSplatRouteImport
+    '/how-to/screening': {
+      id: '/how-to/screening'
+      path: '/how-to/screening'
+      fullPath: '/how-to/screening'
+      preLoaderRoute: typeof HowToScreeningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to/flags-log': {
+      id: '/how-to/flags-log'
+      path: '/how-to/flags-log'
+      fullPath: '/how-to/flags-log'
+      preLoaderRoute: typeof HowToFlagsLogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to/events': {
+      id: '/how-to/events'
+      path: '/how-to/events'
+      fullPath: '/how-to/events'
+      preLoaderRoute: typeof HowToEventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to/event-menu': {
+      id: '/how-to/event-menu'
+      path: '/how-to/event-menu'
+      fullPath: '/how-to/event-menu'
+      preLoaderRoute: typeof HowToEventMenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to/event-board': {
+      id: '/how-to/event-board'
+      path: '/how-to/event-board'
+      fullPath: '/how-to/event-board'
+      preLoaderRoute: typeof HowToEventBoardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to/announcement': {
+      id: '/how-to/announcement'
+      path: '/how-to/announcement'
+      fullPath: '/how-to/announcement'
+      preLoaderRoute: typeof HowToAnnouncementRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/decide/reporting': {
@@ -301,13 +421,19 @@ const rootRouteChildren: RootRouteChildren = {
   DecideConflictRoute: DecideConflictRoute,
   DecideCriticalIncidentRoute: DecideCriticalIncidentRoute,
   DecideReportingRoute: DecideReportingRoute,
-  HowToSplatRoute: HowToSplatRoute,
+  HowToAnnouncementRoute: HowToAnnouncementRoute,
+  HowToEventBoardRoute: HowToEventBoardRoute,
+  HowToEventMenuRoute: HowToEventMenuRoute,
+  HowToEventsRoute: HowToEventsRoute,
+  HowToFlagsLogRoute: HowToFlagsLogRoute,
+  HowToScreeningRoute: HowToScreeningRoute,
   ReferenceBotsRoute: ReferenceBotsRoute,
   ReferenceChannelsRoute: ReferenceChannelsRoute,
   ReferenceContactsRoute: ReferenceContactsRoute,
   ReferenceLinksRoute: ReferenceLinksRoute,
   ReferenceScopeRoute: ReferenceScopeRoute,
   ReferenceSystemsOfCareRoute: ReferenceSystemsOfCareRoute,
+  HowToIndexRoute: HowToIndexRoute,
   ReferenceIndexRoute: ReferenceIndexRoute,
 }
 export const routeTree = rootRouteImport
