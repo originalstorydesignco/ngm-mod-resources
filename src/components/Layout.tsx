@@ -69,8 +69,7 @@ function Header() {
             Decide
           </Link>
           <Link
-            to="/reference/$"
-            params={{ _splat: "" }}
+            to="/reference"
             className="px-3 py-2 rounded-md text-muted-foreground font-semibold hover:bg-card hover:text-white"
             activeProps={{ className: "px-3 py-2 rounded-md bg-card font-semibold text-white" }}
           >

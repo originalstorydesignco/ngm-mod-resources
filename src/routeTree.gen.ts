@@ -10,7 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ReferenceSplatRouteImport } from './routes/reference.$'
+import { Route as ReferenceIndexRouteImport } from './routes/reference.index'
+import { Route as ReferenceScopeRouteImport } from './routes/reference.scope'
+import { Route as ReferenceLinksRouteImport } from './routes/reference.links'
+import { Route as ReferenceChannelsRouteImport } from './routes/reference.channels'
+import { Route as ReferenceBotsRouteImport } from './routes/reference.bots'
 import { Route as HowToSplatRouteImport } from './routes/how-to.$'
 import { Route as DecideReportingRouteImport } from './routes/decide.reporting'
 import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.critical-incident'
@@ -22,9 +26,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ReferenceSplatRoute = ReferenceSplatRouteImport.update({
-  id: '/reference/$',
-  path: '/reference/$',
+const ReferenceIndexRoute = ReferenceIndexRouteImport.update({
+  id: '/reference/',
+  path: '/reference/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenceScopeRoute = ReferenceScopeRouteImport.update({
+  id: '/reference/scope',
+  path: '/reference/scope',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenceLinksRoute = ReferenceLinksRouteImport.update({
+  id: '/reference/links',
+  path: '/reference/links',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenceChannelsRoute = ReferenceChannelsRouteImport.update({
+  id: '/reference/channels',
+  path: '/reference/channels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferenceBotsRoute = ReferenceBotsRouteImport.update({
+  id: '/reference/bots',
+  path: '/reference/bots',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowToSplatRoute = HowToSplatRouteImport.update({
@@ -60,7 +84,11 @@ export interface FileRoutesByFullPath {
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
   '/how-to/$': typeof HowToSplatRoute
-  '/reference/$': typeof ReferenceSplatRoute
+  '/reference/bots': typeof ReferenceBotsRoute
+  '/reference/channels': typeof ReferenceChannelsRoute
+  '/reference/links': typeof ReferenceLinksRoute
+  '/reference/scope': typeof ReferenceScopeRoute
+  '/reference/': typeof ReferenceIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +97,11 @@ export interface FileRoutesByTo {
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
   '/how-to/$': typeof HowToSplatRoute
-  '/reference/$': typeof ReferenceSplatRoute
+  '/reference/bots': typeof ReferenceBotsRoute
+  '/reference/channels': typeof ReferenceChannelsRoute
+  '/reference/links': typeof ReferenceLinksRoute
+  '/reference/scope': typeof ReferenceScopeRoute
+  '/reference': typeof ReferenceIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +111,11 @@ export interface FileRoutesById {
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
   '/how-to/$': typeof HowToSplatRoute
-  '/reference/$': typeof ReferenceSplatRoute
+  '/reference/bots': typeof ReferenceBotsRoute
+  '/reference/channels': typeof ReferenceChannelsRoute
+  '/reference/links': typeof ReferenceLinksRoute
+  '/reference/scope': typeof ReferenceScopeRoute
+  '/reference/': typeof ReferenceIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +126,11 @@ export interface FileRouteTypes {
     | '/decide/critical-incident'
     | '/decide/reporting'
     | '/how-to/$'
-    | '/reference/$'
+    | '/reference/bots'
+    | '/reference/channels'
+    | '/reference/links'
+    | '/reference/scope'
+    | '/reference/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +139,11 @@ export interface FileRouteTypes {
     | '/decide/critical-incident'
     | '/decide/reporting'
     | '/how-to/$'
-    | '/reference/$'
+    | '/reference/bots'
+    | '/reference/channels'
+    | '/reference/links'
+    | '/reference/scope'
+    | '/reference'
   id:
     | '__root__'
     | '/'
@@ -108,7 +152,11 @@ export interface FileRouteTypes {
     | '/decide/critical-incident'
     | '/decide/reporting'
     | '/how-to/$'
-    | '/reference/$'
+    | '/reference/bots'
+    | '/reference/channels'
+    | '/reference/links'
+    | '/reference/scope'
+    | '/reference/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,7 +166,11 @@ export interface RootRouteChildren {
   DecideCriticalIncidentRoute: typeof DecideCriticalIncidentRoute
   DecideReportingRoute: typeof DecideReportingRoute
   HowToSplatRoute: typeof HowToSplatRoute
-  ReferenceSplatRoute: typeof ReferenceSplatRoute
+  ReferenceBotsRoute: typeof ReferenceBotsRoute
+  ReferenceChannelsRoute: typeof ReferenceChannelsRoute
+  ReferenceLinksRoute: typeof ReferenceLinksRoute
+  ReferenceScopeRoute: typeof ReferenceScopeRoute
+  ReferenceIndexRoute: typeof ReferenceIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -130,11 +182,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/reference/$': {
-      id: '/reference/$'
-      path: '/reference/$'
-      fullPath: '/reference/$'
-      preLoaderRoute: typeof ReferenceSplatRouteImport
+    '/reference/': {
+      id: '/reference/'
+      path: '/reference'
+      fullPath: '/reference/'
+      preLoaderRoute: typeof ReferenceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reference/scope': {
+      id: '/reference/scope'
+      path: '/reference/scope'
+      fullPath: '/reference/scope'
+      preLoaderRoute: typeof ReferenceScopeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reference/links': {
+      id: '/reference/links'
+      path: '/reference/links'
+      fullPath: '/reference/links'
+      preLoaderRoute: typeof ReferenceLinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reference/channels': {
+      id: '/reference/channels'
+      path: '/reference/channels'
+      fullPath: '/reference/channels'
+      preLoaderRoute: typeof ReferenceChannelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reference/bots': {
+      id: '/reference/bots'
+      path: '/reference/bots'
+      fullPath: '/reference/bots'
+      preLoaderRoute: typeof ReferenceBotsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-to/$': {
@@ -182,7 +262,11 @@ const rootRouteChildren: RootRouteChildren = {
   DecideCriticalIncidentRoute: DecideCriticalIncidentRoute,
   DecideReportingRoute: DecideReportingRoute,
   HowToSplatRoute: HowToSplatRoute,
-  ReferenceSplatRoute: ReferenceSplatRoute,
+  ReferenceBotsRoute: ReferenceBotsRoute,
+  ReferenceChannelsRoute: ReferenceChannelsRoute,
+  ReferenceLinksRoute: ReferenceLinksRoute,
+  ReferenceScopeRoute: ReferenceScopeRoute,
+  ReferenceIndexRoute: ReferenceIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

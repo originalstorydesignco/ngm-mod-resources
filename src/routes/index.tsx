@@ -111,8 +111,7 @@ function Index() {
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           <Link
-            to="/reference/$"
-            params={{ _splat: "" }}
+            to="/reference"
             className="inline-flex items-center h-10 px-3 rounded-md border border-border bg-surface text-sm hover:border-primary"
           >
             Reference
