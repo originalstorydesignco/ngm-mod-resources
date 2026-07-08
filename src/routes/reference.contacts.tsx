@@ -306,7 +306,7 @@ function ContactsPage() {
         </div>
 
         <div className="mt-8">
-          <PillHeader>US</PillHeader>
+          <PillHeader>United States</PillHeader>
           <div className="mt-3 rounded-md border border-border bg-card px-4 py-3 text-sm">
             <p>
               Report to the state CPS agency where the youth lives. Childhelp: call or text{" "}
