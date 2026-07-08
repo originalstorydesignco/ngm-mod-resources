@@ -168,3 +168,23 @@ h3, h4 {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Print stylesheet for /reference/links — clean black-on-white, no chrome */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .print-hide { display: none !important; }
+  .print-page {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+  .print-page * {
+    background: transparent !important;
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+  }
+  .print-page a { color: #000 !important; text-decoration: underline; }
+  .print-page h1, .print-page h2, .print-page h3 { color: #000 !important; }
+}
