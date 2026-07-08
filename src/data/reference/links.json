@@ -1,15 +1,30 @@
 {
-  "keyLinks": [
-    { "label": "Server invite (for pasting on Discord)", "href": "https://discord.gg/PXSJw2PFSx" },
-    { "label": "Server invite (for pasting elsewhere)", "href": "https://nextgenmen.ca/discord" },
-    { "label": "Server poster (downloadable PDF)", "href": "https://nextgenmen.ca/alliance/poster" },
-    { "label": "Youth Registration Form on Typeform", "href": "https://nextgenmen.ca/alliance/youth" },
-    { "label": "Parent/Guardian Registration Form on Typeform", "href": "https://nextgenmen.ca/alliance/parents" },
-    { "label": "NGMA Terms of Service (Google Doc)", "href": "https://nextgenmen.ca/alliance/terms" },
-    { "label": "NGMA Houses Questionnaire on Typeform", "href": "https://nextgenmen.ca/alliance/houses" },
-    { "label": "Twitch Media Release Form on Typeform", "href": "https://nextgenmen.ca/alliance/twitch" },
-    { "label": "Event Attendance Form on Typeform", "href": "https://nextgenmen.ca/alliance/attendance" },
-    { "label": "Critical Incident Form on Typeform", "href": "https://nextgenmen.ca/alliance/incident" },
-    { "label": "Anonymous Report Form on Typeform", "href": "https://nextgenmen.ca/alliance/anonymous" }
+  "groups": [
+    {
+      "heading": "Promotion",
+      "links": [
+        { "label": "Server invite (for pasting on Discord)", "href": "https://discord.gg/PXSJw2PFSx" },
+        { "label": "Server invite (for pasting elsewhere)", "href": "https://nextgenmen.ca/discord" },
+        { "label": "Server poster", "href": "https://nextgenmen.ca/alliance/poster", "meta": "Downloadable PDF" }
+      ]
+    },
+    {
+      "heading": "Registration & consent",
+      "links": [
+        { "label": "Youth Registration Form", "href": "https://nextgenmen.ca/alliance/youth", "meta": "Typeform" },
+        { "label": "Parent/Guardian Registration Form", "href": "https://nextgenmen.ca/alliance/parents", "meta": "Typeform" },
+        { "label": "NGMA Terms of Service", "href": "https://nextgenmen.ca/alliance/terms", "meta": "Google Doc" },
+        { "label": "NGMA Houses Questionnaire", "href": "https://nextgenmen.ca/alliance/houses", "meta": "Typeform" },
+        { "label": "Twitch Media Release Form", "href": "https://nextgenmen.ca/alliance/twitch", "meta": "Typeform" }
+      ]
+    },
+    {
+      "heading": "Reporting & admin",
+      "links": [
+        { "label": "Event Attendance Form", "href": "https://nextgenmen.ca/alliance/attendance", "meta": "Typeform" },
+        { "label": "Critical Incident Form", "href": "https://nextgenmen.ca/alliance/incident", "meta": "Typeform" },
+        { "label": "Anonymous Report Form", "href": "https://nextgenmen.ca/alliance/anonymous", "meta": "Typeform" }
+      ]
+    }
   ]
 }
