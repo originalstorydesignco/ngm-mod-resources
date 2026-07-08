@@ -4,7 +4,7 @@
   "intro": {
     "description": "You’ve got a concern or a complaint about someone — this is the chain for who to bring it to, especially if it involves a staff member.",
     "standingRules": [
-      "Moderators escalate to a Coordinator or @Facilitators — they don’t climb this ladder.",
+      "If you’re a Moderator, your one step is simple: bring the concern to your supervisor or ping @Facilitators. The chain below is how staff take it from there.",
       "If the concern involves the person you’d normally report to, go one level up.",
       "Concerns about an admin can also go straight to the CEO or through the anonymous report form."
     ]
