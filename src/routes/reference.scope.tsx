@@ -69,9 +69,8 @@ function ScopePage() {
       <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">
         Is this mine to do?
       </h1>
-      <p className="mt-2 text-muted-foreground">Scope of Practice.</p>
       <p className="mt-3 text-foreground/85">
-        What’s in the wheelhouse of NGM Alliance staff — and what belongs to a therapist, a parent, a doctor, or a lawyer instead. Search it like a question: can I drive a youth? Can I give a gift?
+        What’s in the wheelhouse of NGM Alliance staff — and what belongs to a therapist, a parent, a doctor, or a lawyer instead. Search it by keyword: drive, gift, referral, suicide.
       </p>
 
       <div className="mt-6">
