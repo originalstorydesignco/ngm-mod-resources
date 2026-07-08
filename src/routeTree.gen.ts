@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ReferenceSplatRouteImport } from './routes/reference.$'
+import { Route as HowToSplatRouteImport } from './routes/how-to.$'
+import { Route as DecideReportingRouteImport } from './routes/decide.reporting'
+import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.critical-incident'
+import { Route as DecideConflictRouteImport } from './routes/decide.conflict'
+import { Route as DecideConfidentialityRouteImport } from './routes/decide.confidentiality'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReferenceSplatRoute = ReferenceSplatRouteImport.update({
+  id: '/reference/$',
+  path: '/reference/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowToSplatRoute = HowToSplatRouteImport.update({
+  id: '/how-to/$',
+  path: '/how-to/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecideReportingRoute = DecideReportingRouteImport.update({
+  id: '/decide/reporting',
+  path: '/decide/reporting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecideCriticalIncidentRoute = DecideCriticalIncidentRouteImport.update({
+  id: '/decide/critical-incident',
+  path: '/decide/critical-incident',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecideConflictRoute = DecideConflictRouteImport.update({
+  id: '/decide/conflict',
+  path: '/decide/conflict',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DecideConfidentialityRoute = DecideConfidentialityRouteImport.update({
+  id: '/decide/confidentiality',
+  path: '/decide/confidentiality',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/decide/confidentiality': typeof DecideConfidentialityRoute
+  '/decide/conflict': typeof DecideConflictRoute
+  '/decide/critical-incident': typeof DecideCriticalIncidentRoute
+  '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/$': typeof HowToSplatRoute
+  '/reference/$': typeof ReferenceSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/decide/confidentiality': typeof DecideConfidentialityRoute
+  '/decide/conflict': typeof DecideConflictRoute
+  '/decide/critical-incident': typeof DecideCriticalIncidentRoute
+  '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/$': typeof HowToSplatRoute
+  '/reference/$': typeof ReferenceSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/decide/confidentiality': typeof DecideConfidentialityRoute
+  '/decide/conflict': typeof DecideConflictRoute
+  '/decide/critical-incident': typeof DecideCriticalIncidentRoute
+  '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/$': typeof HowToSplatRoute
+  '/reference/$': typeof ReferenceSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/decide/confidentiality'
+    | '/decide/conflict'
+    | '/decide/critical-incident'
+    | '/decide/reporting'
+    | '/how-to/$'
+    | '/reference/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/decide/confidentiality'
+    | '/decide/conflict'
+    | '/decide/critical-incident'
+    | '/decide/reporting'
+    | '/how-to/$'
+    | '/reference/$'
+  id:
+    | '__root__'
+    | '/'
+    | '/decide/confidentiality'
+    | '/decide/conflict'
+    | '/decide/critical-incident'
+    | '/decide/reporting'
+    | '/how-to/$'
+    | '/reference/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DecideConfidentialityRoute: typeof DecideConfidentialityRoute
+  DecideConflictRoute: typeof DecideConflictRoute
+  DecideCriticalIncidentRoute: typeof DecideCriticalIncidentRoute
+  DecideReportingRoute: typeof DecideReportingRoute
+  HowToSplatRoute: typeof HowToSplatRoute
+  ReferenceSplatRoute: typeof ReferenceSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +130,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reference/$': {
+      id: '/reference/$'
+      path: '/reference/$'
+      fullPath: '/reference/$'
+      preLoaderRoute: typeof ReferenceSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-to/$': {
+      id: '/how-to/$'
+      path: '/how-to/$'
+      fullPath: '/how-to/$'
+      preLoaderRoute: typeof HowToSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decide/reporting': {
+      id: '/decide/reporting'
+      path: '/decide/reporting'
+      fullPath: '/decide/reporting'
+      preLoaderRoute: typeof DecideReportingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decide/critical-incident': {
+      id: '/decide/critical-incident'
+      path: '/decide/critical-incident'
+      fullPath: '/decide/critical-incident'
+      preLoaderRoute: typeof DecideCriticalIncidentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decide/conflict': {
+      id: '/decide/conflict'
+      path: '/decide/conflict'
+      fullPath: '/decide/conflict'
+      preLoaderRoute: typeof DecideConflictRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/decide/confidentiality': {
+      id: '/decide/confidentiality'
+      path: '/decide/confidentiality'
+      fullPath: '/decide/confidentiality'
+      preLoaderRoute: typeof DecideConfidentialityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DecideConfidentialityRoute: DecideConfidentialityRoute,
+  DecideConflictRoute: DecideConflictRoute,
+  DecideCriticalIncidentRoute: DecideCriticalIncidentRoute,
+  DecideReportingRoute: DecideReportingRoute,
+  HowToSplatRoute: HowToSplatRoute,
+  ReferenceSplatRoute: ReferenceSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
