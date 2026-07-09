@@ -25,7 +25,7 @@ export function AiInvolvementModal() {
         </DialogHeader>
         <DialogDescription asChild>
           <p className="text-sm text-foreground/85 leading-relaxed">
-            This portal was designed with help from AI: Claude was used to draft the build
+            This portal was designed with help from AI. Claude was used to draft the build
             prompts and Lovable was used to assemble the web portal. The
             frameworks, decision tools, procedures, and safeguarding practices were—and continue to be—created by the Next Gen Men team.
           </p>
