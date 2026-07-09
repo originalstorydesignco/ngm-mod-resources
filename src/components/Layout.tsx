@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useRole } from "@/lib/role";
 import { SearchBox } from "@/components/SearchBox";
+import { AiInvolvementModal } from "@/components/AiInvolvementModal";
+
 
 
 function EmergencyBanner() {
@@ -98,9 +100,11 @@ function Header() {
 function Footer() {
   return (
     <footer className="border-t border-border mt-16">
-      <div className="mx-auto max-w-5xl px-4 py-6 text-sm text-muted-foreground flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-        <span>Next Gen Men · NGM Alliance Mod Resources</span>
-        <span>Last updated July 8, 2026</span>
+      <div className="mx-auto max-w-5xl px-4 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <span className="text-sm text-muted-foreground">
+          Next Gen Men · Last updated July 8, 2026
+        </span>
+        <AiInvolvementModal />
       </div>
     </footer>
   );
