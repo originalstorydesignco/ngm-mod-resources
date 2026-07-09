@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useRole } from "@/lib/role";
 import { SearchBox } from "@/components/SearchBox";
+import { AiInvolvementModal } from "@/components/AiInvolvementModal";
+
 
 
 function EmergencyBanner() {
