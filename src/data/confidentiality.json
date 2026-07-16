@@ -92,7 +92,7 @@
     },
     "q9": {
       "type": "question",
-      "text": "Does the youth want someone else to know?",
+      "text": "Does the youth want another adult to know?",
       "answers": [
         { "label": "Yes", "goto": "q10" },
         { "label": "No", "goto": "end-support" }
