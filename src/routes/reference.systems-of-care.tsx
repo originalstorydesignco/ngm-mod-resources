@@ -32,6 +32,17 @@ function SystemsOfCarePage() {
           className="w-full max-w-[720px] h-auto"
         />
       </div>
+
+      <div className="mt-8 space-y-2 text-foreground/85">
+        <p><span className="font-semibold">System of Safety</span> — how we protect youth: screening, policies, safeguards.</p>
+        <p><span className="font-semibold">System of Engagement</span> — how we build community: events, channels, bots.</p>
+        <p><span className="font-semibold">System of Connection</span> — how we support belonging and mental health: moderation, conflict resolution, identity-based spaces.</p>
+        <p><span className="font-semibold">System of Empowerment</span> — how we grow youth leaders: YAC, youth moderation, evaluation.</p>
+      </div>
+
+      <p className="mt-6 text-foreground/85">
+        A big thing to hold onto: safety is a foundational part of our online community, but it’s part of our larger commitment to care. Rather than just moderation tactics, kicks and bans, we’re also building trust, supporting belonging, and handling conflict with a strengths-based lens.
+      </p>
     </div>
   );
 }
