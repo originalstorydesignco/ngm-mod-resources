@@ -13,6 +13,19 @@
       }
     }
   },
+  "closeout": {
+    "title": "Always close out",
+    "steps": [
+      "Complete the Incident Report — what happened (dates, times, message links), who was involved, what you did and who you looped in, what was reported and when, and what follow-up is owed and who owns it.",
+      "Log it in #flags-log so the Facilitator team has the picture — keep sensitive detail appropriate to the channel.",
+      "Debrief and check on whoever responded. This work carries real weight; don’t let the responder just move on alone.",
+      "If the concern involves a staff member, run the Reporting Hierarchy tool too."
+    ],
+    "actions": [
+      { "label": "Critical Incident Report Form →", "href": "https://nextgenmen.ca/alliance/incident" },
+      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting" }
+    ]
+  },
   "start": "q1",
   "nodes": {
     "q1": {
