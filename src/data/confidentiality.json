@@ -122,6 +122,7 @@
     "end-911": {
       "type": "endpoint",
       "urgency": "emergency",
+      "closeout": true,
       "headline": "Call 911 or relevant emergency services now.",
       "steps": [
         "Use the city/province and emergency contact on file to direct help if the youth can’t.",
