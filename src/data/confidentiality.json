@@ -13,6 +13,19 @@
       }
     }
   },
+  "closeout": {
+    "title": "Always close out",
+    "steps": [
+      "Complete the Incident Report — what happened (dates, times, message links), who was involved, what you did and who you looped in, what was reported and when, and what follow-up is owed and who owns it.",
+      "Log it in #flags-log so the Facilitator team has the picture — keep sensitive detail appropriate to the channel.",
+      "Debrief and check on whoever responded. This work carries real weight; don’t let the responder just move on alone.",
+      "If the concern involves a staff member, run the Reporting Hierarchy tool too."
+    ],
+    "actions": [
+      { "label": "Critical Incident Report Form →", "href": "https://nextgenmen.ca/alliance/incident" },
+      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting" }
+    ]
+  },
   "start": "q1",
   "nodes": {
     "q1": {
@@ -92,7 +105,7 @@
     },
     "q9": {
       "type": "question",
-      "text": "Does the youth want someone else to know?",
+      "text": "Does the youth want another adult to know?",
       "answers": [
         { "label": "Yes", "goto": "q10" },
         { "label": "No", "goto": "end-support" }
@@ -109,14 +122,15 @@
     "end-911": {
       "type": "endpoint",
       "urgency": "emergency",
+      "closeout": true,
       "headline": "Call 911 or relevant emergency services now.",
       "steps": [
         "Use the city/province and emergency contact on file to direct help if the youth can’t.",
-        "Then continue in the Critical Incident tool."
+        "Then continue in the Critical Incident Tool — it picks up at ‘First, together’."
       ],
       "actions": [
         { "label": "Call 911", "href": "tel:911" },
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=s1" }
       ],
       "roleVariants": {
         "moderator": {

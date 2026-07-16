@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useSearch } from "@tanstack/react-router";
 import { useRole } from "@/lib/role";
 
 type Answer = { label: string; goto: string };
@@ -65,8 +65,10 @@ export type WizardData = {
 type Crumb = { nodeId: string; kind: "question" | "step"; label: string; value: string };
 
 export function Wizard({ data }: { data: WizardData }) {
-  const [started, setStarted] = useState(false);
-  const [currentId, setCurrentId] = useState(data.start);
+  const search = useSearch({ strict: false }) as { start?: string };
+  const startOverride = search?.start && data.nodes[search.start] ? search.start : undefined;
+  const [started, setStarted] = useState(!!startOverride);
+  const [currentId, setCurrentId] = useState(startOverride ?? data.start);
   const [trail, setTrail] = useState<Crumb[]>([]);
 
   const current = data.nodes[currentId];

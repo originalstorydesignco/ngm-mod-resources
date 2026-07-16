@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -8,10 +7,11 @@ export const Route = createFileRoute("/")({
 const cards = {
   criticalIncident: {
     to: "/decide/critical-incident",
-    title: "Something serious is happening — I need to respond.",
+    title: "Something serious is happening",
     desc: "Danger, grooming, abuse, threats, anything illegal.",
     accent: "primary",
     cta: "Critical Incident Tool →",
+    defaultHover: true,
   },
   confidentiality: {
     to: "/decide/confidentiality",
@@ -43,18 +43,31 @@ const cards = {
   },
 } as const;
 
-type CardData = { to: string; title: string; desc: string; accent: "primary" | "accent"; cta: string };
+type CardData = {
+  to: string;
+  title: string;
+  desc: string;
+  accent: "primary" | "accent";
+  cta: string;
+  defaultHover?: boolean;
+};
 
 function Card({ c }: { c: CardData }) {
+  const borderClass = c.defaultHover
+    ? "border-primary"
+    : "border-border hover:border-primary";
+  const dotClass = c.defaultHover
+    ? "bg-primary"
+    : "bg-muted-foreground/40 group-hover:bg-primary";
   return (
     <a
       href={c.to}
-      className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 hover:border-primary hover:shadow-sm transition-all"
+      className={`group flex h-full flex-col rounded-xl border ${borderClass} bg-surface p-5 hover:shadow-sm transition-all`}
     >
       <div className="flex items-start gap-2">
         <span
           aria-hidden
-          className="mt-2 h-2.5 w-2.5 flex-none rounded-full bg-muted-foreground/40 transition-colors group-hover:bg-primary"
+          className={`mt-2 h-2.5 w-2.5 flex-none rounded-full transition-colors ${dotClass}`}
         />
         <h2 className="font-display text-xl font-semibold leading-snug">{c.title}</h2>
       </div>
@@ -65,8 +78,6 @@ function Card({ c }: { c: CardData }) {
 }
 
 function Index() {
-  const [showHandoff, setShowHandoff] = useState(false);
-
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
       <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">
@@ -74,33 +85,20 @@ function Index() {
       </h1>
       <p className="mt-2 text-muted-foreground">Pick the closest match. It’ll walk you through the rest.</p>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+      <h2 className="mt-8 font-display text-xl font-semibold">Safety &amp; reporting</h2>
+      <div className="mt-4 grid gap-3 sm:grid-cols-3">
         <Card c={cards.criticalIncident} />
         <Card c={cards.confidentiality} />
-
-        <div className="sm:col-span-2 rounded-lg border border-border bg-card">
-          <button
-            type="button"
-            onClick={() => setShowHandoff((v) => !v)}
-            aria-expanded={showHandoff}
-            className="w-full flex items-center justify-between px-4 py-3 text-left"
-          >
-            <span className="text-sm font-medium">Which one? These two hand off to each other.</span>
-            <span aria-hidden className="text-muted-foreground">{showHandoff ? "−" : "+"}</span>
-          </button>
-          {showHandoff && (
-            <p className="px-4 pb-4 text-sm text-foreground/80 border-t border-border pt-3">
-              The Confidentiality tool is for a decision: a youth trusted you with something, and you’re working out whether it stays private. The Critical Incident tool is for a response: something is clearly serious, and you’re working out what to do. They’re built to hand off — the Confidentiality tool routes you into the Critical Incident tool the moment a disclosure crosses the reporting line, and the Critical Incident tool runs abuse disclosures through confidentiality logic to decide who gets contacted. Responding to a critical incident sometimes means breaking confidentiality; that’s by design, not a mistake. Starting in the ‘wrong’ one is fine — you’ll land in the right place.
-            </p>
-          )}
-        </div>
-
         <Card c={cards.reporting} />
-        <Card c={cards.conflict} />
+      </div>
+      <p className="mt-4 text-sm text-muted-foreground">
+        Not sure which tool? Start anywhere — they hand off to each other, so you’ll land in the right place.
+      </p>
 
-        <div className="sm:col-span-2">
-          <Card c={cards.flagsLog} />
-        </div>
+      <h2 className="mt-8 font-display text-xl font-semibold">Conflict &amp; moderation</h2>
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <Card c={cards.conflict} />
+        <Card c={cards.flagsLog} />
       </div>
 
       <p className="mt-6 text-sm text-muted-foreground">
@@ -125,7 +123,6 @@ function Index() {
           >
             How-to guides
           </Link>
-
         </div>
       </section>
     </div>

@@ -13,8 +13,10 @@ export function AiInvolvementModal() {
       <DialogTrigger asChild>
         <button
           type="button"
-          className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+          className="group inline-flex items-center rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-[#5865F2] hover:bg-transparent hover:text-[#5865F2] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5865F2]/60"
           style={{ backgroundColor: "#5865F2" }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#5865F2")}
         >
           How AI was involved in making this →
         </button>
