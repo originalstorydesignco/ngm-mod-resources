@@ -112,11 +112,11 @@
       "headline": "Call 911 or relevant emergency services now.",
       "steps": [
         "Use the city/province and emergency contact on file to direct help if the youth can’t.",
-        "Then continue in the Critical Incident tool."
+        "Then continue in the Critical Incident Tool — it picks up at ‘First, together’."
       ],
       "actions": [
         { "label": "Call 911", "href": "tel:911" },
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=s1" }
       ],
       "roleVariants": {
         "moderator": {
