@@ -86,6 +86,33 @@ function ScopePage() {
       </div>
 
       <section className="mt-8">
+        <h2 className="font-display text-xl font-semibold">{scope.outOfScope.title}</h2>
+        <div className="mt-4 space-y-3">
+          {filteredGroups.length === 0 && (
+            <p className="text-sm text-muted-foreground">No matches.</p>
+          )}
+          {filteredGroups.map((g, i) => (
+            <Expandable
+              key={i}
+              label={g.who}
+              open={q.trim() ? g.autoOpen : undefined}
+            >
+              <ul className="list-disc pl-5 space-y-1">
+                {g.shown.map((line, j) => (
+                  <li key={j}>{line}</li>
+                ))}
+              </ul>
+              {g.note && (
+                <p className="mt-3 text-sm text-foreground/80 border-l-2 border-accent pl-3">
+                  {g.note}
+                </p>
+              )}
+            </Expandable>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-10">
         <h2 className="font-display text-xl font-semibold">{scope.inScope.title}</h2>
 
         <ul className="mt-4 space-y-2">
@@ -115,32 +142,6 @@ function ScopePage() {
         )}
       </section>
 
-      <section className="mt-10">
-        <h2 className="font-display text-xl font-semibold">{scope.outOfScope.title}</h2>
-        <div className="mt-4 space-y-3">
-          {filteredGroups.length === 0 && (
-            <p className="text-sm text-muted-foreground">No matches.</p>
-          )}
-          {filteredGroups.map((g, i) => (
-            <Expandable
-              key={i}
-              label={g.who}
-              open={q.trim() ? g.autoOpen : undefined}
-            >
-              <ul className="list-disc pl-5 space-y-1">
-                {g.shown.map((line, j) => (
-                  <li key={j}>{line}</li>
-                ))}
-              </ul>
-              {g.note && (
-                <p className="mt-3 text-sm text-foreground/80 border-l-2 border-accent pl-3">
-                  {g.note}
-                </p>
-              )}
-            </Expandable>
-          ))}
-        </div>
-      </section>
 
       <div className="mt-10 rounded-lg border-l-4 border-accent bg-card px-4 py-3 text-sm">
         We don’t diagnose, prescribe, do therapy, give legal advice, or make a youth’s personal-life decisions. When in doubt, escalate to a Facilitator — we’re happy to help.
