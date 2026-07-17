@@ -35,6 +35,7 @@ type RoleVariant = {
 type EndpointNode = {
   type: "endpoint";
   urgency: "emergency" | "action" | "info";
+  category?: string;
   headline: string;
   steps: string[];
   actions?: Action[];
