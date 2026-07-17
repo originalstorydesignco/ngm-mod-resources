@@ -106,7 +106,7 @@
         "This never waits and never gets handled quietly."
       ],
       "actions": [
-        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20grooming%20(staff)" }
+        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20grooming%20(staff)&back=/decide/critical-incident%3Fstart%3Dend-g-staff" }
       ]
     },
     "end-g-inperson": {
@@ -120,7 +120,7 @@
         "Continue in the Confidentiality Tool — it picks up at the right question: would contacting their emergency contact put them at more risk?"
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(in%20person)" }
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(in%20person)&back=/decide/critical-incident%3Fstart%3Dend-g-inperson" }
       ]
     },
     "end-g-online": {
@@ -134,7 +134,7 @@
         "Help them explain the situation to their trusted adult — unless contacting that adult would put them at more risk, in which case continue in the Confidentiality Tool, which picks up at exactly that question."
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(online)" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(online)&back=/decide/critical-incident%3Fstart%3Dend-g-online" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ]
     },
@@ -207,7 +207,7 @@
         "Report to the child-protection authority for where the youth lives."
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20disclosure%20of%20abuse" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20disclosure%20of%20abuse&back=/decide/critical-incident%3Fstart%3Dend-c" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
