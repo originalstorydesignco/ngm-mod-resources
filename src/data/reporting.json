@@ -56,7 +56,7 @@
         "Continue in the Critical Incident Tool — it picks up at the grooming questions."
       ],
       "actions": [
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=g2" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=g2&ctx=Reporting%3A%20grooming%2C%20no%20staff" }
       ]
     },
     "q2": {
