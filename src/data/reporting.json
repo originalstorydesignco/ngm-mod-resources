@@ -27,7 +27,14 @@
       "type": "question",
       "text": "Is your concern about grooming?",
       "answers": [
-        { "label": "Yes", "goto": "q-grooming-staff" },
+        {
+          "label": "Yes",
+          "goto": "q-grooming-staff",
+          "hint": {
+            "label": "How do I recognize grooming?",
+            "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
+          }
+        },
         { "label": "No", "goto": "q2" }
       ]
     },
