@@ -9,5 +9,5 @@ export const Route = createFileRoute("/decide/confidentiality")({
       { name: "description", content: "Decision tool for confidentiality vs reporting a youth disclosure." },
     ],
   }),
-  component: () => <Wizard data={data as WizardData} />,
+  component: () => <Wizard data={data as WizardData} tool="confidentiality" />,
 });

@@ -9,5 +9,5 @@ export const Route = createFileRoute("/decide/conflict")({
       { name: "description", content: "Decision tool for Code of Conduct issues and conflict between members." },
     ],
   }),
-  component: () => <Wizard data={data as WizardData} />,
+  component: () => <Wizard data={data as WizardData} tool="conflict" />,
 });

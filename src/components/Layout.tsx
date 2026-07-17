@@ -114,6 +114,11 @@ function Footer() {
             </Link>
           )}
           {session && (
+            <Link to="/account" className="text-sm text-muted-foreground hover:text-white">
+              Account
+            </Link>
+          )}
+          {session && (
             <button
               onClick={() => signOut()}
               className="text-sm text-muted-foreground hover:text-white"

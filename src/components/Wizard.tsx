@@ -1,6 +1,18 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useSearch } from "@tanstack/react-router";
 import { useRole } from "@/lib/role";
+import {
+  useWizardOverrides,
+  applyOverrides,
+  INTRO_NODE,
+  CLOSEOUT_NODE,
+  type WizardTool,
+} from "@/lib/wizard-overrides";
+import {
+  WizardEditProvider,
+  EditableText,
+  useWizardEdit,
+} from "@/components/admin/WizardEditContext";
 
 type Hint = string | { label: string; body: string };
 type Answer = { label: string; goto: string; hint?: Hint };
@@ -14,7 +26,6 @@ type QuestionNode = {
   roleNote?: string;
   answers: Answer[];
 };
-
 
 type StepNode = {
   type: "step";
@@ -67,7 +78,20 @@ export type WizardData = {
 
 type Crumb = { nodeId: string; kind: "question" | "step"; label: string; value: string };
 
-export function Wizard({ data }: { data: WizardData }) {
+export function Wizard({ data, tool }: { data: WizardData; tool: WizardTool }) {
+  const { data: overrides } = useWizardOverrides(tool);
+  const resolved = useMemo(
+    () => applyOverrides(data, overrides),
+    [data, overrides],
+  );
+  return (
+    <WizardEditProvider tool={tool} base={data} overrides={overrides ?? new Map()}>
+      <WizardInner data={resolved} />
+    </WizardEditProvider>
+  );
+}
+
+function WizardInner({ data }: { data: WizardData }) {
   const search = useSearch({ strict: false }) as { start?: string; ctx?: string; back?: string };
   const startOverride = search?.start && data.nodes[search.start] ? search.start : undefined;
   const ctx = typeof search?.ctx === "string" && search.ctx.trim() ? search.ctx : undefined;
@@ -125,11 +149,11 @@ export function Wizard({ data }: { data: WizardData }) {
       {(trail.length > 0 || ctx) && <Breadcrumbs trail={trail} ctx={ctx} backHref={backHref} onRewind={rewindTo} />}
 
       {current.type === "question" ? (
-        <QuestionView node={current} onAnswer={answer} />
+        <QuestionView nodeId={currentId} node={current} onAnswer={answer} />
       ) : current.type === "step" ? (
-        <StepView node={current} onContinue={continueStep} />
+        <StepView nodeId={currentId} node={current} onContinue={continueStep} />
       ) : (
-        <EndpointView node={current} trail={trail} closeout={data.closeout} />
+        <EndpointView nodeId={currentId} node={current} trail={trail} closeout={data.closeout} />
       )}
 
       <div className="mt-8 flex items-center justify-between text-sm">
@@ -161,11 +185,21 @@ function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
   const { role } = useRole();
   const banner = data.intro.roleVariants?.moderator?.banner;
   const showBanner = role === "moderator" && banner;
+  const edit = useWizardEdit();
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
       <h1 className="font-display text-3xl sm:text-4xl font-semibold">{data.title}</h1>
-      <p className="mt-3 text-base text-foreground/80">{data.intro.description}</p>
+      <p className="mt-3 text-base text-foreground/80">
+        <EditableText
+          nodeId={INTRO_NODE}
+          fieldPath="description"
+          originalValue={edit?.getOriginal(INTRO_NODE, "description") ?? data.intro.description}
+          label="Intro description"
+        >
+          {data.intro.description}
+        </EditableText>
+      </p>
 
       {showBanner && (
         <div className="mt-5 rounded-lg border-l-4 border-mod bg-mod/15 px-4 py-3 text-[15px] text-foreground">
@@ -182,7 +216,18 @@ function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
             {data.intro.standingRules.map((r, i) => (
               <li key={i} className="flex gap-2">
                 <span aria-hidden className="text-primary">•</span>
-                <span>{r}</span>
+                <span className="flex-1">
+                  <EditableText
+                    nodeId={INTRO_NODE}
+                    fieldPath={`standingRules.${i}`}
+                    originalValue={
+                      edit?.getOriginal(INTRO_NODE, `standingRules.${i}`) ?? r
+                    }
+                    label={`Standing rule ${i + 1}`}
+                  >
+                    {r}
+                  </EditableText>
+                </span>
               </li>
             ))}
           </ul>
@@ -271,26 +316,51 @@ function shortText(s: string) {
   return s.length > 40 ? s.slice(0, 38) + "…" : s;
 }
 
-function RoleNote({ note }: { note: string }) {
+function RoleNote({ nodeId, note }: { nodeId: string; note: string }) {
   const { role } = useRole();
+  const edit = useWizardEdit();
   if (role !== "moderator") return null;
   return (
     <div className="mt-4 rounded-md border-l-4 border-mod bg-mod/15 px-3 py-2 text-sm text-foreground">
-      {note}
+      <EditableText
+        nodeId={nodeId}
+        fieldPath="roleNote"
+        originalValue={edit?.getOriginal(nodeId, "roleNote") ?? note}
+        label="Moderator note"
+      >
+        {note}
+      </EditableText>
     </div>
   );
 }
 
-function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: Answer) => void }) {
+function QuestionView({
+  nodeId,
+  node,
+  onAnswer,
+}: {
+  nodeId: string;
+  node: QuestionNode;
+  onAnswer: (a: Answer) => void;
+}) {
   const [showHint, setShowHint] = useState(false);
+  const edit = useWizardEdit();
   const hintLabel =
     typeof node.hint === "string" ? "What counts?" : node.hint?.label ?? "What counts?";
   const hintBody = typeof node.hint === "string" ? node.hint : node.hint?.body;
+  const hintIsObject = node.hint && typeof node.hint === "object";
 
   return (
     <div>
       <h1 className="font-display text-[28px] leading-tight sm:text-[32px] font-semibold">
-        {node.text}
+        <EditableText
+          nodeId={nodeId}
+          fieldPath="text"
+          originalValue={edit?.getOriginal(nodeId, "text") ?? node.text}
+          label="Question wording"
+        >
+          {node.text}
+        </EditableText>
       </h1>
       {node.hint && (
         <div className="mt-4 rounded-lg border border-border bg-card">
@@ -300,24 +370,54 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
             aria-expanded={showHint}
             className="w-full flex items-center justify-between px-4 py-3 text-left"
           >
-            <span className="text-sm font-medium">{hintLabel}</span>
+            <span className="text-sm font-medium">
+              {hintIsObject ? (
+                <EditableText
+                  nodeId={nodeId}
+                  fieldPath="hint.label"
+                  originalValue={edit?.getOriginal(nodeId, "hint.label") ?? hintLabel}
+                  label="Hint label"
+                >
+                  {hintLabel}
+                </EditableText>
+              ) : (
+                hintLabel
+              )}
+            </span>
             <span aria-hidden className="text-muted-foreground">{showHint ? "−" : "+"}</span>
           </button>
           {showHint && (
             <p className="px-4 pb-4 border-t border-border pt-3 text-sm text-foreground/80">
-              {hintBody}
+              {hintIsObject ? (
+                <EditableText
+                  nodeId={nodeId}
+                  fieldPath="hint.body"
+                  originalValue={edit?.getOriginal(nodeId, "hint.body") ?? hintBody ?? ""}
+                  label="Hint body"
+                >
+                  {hintBody}
+                </EditableText>
+              ) : (
+                hintBody
+              )}
             </p>
           )}
         </div>
       )}
       {node.note && (
         <div className="mt-4 rounded-md border-l-4 border-[#5865F2] bg-card px-4 py-3 text-sm text-foreground/85">
-          {node.note}
+          <EditableText
+            nodeId={nodeId}
+            fieldPath="note"
+            originalValue={edit?.getOriginal(nodeId, "note") ?? node.note}
+            label="Callout note"
+          >
+            {node.note}
+          </EditableText>
         </div>
       )}
-      {node.roleNote && <RoleNote note={node.roleNote} />}
+      {node.roleNote && <RoleNote nodeId={nodeId} note={node.roleNote} />}
       <div className="mt-6 space-y-3">
-
         {node.answers.map((a, i) => (
           <div key={i}>
             <button
@@ -325,7 +425,16 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
               onClick={() => onAnswer(a)}
               className="w-full min-h-12 px-4 py-3 rounded-lg border border-border bg-surface text-left text-base font-medium hover:border-primary hover:bg-primary/5 transition-colors"
             >
-              {a.label}
+              <EditableText
+                nodeId={nodeId}
+                fieldPath={`answers.${i}.label`}
+                originalValue={
+                  edit?.getOriginal(nodeId, `answers.${i}.label`) ?? a.label
+                }
+                label={`Answer ${i + 1} label`}
+              >
+                {a.label}
+              </EditableText>
             </button>
             {a.hint && <AnswerHint hint={a.hint} />}
           </div>
@@ -359,8 +468,17 @@ function AnswerHint({ hint }: { hint: Hint }) {
   );
 }
 
-function StepView({ node, onContinue }: { node: StepNode; onContinue: () => void }) {
+function StepView({
+  nodeId,
+  node,
+  onContinue,
+}: {
+  nodeId: string;
+  node: StepNode;
+  onContinue: () => void;
+}) {
   const [checked, setChecked] = useState<Record<number, boolean>>({});
+  const edit = useWizardEdit();
   const urgency = node.urgency ?? "info";
   const urgencyClass =
     urgency === "emergency"
@@ -373,7 +491,16 @@ function StepView({ node, onContinue }: { node: StepNode; onContinue: () => void
     <div>
       <div className={`rounded-lg px-4 py-4 ${urgencyClass}`}>
         <p className="text-xs uppercase tracking-wide opacity-80">Do this, then continue</p>
-        <h1 className="mt-1 font-display text-2xl sm:text-3xl font-semibold">{node.headline}</h1>
+        <h1 className="mt-1 font-display text-2xl sm:text-3xl font-semibold">
+          <EditableText
+            nodeId={nodeId}
+            fieldPath="headline"
+            originalValue={edit?.getOriginal(nodeId, "headline") ?? node.headline}
+            label="Step headline"
+          >
+            {node.headline}
+          </EditableText>
+        </h1>
       </div>
 
       <ul className="mt-6 space-y-3">
@@ -387,42 +514,64 @@ function StepView({ node, onContinue }: { node: StepNode; onContinue: () => void
                 className="mt-1.5 h-4 w-4 flex-none appearance-none rounded border border-border bg-surface checked:bg-muted-foreground/50 checked:border-muted-foreground/50 group-hover:border-muted-foreground focus:outline-none"
               />
               <span className={`text-base ${checked[i] ? "text-muted-foreground line-through" : ""}`}>
-                {s}
+                <EditableText
+                  nodeId={nodeId}
+                  fieldPath={`steps.${i}`}
+                  originalValue={edit?.getOriginal(nodeId, `steps.${i}`) ?? s}
+                  label={`Step ${i + 1}`}
+                >
+                  {s}
+                </EditableText>
               </span>
             </label>
           </li>
         ))}
       </ul>
 
-      {node.roleNote && <RoleNote note={node.roleNote} />}
+      {node.roleNote && <RoleNote nodeId={nodeId} note={node.roleNote} />}
 
       <button
         type="button"
         onClick={onContinue}
         className="mt-8 w-full sm:w-auto h-12 px-6 rounded-md bg-primary text-primary-foreground font-medium"
       >
-        {node.continueLabel}
+        <EditableText
+          nodeId={nodeId}
+          fieldPath="continueLabel"
+          originalValue={
+            edit?.getOriginal(nodeId, "continueLabel") ?? node.continueLabel
+          }
+          label="Continue button label"
+        >
+          {node.continueLabel}
+        </EditableText>
       </button>
     </div>
   );
 }
 
 function EndpointView({
+  nodeId,
   node,
   trail,
   closeout,
 }: {
+  nodeId: string;
   node: EndpointNode;
   trail: Crumb[];
   closeout?: Closeout;
 }) {
   const { role } = useRole();
+  const edit = useWizardEdit();
   const modVariant = node.roleVariants?.moderator;
   const showModPrimary = role === "moderator" && modVariant;
 
   const primaryHeadline = showModPrimary ? modVariant!.headline : node.headline;
   const primarySteps = showModPrimary ? modVariant!.steps : node.steps;
   const primaryActions = showModPrimary ? modVariant!.actions ?? [] : node.actions ?? [];
+
+  const headlineField = showModPrimary ? "roleVariants.moderator.headline" : "headline";
+  const stepsFieldPrefix = showModPrimary ? "roleVariants.moderator.steps" : "steps";
 
   const [showRecap, setShowRecap] = useState(false);
   const [showFacBelow, setShowFacBelow] = useState(false);
@@ -447,7 +596,16 @@ function EndpointView({
         <p className="text-xs uppercase tracking-wide opacity-80">
           {node.urgency === "emergency" ? "Emergency" : node.urgency === "action" ? "Do this" : "For your info"}
         </p>
-        <h1 className="mt-1 font-display text-2xl sm:text-3xl font-semibold">{primaryHeadline}</h1>
+        <h1 className="mt-1 font-display text-2xl sm:text-3xl font-semibold">
+          <EditableText
+            nodeId={nodeId}
+            fieldPath={headlineField}
+            originalValue={edit?.getOriginal(nodeId, headlineField) ?? primaryHeadline}
+            label={showModPrimary ? "Moderator headline" : "Endpoint headline"}
+          >
+            {primaryHeadline}
+          </EditableText>
+        </h1>
       </div>
 
       <ol className="mt-6 space-y-3">
@@ -459,7 +617,22 @@ function EndpointView({
             >
               {i + 1}
             </span>
-            <p className="pt-0.5 text-base">{s}</p>
+            <p className="pt-0.5 text-base">
+              <EditableText
+                nodeId={nodeId}
+                fieldPath={`${stepsFieldPrefix}.${i}`}
+                originalValue={
+                  edit?.getOriginal(nodeId, `${stepsFieldPrefix}.${i}`) ?? s
+                }
+                label={
+                  showModPrimary
+                    ? `Moderator step ${i + 1}`
+                    : `Step ${i + 1}`
+                }
+              >
+                {s}
+              </EditableText>
+            </p>
           </li>
         ))}
       </ol>
@@ -474,7 +647,7 @@ function EndpointView({
         </div>
       )}
 
-      {node.roleNote && <RoleNote note={node.roleNote} />}
+      {node.roleNote && <RoleNote nodeId={nodeId} note={node.roleNote} />}
 
       {showModPrimary && (
         <div className="mt-6 rounded-lg border border-border bg-surface">
@@ -505,7 +678,16 @@ function EndpointView({
 
       {node.closeout && closeout && (
         <section className="mt-8 rounded-lg border border-border bg-card p-4">
-          <h2 className="font-display text-lg font-semibold">{closeout.title}</h2>
+          <h2 className="font-display text-lg font-semibold">
+            <EditableText
+              nodeId={CLOSEOUT_NODE}
+              fieldPath="title"
+              originalValue={edit?.getOriginal(CLOSEOUT_NODE, "title") ?? closeout.title}
+              label="Close-out title"
+            >
+              {closeout.title}
+            </EditableText>
+          </h2>
           <ol className="mt-3 space-y-3">
             {closeout.steps.map((s, i) => (
               <li key={i} className="flex gap-3">
@@ -515,7 +697,18 @@ function EndpointView({
                 >
                   {i + 1}
                 </span>
-                <p className="pt-0.5 text-sm">{s}</p>
+                <p className="pt-0.5 text-sm">
+                  <EditableText
+                    nodeId={CLOSEOUT_NODE}
+                    fieldPath={`steps.${i}`}
+                    originalValue={
+                      edit?.getOriginal(CLOSEOUT_NODE, `steps.${i}`) ?? s
+                    }
+                    label={`Close-out step ${i + 1}`}
+                  >
+                    {s}
+                  </EditableText>
+                </p>
               </li>
             ))}
           </ol>

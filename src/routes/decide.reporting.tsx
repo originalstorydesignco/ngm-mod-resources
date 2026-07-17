@@ -16,5 +16,5 @@ export const Route = createFileRoute("/decide/reporting")({
 });
 
 function ReportingPage() {
-  return <Wizard data={reporting as WizardData} />;
+  return <Wizard data={reporting as WizardData} tool="reporting" />;
 }
