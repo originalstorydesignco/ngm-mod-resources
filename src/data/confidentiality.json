@@ -22,8 +22,8 @@
       "If the concern involves a staff member, run the Reporting Hierarchy tool too."
     ],
     "actions": [
-      { "label": "Critical Incident Report Form →", "href": "https://nextgenmen.ca/alliance/incident" },
-      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3" }
+      { "label": "Critical Incident Report Form ↗", "href": "https://nextgenmen.ca/alliance/incident" },
+      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Confidentiality%3A%20closing%20out" }
     ]
   },
   "start": "q1",
@@ -126,11 +126,10 @@
       "headline": "Call 911 or relevant emergency services now.",
       "steps": [
         "Use the city/province and emergency contact on file to direct help if the youth can’t.",
-        "Then continue in the Critical Incident Tool — it picks up at ‘First, together’."
+        "Once everyone is safe: if this involved abuse, neglect, grooming, or exploitation, come back and pick it up in the Critical Incident Tool — some of these carry a legal duty to report."
       ],
       "actions": [
-        { "label": "Call 911", "href": "tel:911" },
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=s1" }
+        { "label": "Call 911", "href": "tel:911" }
       ],
       "roleVariants": {
         "moderator": {
@@ -210,7 +209,8 @@
       "steps": [
         "No new report is needed — either nothing crossed the reporting line, or an appropriate adult already has it in hand (your answer trail shows which).",
         "Keep the relationship strong.",
-        "If anything changes, come back through this tool."
+        "If anything changes, come back through this tool.",
+        "If the risk keeps escalating, bring it to the scorecard meeting — supporting a youth confidentially doesn’t mean carrying it alone."
       ]
     },
     "end-assist-parents": {
@@ -219,7 +219,7 @@
       "headline": "Assist the youth to figure out how to communicate with their parents or guardians within a set timeframe.",
       "steps": [
         "Help them plan what to say, to whom, and by when.",
-        "Log it per the flags-log guide."
+        "Log it per the #flags-log guide."
       ],
       "actions": [
         { "label": "How to use #flags-log →", "href": "/how-to/flags-log" }
@@ -231,7 +231,7 @@
       "headline": "Refer the youth to a community resource.",
       "steps": [
         "Help them find support that’s able, available, and acceptable to them.",
-        "Log it per the flags-log guide."
+        "Log it per the #flags-log guide."
       ],
       "actions": [
         { "label": "How to use #flags-log →", "href": "/how-to/flags-log" }
