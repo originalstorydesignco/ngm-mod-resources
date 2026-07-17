@@ -41,14 +41,14 @@ const cards: Card[] = [
   {
     to: "/how-to/event-board",
     title: "How to post the weekly event board",
-    desc: "Get the week’s events in front of the kids, on time and on point.",
+    desc: "Get the week’s events in front of the youth, on time and on point.",
     cta: "How to post the weekly event board →",
     roles: ["facilitator", "moderator"],
   },
   {
     to: "/how-to/announcement",
     title: "How to post monthly announcements",
-    desc: "Recap the month, flag any changes, spotlight what’s coming, and celebrate the wins — in your own voice.",
+    desc: "Recap the month, flag any changes, spotlight what’s coming, and celebrate the wins.",
     cta: "How to post monthly announcements →",
     roles: ["facilitator", "moderator"],
   },
