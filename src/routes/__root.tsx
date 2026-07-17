@@ -80,22 +80,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NGMA Staff Resource Hub" },
+      { title: "NGM Alliance Mod Resources" },
       {
         name: "description",
         content:
-          "Decision tools, reference pages, and how-to guides for NGMA youth-program staff.",
+          "Decision tools and guides for NGM Alliance staff.",
       },
-      { property: "og:title", content: "NGMA Staff Resource Hub" },
+      { property: "og:title", content: "NGM Alliance Mod Resources" },
       {
         property: "og:description",
         content:
-          "Decision tools, reference pages, and how-to guides for NGMA youth-program staff.",
+          "Decision tools and guides for NGM Alliance staff.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "NGMA Staff Resource Hub" },
-      { name: "twitter:description", content: "Decision tools, reference pages, and how-to guides for NGMA youth-program staff." },
+      { name: "twitter:title", content: "NGM Alliance Mod Resources" },
+      { name: "twitter:description", content: "Decision tools and guides for NGM Alliance staff." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/139441f2-3992-4ae4-b3b0-8254d29b439d/id-preview-22bd3046--b265a048-a333-4e12-bf11-ea58c68f5931.lovable.app-1784252218123.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/139441f2-3992-4ae4-b3b0-8254d29b439d/id-preview-22bd3046--b265a048-a333-4e12-bf11-ea58c68f5931.lovable.app-1784252218123.png" },
     ],
