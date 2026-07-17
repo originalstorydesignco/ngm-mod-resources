@@ -102,7 +102,7 @@
         "If the concern is about a staff member harming a youth: it’s still a critical incident first. Report to child protection per that tool, loop in the level above whoever’s involved, and never let the internal hierarchy delay the report."
       ],
       "actions": [
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=q1" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=q1&ctx=Reporting%3A%20youth%20at%20risk" }
       ],
       "roleVariants": {
         "moderator": {
