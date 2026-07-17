@@ -63,13 +63,16 @@
     "q2": {
       "type": "question",
       "text": "What kind of incident is it?",
-      "hint": {
-        "label": "How do I recognize grooming?",
-        "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
-      },
       "answers": [
         { "label": "Danger to self or others — self-harm, suicide, threats", "goto": "end-a" },
-        { "label": "Grooming — an adult building an inappropriate relationship with a youth", "goto": "g1" },
+        {
+          "label": "Grooming — an adult building an inappropriate relationship with a youth",
+          "goto": "g1",
+          "hint": {
+            "label": "How do I recognize grooming?",
+            "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
+          }
+        },
         { "label": "Sexual exploitation / sexual content involving a minor", "goto": "end-b" },
         { "label": "Disclosure of abuse or neglect", "goto": "end-c" },
         { "label": "Doxxing / credible threats / targeted harassment", "goto": "end-d" },
