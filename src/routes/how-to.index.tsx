@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useRole } from "@/lib/role";
 
 export const Route = createFileRoute("/how-to/")({
   head: () => ({
@@ -14,28 +15,56 @@ export const Route = createFileRoute("/how-to/")({
   component: HowToIndex,
 });
 
-const cards = [
+type Card = {
+  to: string;
+  title: string;
+  desc: string;
+  cta: string;
+  roles: ("facilitator" | "moderator")[];
+};
+
+const cards: Card[] = [
   {
     to: "/how-to/flags-log",
     title: "How to use #flags-log",
     desc: "Post a flag cleanly — minimal, factual, respectful.",
     cta: "How to use #flags-log →",
+    roles: ["facilitator"],
   },
   {
     to: "/how-to/screening",
     title: "How to onboard new youth",
     desc: "The steps every new member goes through.",
     cta: "How to onboard new youth →",
+    roles: ["facilitator"],
   },
   {
     to: "/how-to/events",
     title: "How to host server events",
     desc: "Suggestions on what to host, when and how.",
     cta: "How to host server events →",
+    roles: ["facilitator", "moderator"],
   },
-] as const;
+  {
+    to: "/how-to/event-board",
+    title: "How to post the weekly event board",
+    desc: "The NGMA Coordinator’s Monday ritual — get the week’s events in front of the kids, on time and on point.",
+    cta: "How to post the weekly event board →",
+    roles: ["facilitator", "moderator"],
+  },
+  {
+    to: "/how-to/announcement",
+    title: "How to post monthly announcements",
+    desc: "Recap the month, flag any changes, spotlight what’s coming, and celebrate the wins — in your own voice.",
+    cta: "How to post monthly announcements →",
+    roles: ["facilitator", "moderator"],
+  },
+];
 
 function HowToIndex() {
+  const { role, hydrated } = useRole();
+  const visible = hydrated ? cards.filter((c) => c.roles.includes(role)) : cards;
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
       <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">How-to</h1>
@@ -43,7 +72,7 @@ function HowToIndex() {
         Step-by-step guides for the recurring work — flagging, onboarding, and events. Read them while you do the thing.
       </p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        {cards.map((c) => (
+        {visible.map((c) => (
           <Link
             key={c.to}
             to={c.to}

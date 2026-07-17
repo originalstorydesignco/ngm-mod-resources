@@ -19,7 +19,7 @@
     ],
     "actions": [
       { "label": "Critical Incident Report Form →", "href": "https://nextgenmen.ca/alliance/incident" },
-      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting" }
+      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3" }
     ]
   },
   "start": "q1",
@@ -61,14 +61,77 @@
     "q2": {
       "type": "question",
       "text": "What kind of incident is it?",
+      "hint": {
+        "label": "How do I recognize grooming?",
+        "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
+      },
       "answers": [
         { "label": "Danger to self or others — self-harm, suicide, threats", "goto": "end-a" },
-        { "label": "Grooming / sexual exploitation / sexual content involving a minor", "goto": "end-b" },
+        { "label": "Grooming — an adult building an inappropriate relationship with a youth", "goto": "g1" },
+        { "label": "Sexual exploitation / sexual content involving a minor", "goto": "end-b" },
         { "label": "Disclosure of abuse or neglect", "goto": "end-c" },
         { "label": "Doxxing / credible threats / targeted harassment", "goto": "end-d" },
         { "label": "Other illegal activity", "goto": "end-e" }
       ]
     },
+    "g1": {
+      "type": "question",
+      "text": "Does your concern involve a staff member?",
+      "answers": [
+        { "label": "Yes", "goto": "end-g-staff" },
+        { "label": "No", "goto": "g2" }
+      ]
+    },
+    "g2": {
+      "type": "question",
+      "text": "Is it happening online or in person?",
+      "answers": [
+        { "label": "In person", "goto": "end-g-inperson" },
+        { "label": "Online", "goto": "end-g-online" }
+      ]
+    },
+    "end-g-staff": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "headline": "Grooming involving a staff member goes up the chain — now.",
+      "steps": [
+        "Report it through the Reporting Hierarchy Tool immediately — to the level above whoever is involved.",
+        "This never waits and never gets handled quietly."
+      ],
+      "actions": [
+        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3" }
+      ]
+    },
+    "end-g-inperson": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "headline": "Treat this as a protection concern — you have reasonable grounds.",
+      "steps": [
+        "A youth being groomed in person is a youth in need of protection. You don’t need certainty, and investigating is not your job.",
+        "Continue in the Confidentiality Tool — it picks up at the right question: would contacting their emergency contact put them at more risk?"
+      ],
+      "actions": [
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3" }
+      ]
+    },
+    "end-g-online": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "headline": "Help them report it where it’s happening.",
+      "steps": [
+        "Support the youth to report the person on the platform where it’s taking place — it likely needs to come from their own account. Don’t tip the person off.",
+        "Help them explain the situation to their trusted adult — unless contacting that adult would put them at more risk, in which case continue in the Confidentiality Tool, which picks up at exactly that question.",
+        "If it’s happening on our server, Discord Trust & Safety and the tipline apply too."
+      ],
+      "actions": [
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3" },
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
+      ]
+    },
+
     "end-a": {
       "type": "endpoint",
       "urgency": "action",
@@ -128,13 +191,13 @@
       "closeout": true,
       "headline": "Disclosure of abuse or neglect",
       "steps": [
-        "Run the Confidentiality tool to confirm the contact-vs-report path.",
+        "Continue in the Confidentiality Tool — it picks up at the right question: would contacting their emergency contact put them at more risk?",
         "Our standard: a child is in need of intervention where there are reasonable and probable grounds to believe their survival, security, or development is endangered. Suspected abuse or neglect must be reported.",
         "You report suspicions — no proof needed, you don’t investigate, and you can’t hand the duty to someone else. Unsure? Treat it as reportable and loop in the lead.",
         "Report to the child-protection authority for where the youth lives."
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
