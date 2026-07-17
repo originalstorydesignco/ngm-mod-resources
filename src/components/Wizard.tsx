@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link, useSearch } from "@tanstack/react-router";
 import { useRole } from "@/lib/role";
 
-type Answer = { label: string; goto: string };
-type Action = { label: string; href: string };
 type Hint = string | { label: string; body: string };
+type Answer = { label: string; goto: string; hint?: Hint };
+type Action = { label: string; href: string };
 
 type QuestionNode = {
   type: "question";
