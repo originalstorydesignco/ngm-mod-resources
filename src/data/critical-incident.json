@@ -81,7 +81,7 @@
     },
     "g1": {
       "type": "question",
-      "text": "Does your concern involve a staff member?",
+      "text": "Does this involve a staff member — a Facilitator, Moderator, or anyone on the team?",
       "answers": [
         { "label": "Yes", "goto": "end-g-staff" },
         { "label": "No", "goto": "g2" }
