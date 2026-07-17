@@ -114,6 +114,16 @@ add({
   keywords: "safety engagement connection empowerment belonging mastery independence purpose",
 });
 
+// --- Reference: What to expect from your supervisor ---
+add({
+  id: "ref-supervisor",
+  title: "What to expect from your supervisor",
+  section: "What to expect from your supervisor",
+  snippet: "What your supervisor does and doesn’t do when something serious happens.",
+  path: "/reference/supervisor",
+  keywords: "supervisor manager COO loop in duty report abuse neglect grounds",
+});
+
 // --- How-to ---
 const howto: Array<{ path: string; title: string; snippet: string; keywords?: string }> = [
   {

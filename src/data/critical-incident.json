@@ -153,7 +153,8 @@
         "In a crisis you ACT — you don’t clinically assess risk. That’s outside our scope of practice."
       ],
       "actions": [
-        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" },
+        { "label": "What to expect from your supervisor →", "href": "/reference/supervisor" }
       ],
       "roleVariants": {
         "moderator": {
@@ -207,7 +208,8 @@
       ],
       "actions": [
         { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20disclosure%20of%20abuse&back=/decide/critical-incident%3Fstart%3Dend-c" },
-        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" },
+        { "label": "What to expect from your supervisor →", "href": "/reference/supervisor" }
       ],
       "roleVariants": {
         "moderator": {
@@ -340,7 +342,8 @@
       "actions": [
         { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20staff%20member%20involved&back=/decide/critical-incident%3Fstart%3Dend-c-staff" },
         { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20disclosure%20of%20abuse&back=/decide/critical-incident%3Fstart%3Dend-c-staff" },
-        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" },
+        { "label": "What to expect from your supervisor →", "href": "/reference/supervisor" }
       ],
       "roleVariants": {
         "moderator": {
