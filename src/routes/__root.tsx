@@ -94,6 +94,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "NGMA Staff Resource Hub" },
+      { name: "twitter:description", content: "Decision tools, reference pages, and how-to guides for NGMA youth-program staff." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/139441f2-3992-4ae4-b3b0-8254d29b439d/id-preview-22bd3046--b265a048-a333-4e12-bf11-ea58c68f5931.lovable.app-1784252218123.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/139441f2-3992-4ae4-b3b0-8254d29b439d/id-preview-22bd3046--b265a048-a333-4e12-bf11-ea58c68f5931.lovable.app-1784252218123.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
