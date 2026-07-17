@@ -68,9 +68,10 @@ export type WizardData = {
 type Crumb = { nodeId: string; kind: "question" | "step"; label: string; value: string };
 
 export function Wizard({ data }: { data: WizardData }) {
-  const search = useSearch({ strict: false }) as { start?: string; ctx?: string };
+  const search = useSearch({ strict: false }) as { start?: string; ctx?: string; back?: string };
   const startOverride = search?.start && data.nodes[search.start] ? search.start : undefined;
   const ctx = typeof search?.ctx === "string" && search.ctx.trim() ? search.ctx : undefined;
+  const back = typeof search?.back === "string" && search.back.trim() ? search.back : undefined;
   const [started, setStarted] = useState(!!startOverride);
   const [currentId, setCurrentId] = useState(startOverride ?? data.start);
   const [trail, setTrail] = useState<Crumb[]>([]);
