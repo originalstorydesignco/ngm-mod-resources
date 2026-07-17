@@ -27,7 +27,7 @@ function FlagsLogPage() {
       )}
 
       <p className="mt-6 text-foreground/85">
-        The #flags-log channel is how we show up for the young people we work with — and for each other. When you notice something about a kid, this is where you bring the team in, so you’re not holding it alone. It’s a pointer, not a file: a short note here, and the real conversation can happen here too — or out loud at our weekly scorecard meeting. Keep it brief, factual, and kind — to the youth, and to whoever reads it next.
+        The #flags-log channel is how we show up for the young people we work with — and for each other. When you notice something about a kid, this is where you bring the team in, so you’re not holding it alone. Keep it brief, factual, and kind — to the youth, and to whoever reads it next. More conversation will follow.
       </p>
 
       <section className="mt-8">
