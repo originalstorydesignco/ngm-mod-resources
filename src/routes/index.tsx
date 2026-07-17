@@ -47,9 +47,10 @@ function Index() {
                 <CardAddButton page="decide" section={section} sections={SECTIONS} showSection />
               )}
             </div>
-            <div className={`mt-4 grid gap-3 sm:grid-cols-${section === "Safety & reporting" ? 3 : 2}`}>
+            <div className={`mt-4 grid gap-3 ${section === "Safety & reporting" ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}>
               {items.map((c) => (
                 <ContentCard key={c.id} card={c} sections={SECTIONS} showSection />
+
               ))}
             </div>
           </section>
