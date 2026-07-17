@@ -319,16 +319,42 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
       <div className="mt-6 space-y-3">
 
         {node.answers.map((a, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => onAnswer(a)}
-            className="w-full min-h-12 px-4 py-3 rounded-lg border border-border bg-surface text-left text-base font-medium hover:border-primary hover:bg-primary/5 transition-colors"
-          >
-            {a.label}
-          </button>
+          <div key={i}>
+            <button
+              type="button"
+              onClick={() => onAnswer(a)}
+              className="w-full min-h-12 px-4 py-3 rounded-lg border border-border bg-surface text-left text-base font-medium hover:border-primary hover:bg-primary/5 transition-colors"
+            >
+              {a.label}
+            </button>
+            {a.hint && <AnswerHint hint={a.hint} />}
+          </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function AnswerHint({ hint }: { hint: Hint }) {
+  const [open, setOpen] = useState(false);
+  const label = typeof hint === "string" ? "What counts?" : hint.label;
+  const body = typeof hint === "string" ? hint : hint.body;
+  return (
+    <div className="mt-2 rounded-lg border border-border bg-card">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between px-4 py-3 text-left"
+      >
+        <span className="text-sm font-medium">{label}</span>
+        <span aria-hidden className="text-muted-foreground">{open ? "−" : "+"}</span>
+      </button>
+      {open && (
+        <p className="px-4 pb-4 border-t border-border pt-3 text-sm text-foreground/80">
+          {body}
+        </p>
+      )}
     </div>
   );
 }
