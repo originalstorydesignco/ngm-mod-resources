@@ -113,6 +113,11 @@ function Footer() {
               Invite people
             </Link>
           )}
+          {isAdmin && (
+            <Link to="/admin/content-changes" className="text-sm text-muted-foreground hover:text-white">
+              Content changes
+            </Link>
+          )}
           {session && (
             <Link to="/account" className="text-sm text-muted-foreground hover:text-white">
               Account

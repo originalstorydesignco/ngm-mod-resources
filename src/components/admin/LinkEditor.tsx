@@ -24,6 +24,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useLinkMutations, type LinkRow } from "@/lib/content";
+import { DriftNote } from "@/components/admin/DriftNote";
 
 type FormState = {
   group: string;
@@ -124,6 +125,7 @@ export function LinkEditor({
               onChange={(e) => setForm({ ...form, sort_order: Number(e.target.value) })}
             />
           </Field>
+          <DriftNote />
           <DialogFooter className="pt-2">
             <Button type="button" variant="ghost" onClick={() => setOpen(false)}>Cancel</Button>
             <Button type="submit" disabled={create.isPending || update.isPending}>

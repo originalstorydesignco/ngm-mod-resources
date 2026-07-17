@@ -24,6 +24,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useCardMutations, type Card, type CardPage } from "@/lib/content";
+import { DriftNote } from "@/components/admin/DriftNote";
 
 type Variant = "default" | "critical" | "mod";
 type Arrow = "internal" | "external";
@@ -185,6 +186,7 @@ export function CardEditor({
               Visible to Moderators
             </label>
           </div>
+          <DriftNote />
           <DialogFooter className="pt-2">
             <Button type="button" variant="ghost" onClick={() => setOpen(false)}>Cancel</Button>
             <Button type="submit" disabled={create.isPending || update.isPending}>

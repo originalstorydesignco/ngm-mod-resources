@@ -28,6 +28,7 @@ import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.crit
 import { Route as DecideConflictRouteImport } from './routes/decide.conflict'
 import { Route as DecideConfidentialityRouteImport } from './routes/decide.confidentiality'
 import { Route as AdminInvitesRouteImport } from './routes/admin.invites'
+import { Route as AdminContentChangesRouteImport } from './routes/admin.content-changes'
 
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
@@ -124,11 +125,17 @@ const AdminInvitesRoute = AdminInvitesRouteImport.update({
   path: '/admin/invites',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminContentChangesRoute = AdminContentChangesRouteImport.update({
+  id: '/admin/content-changes',
+  path: '/admin/content-changes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/admin/content-changes': typeof AdminContentChangesRoute
   '/admin/invites': typeof AdminInvitesRoute
   '/decide/confidentiality': typeof DecideConfidentialityRoute
   '/decide/conflict': typeof DecideConflictRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/admin/content-changes': typeof AdminContentChangesRoute
   '/admin/invites': typeof AdminInvitesRoute
   '/decide/confidentiality': typeof DecideConfidentialityRoute
   '/decide/conflict': typeof DecideConflictRoute
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/admin/content-changes': typeof AdminContentChangesRoute
   '/admin/invites': typeof AdminInvitesRoute
   '/decide/confidentiality': typeof DecideConfidentialityRoute
   '/decide/conflict': typeof DecideConflictRoute
@@ -195,6 +204,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/reset-password'
+    | '/admin/content-changes'
     | '/admin/invites'
     | '/decide/confidentiality'
     | '/decide/conflict'
@@ -216,6 +226,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/reset-password'
+    | '/admin/content-changes'
     | '/admin/invites'
     | '/decide/confidentiality'
     | '/decide/conflict'
@@ -237,6 +248,7 @@ export interface FileRouteTypes {
     | '/'
     | '/account'
     | '/reset-password'
+    | '/admin/content-changes'
     | '/admin/invites'
     | '/decide/confidentiality'
     | '/decide/conflict'
@@ -259,6 +271,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
+  AdminContentChangesRoute: typeof AdminContentChangesRoute
   AdminInvitesRoute: typeof AdminInvitesRoute
   DecideConfidentialityRoute: typeof DecideConfidentialityRoute
   DecideConflictRoute: typeof DecideConflictRoute
@@ -412,6 +425,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminInvitesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/content-changes': {
+      id: '/admin/content-changes'
+      path: '/admin/content-changes'
+      fullPath: '/admin/content-changes'
+      preLoaderRoute: typeof AdminContentChangesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -419,6 +439,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
   ResetPasswordRoute: ResetPasswordRoute,
+  AdminContentChangesRoute: AdminContentChangesRoute,
   AdminInvitesRoute: AdminInvitesRoute,
   DecideConfidentialityRoute: DecideConfidentialityRoute,
   DecideConflictRoute: DecideConflictRoute,
