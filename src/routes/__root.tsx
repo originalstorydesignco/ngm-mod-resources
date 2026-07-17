@@ -12,9 +12,11 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { RoleProvider } from "@/lib/role";
-import { PasswordGate } from "@/components/PasswordGate";
+import { AuthProvider } from "@/lib/auth";
+import { AuthGate } from "@/components/AuthGate";
 import { Layout } from "@/components/Layout";
 import { Toaster } from "@/components/ui/sonner";
+
 
 function NotFoundComponent() {
   return (
@@ -129,14 +131,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RoleProvider>
-        <PasswordGate>
-          <Layout>
-            <Outlet />
-          </Layout>
-          <Toaster />
-        </PasswordGate>
-      </RoleProvider>
+      <AuthProvider>
+        <RoleProvider>
+          <AuthGate>
+            <Layout>
+              <Outlet />
+            </Layout>
+            <Toaster />
+          </AuthGate>
+        </RoleProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
+

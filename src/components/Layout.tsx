@@ -1,8 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useRole } from "@/lib/role";
+import { useAuth } from "@/lib/auth";
 import { SearchBox } from "@/components/SearchBox";
 import { AiInvolvementModal } from "@/components/AiInvolvementModal";
+
 
 
 
@@ -98,17 +100,34 @@ function Header() {
 }
 
 function Footer() {
+  const { session, isAdmin, signOut } = useAuth();
   return (
     <footer className="border-t border-border mt-16">
       <div className="mx-auto max-w-5xl px-4 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <span className="text-sm text-muted-foreground">
           Next Gen Men · Last updated July 16, 2026
         </span>
-        <AiInvolvementModal />
+        <div className="flex flex-wrap items-center gap-4">
+          {isAdmin && (
+            <Link to="/admin/invites" className="text-sm text-muted-foreground hover:text-white">
+              Invite people
+            </Link>
+          )}
+          {session && (
+            <button
+              onClick={() => signOut()}
+              className="text-sm text-muted-foreground hover:text-white"
+            >
+              Sign out
+            </button>
+          )}
+          <AiInvolvementModal />
+        </div>
       </div>
     </footer>
   );
 }
+
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
