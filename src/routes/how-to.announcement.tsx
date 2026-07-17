@@ -30,14 +30,18 @@ function AnnouncementPage() {
         <h2 className="font-display text-xl font-semibold">
           The usual sections (mix &amp; match — not every month has all of these):
         </h2>
-        <ul className="mt-3 space-y-2 text-sm text-foreground/85 list-disc pl-5">
-          <li>A fun opening — playful title and greeting that leans into inside jokes on the server; ping the @Announcements role.</li>
-          <li>Stats for the month — VC minutes and newcomer/member counts, pulled from the Statbot Dashboard (see the Common Links List).</li>
-          <li>Server changes — welcome new staff, say goodbye to anyone leaving, describe any changes to the server architecture.</li>
-          <li>Celebrations &amp; events — anniversaries, in-person gatherings, big launches.</li>
-          <li>Programs &amp; opportunities — ROPE, esports, YAC, contests, new features/roles.</li>
-          <li>TL;DR — a few short bullets at the very bottom so the skimmers still get it.</li>
-        </ul>
+        <div className="mt-3">
+          <Checklist
+            items={[
+              { id: "a1", label: <span>A fun opening — playful title and greeting that leans into inside jokes on the server; ping the @Announcements role.</span> },
+              { id: "a2", label: <span>Stats for the month — VC minutes and newcomer/member counts, pulled from the Statbot Dashboard (see the Common Links List).</span> },
+              { id: "a3", label: <span>Server changes — welcome new staff, say goodbye to anyone leaving, describe any changes to the server architecture.</span> },
+              { id: "a4", label: <span>Celebrations &amp; events — anniversaries, in-person gatherings, big launches.</span> },
+              { id: "a5", label: <span>Programs &amp; opportunities — ROPE, esports, YAC, contests, new features/roles.</span> },
+              { id: "a6", label: <span>TL;DR — a few short bullets at the very bottom so the skimmers still get it.</span> },
+            ]}
+          />
+        </div>
       </section>
 
       <section className="mt-10">
@@ -59,19 +63,6 @@ function AnnouncementPage() {
           <p>
             Quieter month: “Another month another announcement — here’s what’s brewing on the server…”
           </p>
-        </div>
-      </section>
-
-      <section className="mt-10">
-        <h2 className="font-display text-xl font-semibold">Before you post</h2>
-        <div className="mt-3">
-          <Checklist
-            items={[
-              { id: "a1", label: <span>@role tags point where you mean</span> },
-              { id: "a2", label: <span>every link works</span> },
-              { id: "a3", label: <span>the TL;DR matches the body</span> },
-            ]}
-          />
         </div>
       </section>
     </div>

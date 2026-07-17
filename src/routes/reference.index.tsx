@@ -30,14 +30,14 @@ const cards = [
     external: true,
     title: "Channels & rituals",
     desc: "The map of admin spaces and what happens where.",
-    cta: "#mod-resources on Discord →",
+    cta: "#mod-resources on Discord ↗",
   },
   {
     to: "#",
     external: true,
     title: "Bots & commands",
     desc: "MEE6, NGM Bot, and onboarding automations.",
-    cta: "#mod-resources on Discord →",
+    cta: "#mod-resources on Discord ↗",
   },
   {
     to: "/reference/links",

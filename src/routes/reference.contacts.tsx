@@ -68,7 +68,7 @@ const canadaRows: Row[] = [
     primary: { tel: "1-800-663-9122", display: "1-800-663-9122", note: "24/7" },
     links: [
       {
-        label: "Government of British Columbia →",
+        label: "Government of British Columbia ↗",
         href: "https://www2.gov.bc.ca/gov/content/safety/public-safety/protecting-children/reporting-child-abuse",
       },
     ],
@@ -76,14 +76,14 @@ const canadaRows: Row[] = [
   {
     jur: "Alberta",
     primary: { tel: "1-800-638-0715", display: "1-800-638-0715", note: "24/7" },
-    links: [{ label: "Government of Alberta →", href: "https://www.alberta.ca/report-child-abuse" }],
+    links: [{ label: "Government of Alberta ↗", href: "https://www.alberta.ca/report-child-abuse" }],
   },
   {
     jur: "Saskatchewan",
     note: "Numbers vary by region and business/after hours.",
     links: [
       {
-        label: "Government of Saskatchewan (211) →",
+        label: "Government of Saskatchewan (211) ↗",
         href: "https://sk.211.ca/services/87728256/government-of-saskatchewan-social-services-child-protection-child-abuse-and-neglect/",
       },
     ],
@@ -98,17 +98,17 @@ const canadaRows: Row[] = [
     extras: [
       { tel: "204-944-4200", display: "204-944-4200", note: "Winnipeg, 24/7" },
     ],
-    links: [{ label: "Government of Manitoba →", href: "https://www.gov.mb.ca/fs/childfam/reporting.html" }],
+    links: [{ label: "Government of Manitoba ↗", href: "https://www.gov.mb.ca/fs/childfam/reporting.html" }],
   },
   {
     jur: "Ontario",
     note: "Call the local Children’s Aid Society (24/7) where the youth lives.",
     links: [
       {
-        label: "Find the local CAS (OACAS) →",
+        label: "Find the local CAS (OACAS) ↗",
         href: "https://www.oacas.org/childrens-aid-child-protection/how-to-report-abuse/",
       },
-      { label: "Government of Ontario →", href: "https://www.ontario.ca/page/report-child-abuse-and-neglect" },
+      { label: "Government of Ontario ↗", href: "https://www.ontario.ca/page/report-child-abuse-and-neglect" },
     ],
   },
   {
@@ -116,7 +116,7 @@ const canadaRows: Row[] = [
     note: "Call the Director of Youth Protection for the region where the youth lives.",
     links: [
       {
-        label: "Find the local DYP (Government of Québec) →",
+        label: "Find the local DYP (Government of Québec) ↗",
         href: "https://www.quebec.ca/en/family-and-support-for-individuals/childhood/youth-protection/reporting-a-situation-to-the-director-of-youth-protection/contact-informations-of-the-dyp",
       },
     ],
@@ -127,7 +127,7 @@ const canadaRows: Row[] = [
     afterHours: { tel: "1-800-442-9799", display: "1-800-442-9799", note: "after-hours" },
     links: [
       {
-        label: "Government of New Brunswick →",
+        label: "Government of New Brunswick ↗",
         href: "https://www2.gnb.ca/content/gnb/en/services/services_renderer.9355.Child_Protection.html",
       },
     ],
@@ -143,7 +143,7 @@ const canadaRows: Row[] = [
         note: "Mi’kmaw Family and Children’s Services, 24/7",
       },
     ],
-    links: [{ label: "Government of Nova Scotia →", href: "https://novascotia.ca/report-child-abuse-or-neglect" }],
+    links: [{ label: "Government of Nova Scotia ↗", href: "https://novascotia.ca/report-child-abuse-or-neglect" }],
   },
   {
     jur: "Prince Edward Island",
@@ -151,7 +151,7 @@ const canadaRows: Row[] = [
     afterHours: { tel: "1-800-341-6868", display: "1-800-341-6868", note: "after-hours" },
     links: [
       {
-        label: "Government of Prince Edward Island →",
+        label: "Government of Prince Edward Island ↗",
         href: "https://www.princeedwardisland.ca/en/information/social-development-and-seniors/child-protection",
       },
     ],
@@ -161,7 +161,7 @@ const canadaRows: Row[] = [
     primary: { tel: "1-833-552-2368", display: "1-833-552-2368", note: "24/7" },
     links: [
       {
-        label: "Government of Newfoundland and Labrador →",
+        label: "Government of Newfoundland and Labrador ↗",
         href: "https://www.gov.nl.ca/sswb/childprotection/report/",
       },
     ],
@@ -174,14 +174,14 @@ const canadaRows: Row[] = [
       note: "Whitehorse, 24/7",
     },
     note: "If the youth lives outside of Whitehorse, call the social worker for the appropriate region.",
-    links: [{ label: "Government of Yukon →", href: "https://yukon.ca/en/report-child-abuse" }],
+    links: [{ label: "Government of Yukon ↗", href: "https://yukon.ca/en/report-child-abuse" }],
   },
   {
     jur: "Northwest Territories",
     note: "Numbers vary by region and business/after hours.",
     links: [
       {
-        label: "Government of Northwest Territories →",
+        label: "Government of Northwest Territories ↗",
         href: "https://www.hss.gov.nt.ca/en/contact/reporting-suspected-child-maltreatment-and-neglect",
       },
     ],
@@ -191,7 +191,7 @@ const canadaRows: Row[] = [
     note: "Call the local Community Social Services Worker; if unavailable, the local RCMP.",
     links: [
       {
-        label: "Government of Nunavut →",
+        label: "Government of Nunavut ↗",
         href: "https://www.gov.nu.ca/en/families-parenting-elders-and-youth/child-and-youth-protection",
       },
     ],
@@ -306,7 +306,7 @@ function ContactsPage() {
               <TelLink tel="800-422-4453" display="800-422-4453" /> (24/7) — a guidance line that routes you to the right state agency. It is not the report itself and not 911.
             </p>
             <p className="mt-2">
-              <ExtLink href="https://childhelphotline.org">Childhelp →</ExtLink>
+              <ExtLink href="https://childhelphotline.org">Childhelp ↗</ExtLink>
             </p>
           </div>
         </div>

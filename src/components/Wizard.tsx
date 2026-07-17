@@ -35,6 +35,7 @@ type RoleVariant = {
 type EndpointNode = {
   type: "endpoint";
   urgency: "emergency" | "action" | "info";
+  category?: string;
   headline: string;
   steps: string[];
   actions?: Action[];
@@ -67,8 +68,9 @@ export type WizardData = {
 type Crumb = { nodeId: string; kind: "question" | "step"; label: string; value: string };
 
 export function Wizard({ data }: { data: WizardData }) {
-  const search = useSearch({ strict: false }) as { start?: string };
+  const search = useSearch({ strict: false }) as { start?: string; ctx?: string };
   const startOverride = search?.start && data.nodes[search.start] ? search.start : undefined;
+  const ctx = typeof search?.ctx === "string" && search.ctx.trim() ? search.ctx : undefined;
   const [started, setStarted] = useState(!!startOverride);
   const [currentId, setCurrentId] = useState(startOverride ?? data.start);
   const [trail, setTrail] = useState<Crumb[]>([]);
@@ -119,7 +121,7 @@ export function Wizard({ data }: { data: WizardData }) {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 sm:py-8">
-      {trail.length > 0 && <Breadcrumbs trail={trail} onRewind={rewindTo} />}
+      {(trail.length > 0 || ctx) && <Breadcrumbs trail={trail} ctx={ctx} onRewind={rewindTo} />}
 
       {current.type === "question" ? (
         <QuestionView node={current} onAnswer={answer} />
@@ -201,10 +203,21 @@ function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
   );
 }
 
-function Breadcrumbs({ trail, onRewind }: { trail: Crumb[]; onRewind: (i: number) => void }) {
+function Breadcrumbs({ trail, ctx, onRewind }: { trail: Crumb[]; ctx?: string; onRewind: (i: number) => void }) {
   return (
     <nav aria-label="Answer trail" className="mb-6 -mx-4 px-4 overflow-x-auto">
       <ol className="flex flex-wrap gap-x-2 gap-y-1 text-xs">
+        {ctx && (
+          <li className="flex items-center gap-2">
+            <span
+              className="rounded-full border border-[#5865F2] text-[#5865F2] px-2 py-1 font-medium"
+              title="Handed off from another tool"
+            >
+              {ctx}
+            </span>
+            {trail.length > 0 && <span aria-hidden className="text-muted-foreground">·</span>}
+          </li>
+        )}
         {trail.map((c, i) => (
           <li key={i} className="flex items-center gap-2">
             <button
@@ -392,6 +405,9 @@ function EndpointView({
         <p className="text-xs uppercase tracking-wide opacity-80">
           {node.urgency === "emergency" ? "Emergency" : node.urgency === "action" ? "Do this" : "For your info"}
         </p>
+        {node.category && !showModPrimary && (
+          <p className="mt-1 text-xs uppercase tracking-wide opacity-70">{node.category}</p>
+        )}
         <h1 className="mt-1 font-display text-2xl sm:text-3xl font-semibold">{primaryHeadline}</h1>
       </div>
 

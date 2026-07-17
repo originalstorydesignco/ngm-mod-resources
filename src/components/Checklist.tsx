@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 
-export type ChecklistItem = { id: string; label: ReactNode };
+export type ChecklistItem = { id: string; label: ReactNode; sectionBefore?: string };
 
 export function Checklist({ items }: { items: ChecklistItem[] }) {
   const [checked, setChecked] = useState<Record<string, boolean>>({});
@@ -32,28 +32,35 @@ export function Checklist({ items }: { items: ChecklistItem[] }) {
         {items.map((it, i) => {
           const isDone = !!checked[it.id];
           return (
-            <li key={it.id}>
-              <label
-                className={`group flex items-start gap-3 rounded-md border border-border bg-card px-3 py-2 cursor-pointer hover:border-muted-foreground transition-colors ${
-                  isDone ? "opacity-70" : ""
-                }`}
-              >
-                <input
-                  type="checkbox"
-                  checked={isDone}
-                  onChange={(e) =>
-                    setChecked((prev) => ({ ...prev, [it.id]: e.target.checked }))
-                  }
-                  className="mt-1 h-4 w-4 flex-none appearance-none rounded border border-border bg-surface checked:bg-muted-foreground/50 checked:border-muted-foreground/50 group-hover:border-muted-foreground focus:outline-none"
-                />
-                <span className="text-sm">
-                  <span className="mr-2 font-mono text-xs text-muted-foreground">
-                    {String(i + 1).padStart(2, "0")}
+            <div key={it.id}>
+              {it.sectionBefore && (
+                <h3 className={`font-display text-sm font-semibold uppercase tracking-wide text-muted-foreground ${i === 0 ? "mb-2" : "mt-4 mb-2"}`}>
+                  {it.sectionBefore}
+                </h3>
+              )}
+              <li>
+                <label
+                  className={`group flex items-start gap-3 rounded-md border border-border bg-card px-3 py-2 cursor-pointer hover:border-muted-foreground transition-colors ${
+                    isDone ? "opacity-70" : ""
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={isDone}
+                    onChange={(e) =>
+                      setChecked((prev) => ({ ...prev, [it.id]: e.target.checked }))
+                    }
+                    className="mt-1 h-4 w-4 flex-none appearance-none rounded border border-border bg-surface checked:bg-muted-foreground/50 checked:border-muted-foreground/50 group-hover:border-muted-foreground focus:outline-none"
+                  />
+                  <span className="text-sm">
+                    <span className="mr-2 font-mono text-xs text-muted-foreground">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className={isDone ? "line-through text-foreground/60" : ""}>{it.label}</span>
                   </span>
-                  <span className={isDone ? "line-through text-foreground/60" : ""}>{it.label}</span>
-                </span>
-              </label>
-            </li>
+                </label>
+              </li>
+            </div>
           );
         })}
       </ol>

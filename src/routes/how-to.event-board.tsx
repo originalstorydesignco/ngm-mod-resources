@@ -68,6 +68,32 @@ function EventBoardPage() {
         </div>
       </section>
 
+      <section className="mt-10">
+        <h2 className="font-display text-xl font-semibold">Houses updates</h2>
+        <div className="mt-3">
+          <Checklist
+            items={[
+              {
+                id: "h1",
+                label: (
+                  <span>
+                    <strong>Post the weekly Houses standings.</strong> Pull the current points from the tracker and share the leaderboard in the Houses channel so members can see where things stand.
+                  </span>
+                ),
+              },
+              {
+                id: "h2",
+                label: (
+                  <span>
+                    <strong>Call out contributions.</strong> Shout out members who earned points that week — event wins, streaks, contests — so the work gets seen.
+                  </span>
+                ),
+              },
+            ]}
+          />
+        </div>
+      </section>
+
       <section className="mt-10 rounded-xl border border-border bg-card p-5">
         <h2 className="font-display text-lg font-semibold">The energy to aim for:</h2>
         <div className="mt-4 space-y-4 text-sm text-foreground/85 leading-relaxed">
