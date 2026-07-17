@@ -111,18 +111,15 @@ function Index() {
         <Card c={cards.confidentiality} />
         <Card c={cards.reporting} />
       </div>
-      <p className="mt-4 text-sm text-muted-foreground">
-        Not sure which tool? Start anywhere — they hand off to each other, so you’ll land in the right place.
-      </p>
 
-      <h2 className="mt-8 font-display text-xl font-semibold">Conflict &amp; moderation</h2>
+      <h2 className="mt-8 font-display text-3xl sm:text-4xl font-semibold tracking-tight">Conflict &amp; moderation</h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <Card c={cards.conflict} />
         <Card c={flagsCard} />
       </div>
 
       <p className="mt-6 text-sm text-muted-foreground">
-        When two might apply, pick the more serious one and loop in @Facilitators.
+        Not sure which tool? Pick the more serious one and loop in @Facilitators if necessary — they hand off to each other, so you’ll land in the right place.
       </p>
 
       <section className="mt-12 rounded-lg border-l-4 border-[#5865F2] bg-card px-4 py-4">
