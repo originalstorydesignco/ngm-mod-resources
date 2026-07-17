@@ -242,6 +242,10 @@ export function EditableText({
   const ctx = useWizardEdit();
   if (!ctx || !ctx.isAdmin) return <>{children}</>;
   const overridden = ctx.overrides.has(`${nodeId}::${fieldPath}`);
+  const currentValue = ctx.overrides.get(`${nodeId}::${fieldPath}`) ?? originalValue;
+  const dotTooltip = overridden
+    ? `Overridden.\nLive: ${currentValue}\nOriginal: ${originalValue}`
+    : "";
 
   const wrapperCls =
     display === "block"
@@ -253,6 +257,13 @@ export function EditableText({
       <span className={display === "block" ? "flex-1 min-w-0" : undefined}>
         {children}
       </span>
+      {overridden && (
+        <span
+          aria-hidden
+          title={dotTooltip}
+          className="flex-none inline-block h-1.5 w-1.5 rounded-full bg-[#5865F2] self-center"
+        />
+      )}
       <button
         type="button"
         onClick={() =>
@@ -263,13 +274,6 @@ export function EditableText({
         className="flex-none inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs text-muted-foreground opacity-0 group-hover:opacity-100 focus:opacity-100 hover:bg-card hover:text-foreground transition-opacity"
       >
         <span aria-hidden>✎</span>
-        {overridden && (
-          <span
-            aria-hidden
-            className="inline-block h-1.5 w-1.5 rounded-full bg-[#5865F2]"
-            title="This wording has been edited"
-          />
-        )}
       </button>
     </span>
   );
