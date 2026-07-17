@@ -290,7 +290,7 @@ function CardChangesSection() {
       for (const f of CARD_COMPARE_FIELDS) {
         patch[f] = (seed as unknown as Record<string, unknown>)[f];
       }
-      const { error } = await supabase.from("cards").update(patch).eq("id", row.id);
+      const { error } = await supabase.from("cards").update(patch as never).eq("id", row.id);
       if (error) throw error;
     },
     onSuccess: () => {
