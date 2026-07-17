@@ -80,9 +80,6 @@ function AnnouncementPage() {
             {"\n"}
             don’t forget to tell @Max G he’s the GOAT
           </p>
-          <p>
-            {"\n"}
-          </p>
         </div>
       </section>
     </div>
