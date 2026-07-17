@@ -17,10 +17,46 @@
   "nodes": {
     "q1": {
       "type": "question",
-      "text": "Is a young person at risk — safety, grooming, abuse, threats, self-harm?",
+      "text": "Is a young person at risk — safety, abuse, threats, self-harm?",
       "answers": [
         { "label": "Yes", "goto": "end-a" },
+        { "label": "No", "goto": "q-grooming" }
+      ]
+    },
+    "q-grooming": {
+      "type": "question",
+      "text": "Is your concern about grooming?",
+      "answers": [
+        { "label": "Yes", "goto": "q-grooming-staff" },
         { "label": "No", "goto": "q2" }
+      ]
+    },
+    "q-grooming-staff": {
+      "type": "question",
+      "text": "Does the grooming involve a staff member?",
+      "answers": [
+        { "label": "Yes", "goto": "q3-grooming" },
+        { "label": "No", "goto": "end-grooming-critical" }
+      ]
+    },
+    "q3-grooming": {
+      "type": "question",
+      "text": "Does it involve a Manager?",
+      "note": "Report to the level above whoever is involved. This never waits — and child-protection reporting is never delayed by the internal chain.",
+      "answers": [
+        { "label": "Yes", "goto": "q4" },
+        { "label": "No", "goto": "end-c" }
+      ]
+    },
+    "end-grooming-critical": {
+      "type": "endpoint",
+      "urgency": "action",
+      "headline": "This is a critical incident, not a chain-of-command question.",
+      "steps": [
+        "Continue in the Critical Incident Tool — it picks up at the grooming questions."
+      ],
+      "actions": [
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=g2" }
       ]
     },
     "q2": {
@@ -39,6 +75,7 @@
         { "label": "No", "goto": "end-c" }
       ]
     },
+
     "q4": {
       "type": "question",
       "text": "Does it involve a Director?",
