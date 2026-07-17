@@ -24,6 +24,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useLinkMutations, type LinkRow } from "@/lib/content";
+import { DriftNote } from "@/components/admin/DriftNote";
 
 type FormState = {
   group: string;
