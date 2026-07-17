@@ -191,13 +191,13 @@
       "closeout": true,
       "headline": "Disclosure of abuse or neglect",
       "steps": [
-        "Run the Confidentiality tool to confirm the contact-vs-report path.",
+        "Continue in the Confidentiality Tool — it picks up at the right question: would contacting their emergency contact put them at more risk?",
         "Our standard: a child is in need of intervention where there are reasonable and probable grounds to believe their survival, security, or development is endangered. Suspected abuse or neglect must be reported.",
         "You report suspicions — no proof needed, you don’t investigate, and you can’t hand the duty to someone else. Unsure? Treat it as reportable and loop in the lead.",
         "Report to the child-protection authority for where the youth lives."
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
