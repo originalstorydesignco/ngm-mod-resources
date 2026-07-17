@@ -44,7 +44,7 @@ const cards = {
     to: MOD_CHAT_URL,
     title: "I just want to flag something for the team",
     desc: "A heads-up or second opinion.",
-    cta: "#mod-chat on Discord →",
+    cta: "#mod-chat on Discord ↗",
     modCta: true,
     external: true,
   },
