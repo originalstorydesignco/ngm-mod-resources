@@ -25,13 +25,6 @@ type Card = {
 
 const cards: Card[] = [
   {
-    to: "/how-to/flags-log",
-    title: "How to use #flags-log",
-    desc: "Post a flag cleanly — minimal, factual, respectful.",
-    cta: "How to use #flags-log →",
-    roles: ["facilitator"],
-  },
-  {
     to: "/how-to/screening",
     title: "How to onboard new youth",
     desc: "The steps every new member goes through.",
@@ -48,7 +41,7 @@ const cards: Card[] = [
   {
     to: "/how-to/event-board",
     title: "How to post the weekly event board",
-    desc: "The NGMA Coordinator’s Monday ritual — get the week’s events in front of the kids, on time and on point.",
+    desc: "Get the week’s events in front of the kids, on time and on point.",
     cta: "How to post the weekly event board →",
     roles: ["facilitator", "moderator"],
   },
@@ -58,6 +51,13 @@ const cards: Card[] = [
     desc: "Recap the month, flag any changes, spotlight what’s coming, and celebrate the wins — in your own voice.",
     cta: "How to post monthly announcements →",
     roles: ["facilitator", "moderator"],
+  },
+  {
+    to: "/how-to/flags-log",
+    title: "How to use #flags-log",
+    desc: "Post a flag cleanly — minimal, factual, respectful.",
+    cta: "How to use #flags-log →",
+    roles: ["facilitator"],
   },
 ];
 
