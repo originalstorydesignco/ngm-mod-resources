@@ -120,7 +120,7 @@
       "urgency": "info",
       "headline": "Raise it in #flags-log.",
       "steps": [
-        "Post it as a flag in #flags-log — see the flags-log guide.",
+        "Post it as a flag in #flags-log — see the #flags-log guide.",
         "Keep it minimal, factual, and respectful; link the message rather than quoting sensitive detail."
       ],
       "actions": [
