@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ReferenceIndexRouteImport } from './routes/reference.index'
 import { Route as HowToIndexRouteImport } from './routes/how-to.index'
@@ -25,7 +26,13 @@ import { Route as DecideReportingRouteImport } from './routes/decide.reporting'
 import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.critical-incident'
 import { Route as DecideConflictRouteImport } from './routes/decide.conflict'
 import { Route as DecideConfidentialityRouteImport } from './routes/decide.confidentiality'
+import { Route as AdminInvitesRouteImport } from './routes/admin.invites'
 
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -106,9 +113,16 @@ const DecideConfidentialityRoute = DecideConfidentialityRouteImport.update({
   path: '/decide/confidentiality',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminInvitesRoute = AdminInvitesRouteImport.update({
+  id: '/admin/invites',
+  path: '/admin/invites',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/admin/invites': typeof AdminInvitesRoute
   '/decide/confidentiality': typeof DecideConfidentialityRoute
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
@@ -127,6 +141,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/admin/invites': typeof AdminInvitesRoute
   '/decide/confidentiality': typeof DecideConfidentialityRoute
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
@@ -146,6 +162,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/admin/invites': typeof AdminInvitesRoute
   '/decide/confidentiality': typeof DecideConfidentialityRoute
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
@@ -166,6 +184,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/reset-password'
+    | '/admin/invites'
     | '/decide/confidentiality'
     | '/decide/conflict'
     | '/decide/critical-incident'
@@ -184,6 +204,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/reset-password'
+    | '/admin/invites'
     | '/decide/confidentiality'
     | '/decide/conflict'
     | '/decide/critical-incident'
@@ -202,6 +224,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/reset-password'
+    | '/admin/invites'
     | '/decide/confidentiality'
     | '/decide/conflict'
     | '/decide/critical-incident'
@@ -221,6 +245,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  AdminInvitesRoute: typeof AdminInvitesRoute
   DecideConfidentialityRoute: typeof DecideConfidentialityRoute
   DecideConflictRoute: typeof DecideConflictRoute
   DecideCriticalIncidentRoute: typeof DecideCriticalIncidentRoute
@@ -240,6 +266,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -352,11 +385,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DecideConfidentialityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/invites': {
+      id: '/admin/invites'
+      path: '/admin/invites'
+      fullPath: '/admin/invites'
+      preLoaderRoute: typeof AdminInvitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  AdminInvitesRoute: AdminInvitesRoute,
   DecideConfidentialityRoute: DecideConfidentialityRoute,
   DecideConflictRoute: DecideConflictRoute,
   DecideCriticalIncidentRoute: DecideCriticalIncidentRoute,
