@@ -24,6 +24,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useCardMutations, type Card, type CardPage } from "@/lib/content";
+import { DriftNote } from "@/components/admin/DriftNote";
 
 type Variant = "default" | "critical" | "mod";
 type Arrow = "internal" | "external";
