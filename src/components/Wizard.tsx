@@ -281,8 +281,14 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
           )}
         </div>
       )}
+      {node.note && (
+        <div className="mt-4 rounded-md border-l-4 border-[#5865F2] bg-card px-4 py-3 text-sm text-foreground/85">
+          {node.note}
+        </div>
+      )}
       {node.roleNote && <RoleNote note={node.roleNote} />}
       <div className="mt-6 space-y-3">
+
         {node.answers.map((a, i) => (
           <button
             key={i}
