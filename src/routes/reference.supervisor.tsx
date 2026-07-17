@@ -48,7 +48,7 @@ function SupervisorPage() {
         </div>
       </section>
 
-      <div className="mt-8 rounded-lg border-l-4 border-mod bg-mod/15 px-4 py-3 text-[15px] text-foreground">
+      <div className="mt-8 rounded-lg border-l-4 border-[#5865F2] bg-card px-4 py-3 text-sm">
         The one rule: loop in staff and report, in parallel. The support is there so you’re not alone with it, not so someone else can decide it for you.
       </div>
 
