@@ -186,6 +186,7 @@ export function CardEditor({
               Visible to Moderators
             </label>
           </div>
+          <DriftNote />
           <DialogFooter className="pt-2">
             <Button type="button" variant="ghost" onClick={() => setOpen(false)}>Cancel</Button>
             <Button type="submit" disabled={create.isPending || update.isPending}>
