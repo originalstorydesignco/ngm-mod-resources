@@ -18,7 +18,9 @@ type EditTarget = {
 type Ctx = {
   isAdmin: boolean;
   overrides: OverridesMap;
+  base: WizardData;
   openEditor: (t: EditTarget) => void;
+  getOriginal: (nodeId: string, fieldPath: string) => string;
 };
 
 const EditCtx = createContext<Ctx | null>(null);
@@ -29,10 +31,12 @@ export function useWizardEdit() {
 
 export function WizardEditProvider({
   tool,
+  base,
   overrides,
   children,
 }: {
   tool: WizardTool;
+  base: WizardData;
   overrides: OverridesMap;
   children: ReactNode;
 }) {
