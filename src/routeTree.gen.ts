@@ -20,6 +20,7 @@ import { Route as HowToScreeningRouteImport } from './routes/how-to.screening'
 import { Route as HowToFlagsLogRouteImport } from './routes/how-to.flags-log'
 import { Route as HowToEventsRouteImport } from './routes/how-to.events'
 import { Route as HowToEventBoardRouteImport } from './routes/how-to.event-board'
+import { Route as HowToAnnouncementRouteImport } from './routes/how-to.announcement'
 import { Route as DecideReportingRouteImport } from './routes/decide.reporting'
 import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.critical-incident'
 import { Route as DecideConflictRouteImport } from './routes/decide.conflict'
@@ -80,6 +81,11 @@ const HowToEventBoardRoute = HowToEventBoardRouteImport.update({
   path: '/how-to/event-board',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HowToAnnouncementRoute = HowToAnnouncementRouteImport.update({
+  id: '/how-to/announcement',
+  path: '/how-to/announcement',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DecideReportingRoute = DecideReportingRouteImport.update({
   id: '/decide/reporting',
   path: '/decide/reporting',
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/announcement': typeof HowToAnnouncementRoute
   '/how-to/event-board': typeof HowToEventBoardRoute
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/announcement': typeof HowToAnnouncementRoute
   '/how-to/event-board': typeof HowToEventBoardRoute
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/announcement': typeof HowToAnnouncementRoute
   '/how-to/event-board': typeof HowToEventBoardRoute
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
+    | '/how-to/announcement'
     | '/how-to/event-board'
     | '/how-to/events'
     | '/how-to/flags-log'
@@ -178,6 +188,7 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
+    | '/how-to/announcement'
     | '/how-to/event-board'
     | '/how-to/events'
     | '/how-to/flags-log'
@@ -195,6 +206,7 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
+    | '/how-to/announcement'
     | '/how-to/event-board'
     | '/how-to/events'
     | '/how-to/flags-log'
@@ -213,6 +225,7 @@ export interface RootRouteChildren {
   DecideConflictRoute: typeof DecideConflictRoute
   DecideCriticalIncidentRoute: typeof DecideCriticalIncidentRoute
   DecideReportingRoute: typeof DecideReportingRoute
+  HowToAnnouncementRoute: typeof HowToAnnouncementRoute
   HowToEventBoardRoute: typeof HowToEventBoardRoute
   HowToEventsRoute: typeof HowToEventsRoute
   HowToFlagsLogRoute: typeof HowToFlagsLogRoute
@@ -304,6 +317,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowToEventBoardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/how-to/announcement': {
+      id: '/how-to/announcement'
+      path: '/how-to/announcement'
+      fullPath: '/how-to/announcement'
+      preLoaderRoute: typeof HowToAnnouncementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/decide/reporting': {
       id: '/decide/reporting'
       path: '/decide/reporting'
@@ -341,6 +361,7 @@ const rootRouteChildren: RootRouteChildren = {
   DecideConflictRoute: DecideConflictRoute,
   DecideCriticalIncidentRoute: DecideCriticalIncidentRoute,
   DecideReportingRoute: DecideReportingRoute,
+  HowToAnnouncementRoute: HowToAnnouncementRoute,
   HowToEventBoardRoute: HowToEventBoardRoute,
   HowToEventsRoute: HowToEventsRoute,
   HowToFlagsLogRoute: HowToFlagsLogRoute,
