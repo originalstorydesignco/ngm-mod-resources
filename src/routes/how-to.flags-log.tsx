@@ -39,7 +39,7 @@ function FlagsLogPage() {
               { id: "s2", label: <span><strong>Paste the message link</strong> in the thread, with any key details — observations, not opinions. We’re describing what happened, not deciding who someone is.</span> },
               { id: "s3", label: <span><strong>If it’s sensitive, don’t type it.</strong> Write “Flagging to bring up at scorecard meeting on (date)” and bring it to the weekly meeting, where we talk it through together.</span> },
               { id: "s4", label: <span><strong>Say what you actually need.</strong> “Thoughts?” tends to get silence — the team can’t tell what you need. Tell us plainly: an FYI, a second opinion, or a request for someone to take follow-up.</span> },
-              { id: "s5", label: <span><strong>Hand it off cleanly.</strong> If follow-up’s needed, we figure out who has the strongest relationship with that young person, and they take it. If that’s you, close the loop in the thread when it’s done — with any need-to-knows — so nothing quietly falls off anyone’s plate.</span> },
+              { id: "s5", label: <span><strong>Hand it off cleanly.</strong> If follow-up’s needed, we figure out who has the strongest relationship with that young person, and they take it. If that’s you, share back in the thread about what you did — with any need-to-knows — so nothing quietly falls off anyone’s plate.</span> },
             ]}
           />
         </div>
