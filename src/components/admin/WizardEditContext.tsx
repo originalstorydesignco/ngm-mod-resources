@@ -103,7 +103,16 @@ export function WizardEditProvider({
     editing !== null && (editing.originalValue.length > 80 || draft.length > 80);
 
   return (
-    <EditCtx.Provider value={{ isAdmin, overrides, openEditor }}>
+    <EditCtx.Provider
+      value={{
+        isAdmin,
+        overrides,
+        base,
+        openEditor,
+        getOriginal: (nodeId, fieldPath) =>
+          getBaseValue(base, nodeId, fieldPath) ?? "",
+      }}
+    >
       {children}
       {editing && (
         <div
