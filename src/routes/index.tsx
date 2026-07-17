@@ -18,8 +18,8 @@ const cards = {
   },
   confidentiality: {
     to: "/decide/confidentiality",
-    title: "A young person disclosed something — do I keep it private?",
-    desc: "No one’s in immediate danger; I’m weighing privacy against reporting.",
+    title: "A young person disclosed something",
+    desc: "I’m weighing privacy against reporting.",
     cta: "Confidentiality Tool →",
   },
   reporting: {
