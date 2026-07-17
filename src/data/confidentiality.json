@@ -159,14 +159,14 @@
     "end-report-only": {
       "type": "endpoint",
       "urgency": "action",
+      "closeout": true,
       "headline": "Report to the child-protection authority — without contacting the emergency contact.",
       "steps": [
+        "Loop in the Manager of Youth Programs — or the COO if unavailable — right away. Don’t carry this alone.",
         "Contacting the adult on file could put the youth at more risk, so the report goes straight to the authority.",
-        "You report suspicion — no proof needed, you don’t investigate, and you can’t hand the duty to someone else.",
-        "Continue in the Critical Incident tool (disclosure of abuse or neglect) and complete an Incident Report."
+        "You report suspicion — no proof needed, you don’t investigate, and you can’t hand the duty to someone else."
       ],
       "actions": [
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
@@ -183,13 +183,13 @@
     "end-contact-report": {
       "type": "endpoint",
       "urgency": "action",
+      "closeout": true,
       "headline": "Contact the emergency contact / trusted adult AND report to the appropriate authority.",
       "steps": [
-        "You report suspicion — no proof needed, you don’t investigate, and you can’t hand the duty to someone else.",
-        "Continue in the Critical Incident tool (disclosure of abuse or neglect) and complete an Incident Report."
+        "Loop in the Manager of Youth Programs — or the COO if unavailable — right away. Don’t carry this alone.",
+        "You report suspicion — no proof needed, you don’t investigate, and you can’t hand the duty to someone else."
       ],
       "actions": [
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
