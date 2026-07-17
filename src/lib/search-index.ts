@@ -139,7 +139,20 @@ const howto: Array<{ path: string; title: string; snippet: string; keywords?: st
     snippet: "Pick what + when, create, calendar, hype, run, log attendance, Houses points. Plus the Event Menu bank.",
     keywords: "event host schedule houses points attendance advanced-search calendar VC event menu Fortnite Valorant Minecraft Roblox Among Us Skribbl Gartic Geoguessr Jeopardy trivia Wordle baking movie storytime advice",
   },
+  {
+    path: "/how-to/event-board",
+    title: "How to post the weekly event board",
+    snippet: "The NGMA Coordinator’s Monday ritual — get the week’s events in front of the kids, on time and on point.",
+    keywords: "event board weekly monday coordinator hype schedule ritual",
+  },
+  {
+    path: "/how-to/announcement",
+    title: "How to post monthly announcements",
+    snippet: "Recap the month, flag any changes, spotlight what’s coming, and celebrate the wins — in your own voice.",
+    keywords: "announcement monthly coordinator stats celebrations changes tldr recap",
+  },
 ];
+
 for (const h of howto) {
   add({ id: `howto-${h.path}`, title: h.title, section: "How-to", snippet: h.snippet, path: h.path, keywords: h.keywords });
 }
