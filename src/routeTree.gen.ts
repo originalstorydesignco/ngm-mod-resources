@@ -19,6 +19,7 @@ import { Route as ReferenceContactsRouteImport } from './routes/reference.contac
 import { Route as HowToScreeningRouteImport } from './routes/how-to.screening'
 import { Route as HowToFlagsLogRouteImport } from './routes/how-to.flags-log'
 import { Route as HowToEventsRouteImport } from './routes/how-to.events'
+import { Route as HowToEventBoardRouteImport } from './routes/how-to.event-board'
 import { Route as DecideReportingRouteImport } from './routes/decide.reporting'
 import { Route as DecideCriticalIncidentRouteImport } from './routes/decide.critical-incident'
 import { Route as DecideConflictRouteImport } from './routes/decide.conflict'
@@ -74,6 +75,11 @@ const HowToEventsRoute = HowToEventsRouteImport.update({
   path: '/how-to/events',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HowToEventBoardRoute = HowToEventBoardRouteImport.update({
+  id: '/how-to/event-board',
+  path: '/how-to/event-board',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DecideReportingRoute = DecideReportingRouteImport.update({
   id: '/decide/reporting',
   path: '/decide/reporting',
@@ -101,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/event-board': typeof HowToEventBoardRoute
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
   '/how-to/screening': typeof HowToScreeningRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/event-board': typeof HowToEventBoardRoute
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
   '/how-to/screening': typeof HowToScreeningRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/decide/conflict': typeof DecideConflictRoute
   '/decide/critical-incident': typeof DecideCriticalIncidentRoute
   '/decide/reporting': typeof DecideReportingRoute
+  '/how-to/event-board': typeof HowToEventBoardRoute
   '/how-to/events': typeof HowToEventsRoute
   '/how-to/flags-log': typeof HowToFlagsLogRoute
   '/how-to/screening': typeof HowToScreeningRoute
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
+    | '/how-to/event-board'
     | '/how-to/events'
     | '/how-to/flags-log'
     | '/how-to/screening'
@@ -168,6 +178,7 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
+    | '/how-to/event-board'
     | '/how-to/events'
     | '/how-to/flags-log'
     | '/how-to/screening'
@@ -184,6 +195,7 @@ export interface FileRouteTypes {
     | '/decide/conflict'
     | '/decide/critical-incident'
     | '/decide/reporting'
+    | '/how-to/event-board'
     | '/how-to/events'
     | '/how-to/flags-log'
     | '/how-to/screening'
@@ -201,6 +213,7 @@ export interface RootRouteChildren {
   DecideConflictRoute: typeof DecideConflictRoute
   DecideCriticalIncidentRoute: typeof DecideCriticalIncidentRoute
   DecideReportingRoute: typeof DecideReportingRoute
+  HowToEventBoardRoute: typeof HowToEventBoardRoute
   HowToEventsRoute: typeof HowToEventsRoute
   HowToFlagsLogRoute: typeof HowToFlagsLogRoute
   HowToScreeningRoute: typeof HowToScreeningRoute
@@ -284,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowToEventsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/how-to/event-board': {
+      id: '/how-to/event-board'
+      path: '/how-to/event-board'
+      fullPath: '/how-to/event-board'
+      preLoaderRoute: typeof HowToEventBoardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/decide/reporting': {
       id: '/decide/reporting'
       path: '/decide/reporting'
@@ -321,6 +341,7 @@ const rootRouteChildren: RootRouteChildren = {
   DecideConflictRoute: DecideConflictRoute,
   DecideCriticalIncidentRoute: DecideCriticalIncidentRoute,
   DecideReportingRoute: DecideReportingRoute,
+  HowToEventBoardRoute: HowToEventBoardRoute,
   HowToEventsRoute: HowToEventsRoute,
   HowToFlagsLogRoute: HowToFlagsLogRoute,
   HowToScreeningRoute: HowToScreeningRoute,
