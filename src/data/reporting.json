@@ -5,7 +5,8 @@
     "description": "You’ve got a concern or a complaint about someone — this is the chain for who to bring it to, especially if it involves a staff member.",
     "standingRules": [
       "If the concern involves the person you’d normally report to, go one level up.",
-      "Concerns about an admin can also go straight to the CEO or through the Anonymous Report Form."
+      "Concerns about an admin can also go straight to the CEO or through the Anonymous Report Form.",
+      "A concern about a staff member never goes in #flags-log — take it only up the chain."
     ],
     "roleVariants": {
       "moderator": {
@@ -147,7 +148,10 @@
       "type": "endpoint",
       "urgency": "action",
       "headline": "Report to the Manager of Youth Programs.",
-      "steps": ["Contact info is pinned in #admin-chat."],
+      "steps": [
+        "Contact info is pinned in #admin-chat.",
+        "Keep this off #flags-log and out of public channels — the person may be able to see it, which tips them off and undercuts a fair process. It goes only up this chain; the record lives in the Incident Report, not on Discord."
+      ],
       "roleVariants": {
         "moderator": {
           "headline": "Moderators don’t climb this ladder.",
@@ -159,7 +163,10 @@
       "type": "endpoint",
       "urgency": "action",
       "headline": "Report to the Chief Operations Officer.",
-      "steps": ["Contact info is pinned in #admin-chat."],
+      "steps": [
+        "Contact info is pinned in #admin-chat.",
+        "Keep this off #flags-log and out of public channels — the person may be able to see it, which tips them off and undercuts a fair process. It goes only up this chain; the record lives in the Incident Report, not on Discord."
+      ],
       "roleVariants": {
         "moderator": {
           "headline": "Moderators don’t climb this ladder.",
@@ -171,7 +178,10 @@
       "type": "endpoint",
       "urgency": "action",
       "headline": "Report to the CEO.",
-      "steps": ["Contact info is pinned in #admin-chat."],
+      "steps": [
+        "Contact info is pinned in #admin-chat.",
+        "Keep this off #flags-log and out of public channels — the person may be able to see it, which tips them off and undercuts a fair process. It goes only up this chain; the record lives in the Incident Report, not on Discord."
+      ],
       "roleVariants": {
         "moderator": {
           "headline": "Moderators don’t climb this ladder.",
@@ -183,7 +193,10 @@
       "type": "endpoint",
       "urgency": "action",
       "headline": "Report to the Chair of the Board.",
-      "steps": ["Contact info is pinned in #admin-chat."],
+      "steps": [
+        "Contact info is pinned in #admin-chat.",
+        "Keep this off #flags-log and out of public channels — the person may be able to see it, which tips them off and undercuts a fair process. It goes only up this chain; the record lives in the Incident Report, not on Discord."
+      ],
       "roleVariants": {
         "moderator": {
           "headline": "Moderators don’t climb this ladder.",
