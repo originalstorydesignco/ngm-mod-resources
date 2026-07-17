@@ -32,7 +32,10 @@ function ScreeningPage() {
     <span><strong>Forward the join message.</strong> As they join they’ll be picking their channels and roles — that’s your window to write the intro. An automated “they joined” message shows up in #general-chat; click it and forward it into the #introductions thread.</span>,
     <span><strong>Write their intro.</strong> Using what you learned in the call, write it up. Make it warm and use as many @roles as you can — games, hobbies, interests — so everyone with something in common sees it. Always tag @Welcome Team. Look at past intros in #introductions for the energy to aim for.</span>,
     <span><strong>Wrap up.</strong> Circle back to #registration-forms and flip their thread to done. Then configure their birthday through MEE6 and add them to their chosen House through their profile roles as well as NGM Bot. That’s it — you just brought someone new into the community!</span>,
-  ].map((label, i) => ({ id: `s${i + 1}`, label }));
+  ].map((label, i) => {
+    const sectionMap: Record<number, string> = { 0: "Screening", 3: "Registration", 7: "Verification", 11: "Introduction", 14: "Wrap-up" };
+    return { id: `s${i + 1}`, label, sectionBefore: sectionMap[i] };
+  });
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
