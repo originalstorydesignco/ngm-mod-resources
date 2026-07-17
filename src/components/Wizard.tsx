@@ -10,9 +10,11 @@ type QuestionNode = {
   type: "question";
   text: string;
   hint?: Hint;
+  note?: string;
   roleNote?: string;
   answers: Answer[];
 };
+
 
 type StepNode = {
   type: "step";
