@@ -421,7 +421,7 @@ function LinkChangesSection() {
       for (const f of LINK_COMPARE_FIELDS) {
         patch[f] = (seed as unknown as Record<string, unknown>)[f];
       }
-      const { error } = await supabase.from("links").update(patch).eq("id", row.id);
+      const { error } = await supabase.from("links").update(patch as never).eq("id", row.id);
       if (error) throw error;
     },
     onSuccess: () => {
