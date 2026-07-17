@@ -125,6 +125,7 @@ export function LinkEditor({
               onChange={(e) => setForm({ ...form, sort_order: Number(e.target.value) })}
             />
           </Field>
+          <DriftNote />
           <DialogFooter className="pt-2">
             <Button type="button" variant="ghost" onClick={() => setOpen(false)}>Cancel</Button>
             <Button type="submit" disabled={create.isPending || update.isPending}>
