@@ -19,7 +19,7 @@
     ],
     "actions": [
       { "label": "Critical Incident Report Form →", "href": "https://nextgenmen.ca/alliance/incident" },
-      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting" }
+      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3" }
     ]
   },
   "start": "q1",
