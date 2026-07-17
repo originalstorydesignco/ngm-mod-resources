@@ -32,6 +32,99 @@ export type Database = {
         }
         Relationships: []
       }
+      cards: {
+        Row: {
+          arrow: Database["public"]["Enums"]["card_arrow"]
+          caption: string
+          created_at: string
+          created_by: string | null
+          cta_label: string
+          facilitator_visible: boolean
+          href: string
+          id: string
+          moderator_visible: boolean
+          page: Database["public"]["Enums"]["card_page"]
+          section: string | null
+          sort_order: number
+          title: string
+          updated_at: string
+          variant: Database["public"]["Enums"]["card_variant"]
+        }
+        Insert: {
+          arrow?: Database["public"]["Enums"]["card_arrow"]
+          caption: string
+          created_at?: string
+          created_by?: string | null
+          cta_label: string
+          facilitator_visible?: boolean
+          href: string
+          id?: string
+          moderator_visible?: boolean
+          page: Database["public"]["Enums"]["card_page"]
+          section?: string | null
+          sort_order?: number
+          title: string
+          updated_at?: string
+          variant?: Database["public"]["Enums"]["card_variant"]
+        }
+        Update: {
+          arrow?: Database["public"]["Enums"]["card_arrow"]
+          caption?: string
+          created_at?: string
+          created_by?: string | null
+          cta_label?: string
+          facilitator_visible?: boolean
+          href?: string
+          id?: string
+          moderator_visible?: boolean
+          page?: Database["public"]["Enums"]["card_page"]
+          section?: string | null
+          sort_order?: number
+          title?: string
+          updated_at?: string
+          variant?: Database["public"]["Enums"]["card_variant"]
+        }
+        Relationships: []
+      }
+      links: {
+        Row: {
+          context_label: string | null
+          created_at: string
+          created_by: string | null
+          display_url: string | null
+          group: string
+          id: string
+          name: string
+          sort_order: number
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          context_label?: string | null
+          created_at?: string
+          created_by?: string | null
+          display_url?: string | null
+          group: string
+          id?: string
+          name: string
+          sort_order?: number
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          context_label?: string | null
+          created_at?: string
+          created_by?: string | null
+          display_url?: string | null
+          group?: string
+          id?: string
+          name?: string
+          sort_order?: number
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -86,6 +179,9 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "staff"
+      card_arrow: "internal" | "external"
+      card_page: "decide" | "reference" | "howto"
+      card_variant: "default" | "critical" | "mod"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -214,6 +310,9 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "staff"],
+      card_arrow: ["internal", "external"],
+      card_page: ["decide", "reference", "howto"],
+      card_variant: ["default", "critical", "mod"],
     },
   },
 } as const
