@@ -162,7 +162,7 @@
       "headline": "This ladder is for everyday stuff — that’s a critical incident.",
       "steps": ["Go to the Critical Incident tool now."],
       "actions": [
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=q1" }
       ]
     },
     "end-log": {
