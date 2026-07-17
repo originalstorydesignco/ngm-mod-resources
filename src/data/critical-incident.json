@@ -13,9 +13,8 @@
     "title": "Always close out",
     "steps": [
       "Complete the Incident Report — what happened (dates, times, message links), who was involved, what you did and who you looped in, what was reported and when, and what follow-up is owed and who owns it.",
-      "Log it in #flags-log so the Facilitator team has the picture — keep sensitive detail appropriate to the channel.",
-      "Debrief and check on whoever responded. This work carries real weight; don’t let the responder just move on alone.",
-      "If the concern involves a staff member, run the Reporting Hierarchy tool too."
+      "Log it in #flags-log so the Facilitator team has the picture — keep sensitive detail appropriate to the channel. If a staff member is involved, nothing goes in #flags-log — use the Reporting Hierarchy Tool.",
+      "Debrief and check on whoever responded. This work carries real weight; don’t let the responder just move on alone."
     ],
     "actions": [
       { "label": "Critical Incident Report Form ↗", "href": "https://nextgenmen.ca/alliance/incident" },
@@ -51,7 +50,7 @@
       "type": "step",
       "headline": "Keep this in mind.",
       "steps": [
-        "Don’t go it alone. Loop in the Manager of Youth Programs — or the COO if unavailable — right away. Flag it in #flags-log.",
+        "Don’t go it alone. Loop in the Manager of Youth Programs — or the COO if unavailable — right away. In #flags-log, post only a minimal pointer (“[name] — something to raise”); keep the substance off Discord.",
         "Contain it. Take sensitive conversations private (DM); restrict the offending account (mute or @Inactive role) if someone’s actively causing harm.",
         "Preserve information — carefully. Note message links, usernames, timestamps, what happened, who’s involved. Hard exception: suspected sexual imagery of a minor — do NOT download, save, screenshot, or forward it. Possessing or sharing it can be a crime and re-victimizes the child. Note context only; Discord preserves the evidence on their end.",
         "Stay in your lane. You’re not the investigator, therapist, or police. Your job: keep them safe, document, escalate, refer."
