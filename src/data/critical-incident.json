@@ -18,8 +18,8 @@
       "If the concern involves a staff member, run the Reporting Hierarchy tool too."
     ],
     "actions": [
-      { "label": "Critical Incident Report Form →", "href": "https://nextgenmen.ca/alliance/incident" },
-      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3" }
+      { "label": "Critical Incident Report Form ↗", "href": "https://nextgenmen.ca/alliance/incident" },
+      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20closing%20out" }
     ]
   },
   "start": "q1",
@@ -36,10 +36,12 @@
       "type": "endpoint",
       "urgency": "emergency",
       "closeout": true,
+      "category": "Immediate physical danger",
       "headline": "Call 911 / relevant emergency services now.",
       "steps": [
         "Discord can’t dispatch help — this is why we collect city/province and an emergency contact.",
-        "Use the location and emergency contact on file to direct responders."
+        "Use the location and emergency contact on file to direct responders.",
+        "Once everyone is safe: if this involved abuse, neglect, grooming, or exploitation, run this tool again and pick the incident type — some of these carry a legal duty to report."
       ],
       "actions": [
         { "label": "Call 911", "href": "tel:911" }
@@ -94,40 +96,42 @@
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
-      "headline": "Grooming involving a staff member goes up the chain — now.",
+      "category": "Grooming — staff involved",
+      "headline": "Take it up the chain now — one level above whoever’s involved.",
       "steps": [
         "Report it through the Reporting Hierarchy Tool immediately — to the level above whoever is involved.",
         "This never waits and never gets handled quietly."
       ],
       "actions": [
-        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3" }
+        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20grooming%20(staff)" }
       ]
     },
     "end-g-inperson": {
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
-      "headline": "Treat this as a protection concern — you have reasonable grounds.",
+      "category": "Grooming — in person",
+      "headline": "Treat this as a protection concern — continue in the Confidentiality Tool.",
       "steps": [
         "A youth being groomed in person is a youth in need of protection. You don’t need certainty, and investigating is not your job.",
         "Continue in the Confidentiality Tool — it picks up at the right question: would contacting their emergency contact put them at more risk?"
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3" }
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(in%20person)" }
       ]
     },
     "end-g-online": {
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
+      "category": "Grooming — online",
       "headline": "Help them report it where it’s happening.",
       "steps": [
         "Support the youth to report the person on the platform where it’s taking place — it likely needs to come from their own account. Don’t tip the person off.",
-        "Help them explain the situation to their trusted adult — unless contacting that adult would put them at more risk, in which case continue in the Confidentiality Tool, which picks up at exactly that question.",
-        "If it’s happening on our server, Discord Trust & Safety and the tipline apply too."
+        "Help them explain the situation to their trusted adult — unless contacting that adult would put them at more risk, in which case continue in the Confidentiality Tool, which picks up at exactly that question."
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(online)" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ]
     },
@@ -136,10 +140,11 @@
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
-      "headline": "Danger to self or others",
+      "category": "Danger to self or others",
+      "headline": "Take it private, listen, and get help in place.",
       "steps": [
         "Take it to a private space (DM).",
-        "Supportive listening: acknowledge feelings, don’t debate, don’t promise what you can’t deliver.",
+        "Supportive listening: acknowledge feelings, don’t debate, don’t promise what you can’t deliver. If you’re ASIST-trained, draw on that training and its resources to guide the conversation toward safety.",
         "Active emergency → 911, using the location and emergency contact on file.",
         "Offer vetted crisis lines.",
         "Stay with them until support is in place, within your capacity.",
@@ -163,7 +168,8 @@
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
-      "headline": "Grooming / exploitation / sexual content involving a minor",
+      "category": "Sexual exploitation / sexual content involving a minor",
+      "headline": "Contain, report, and never save the imagery.",
       "steps": [
         "Don’t engage or tip off the suspected predator.",
         "Don’t delete the account if it would destroy the trail — restrict and contain instead.",
@@ -189,7 +195,8 @@
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
-      "headline": "Disclosure of abuse or neglect",
+      "category": "Disclosure of abuse or neglect",
+      "headline": "Continue in the Confidentiality Tool.",
       "steps": [
         "Continue in the Confidentiality Tool — it picks up at the right question: would contacting their emergency contact put them at more risk?",
         "Our standard: a child is in need of intervention where there are reasonable and probable grounds to believe their survival, security, or development is endangered. Suspected abuse or neglect must be reported.",
@@ -197,7 +204,7 @@
         "Report to the child-protection authority for where the youth lives."
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20disclosure%20of%20abuse" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {
@@ -215,7 +222,8 @@
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
-      "headline": "Doxxing / credible threats / targeted harassment",
+      "category": "Doxxing / credible threats / targeted harassment",
+      "headline": "Contain the harm, then escalate.",
       "steps": [
         "Contain: remove the offending content from public view — preserve evidence first — and restrict the account.",
         "Credible threat → treat like danger to self or others and involve police.",
@@ -237,7 +245,8 @@
       "type": "endpoint",
       "urgency": "action",
       "closeout": true,
-      "headline": "Other illegal activity",
+      "category": "Other illegal activity",
+      "headline": "Preserve context and escalate.",
       "steps": [
         "Contain the situation and preserve context — message links, usernames, timestamps.",
         "Escalate to the team.",
