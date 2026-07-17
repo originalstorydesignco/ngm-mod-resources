@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link, useSearch } from "@tanstack/react-router";
 import { useRole } from "@/lib/role";
 
-type Answer = { label: string; goto: string };
-type Action = { label: string; href: string };
 type Hint = string | { label: string; body: string };
+type Answer = { label: string; goto: string; hint?: Hint };
+type Action = { label: string; href: string };
 
 type QuestionNode = {
   type: "question";
@@ -68,9 +68,10 @@ export type WizardData = {
 type Crumb = { nodeId: string; kind: "question" | "step"; label: string; value: string };
 
 export function Wizard({ data }: { data: WizardData }) {
-  const search = useSearch({ strict: false }) as { start?: string; ctx?: string };
+  const search = useSearch({ strict: false }) as { start?: string; ctx?: string; back?: string };
   const startOverride = search?.start && data.nodes[search.start] ? search.start : undefined;
   const ctx = typeof search?.ctx === "string" && search.ctx.trim() ? search.ctx : undefined;
+  const backHref = typeof search?.back === "string" && search.back.trim() ? search.back : undefined;
   const [started, setStarted] = useState(!!startOverride);
   const [currentId, setCurrentId] = useState(startOverride ?? data.start);
   const [trail, setTrail] = useState<Crumb[]>([]);
@@ -121,7 +122,7 @@ export function Wizard({ data }: { data: WizardData }) {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 sm:py-8">
-      {(trail.length > 0 || ctx) && <Breadcrumbs trail={trail} ctx={ctx} onRewind={rewindTo} />}
+      {(trail.length > 0 || ctx) && <Breadcrumbs trail={trail} ctx={ctx} backHref={backHref} onRewind={rewindTo} />}
 
       {current.type === "question" ? (
         <QuestionView node={current} onAnswer={answer} />
@@ -203,18 +204,33 @@ function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
   );
 }
 
-function Breadcrumbs({ trail, ctx, onRewind }: { trail: Crumb[]; ctx?: string; onRewind: (i: number) => void }) {
+function Breadcrumbs({
+  trail,
+  ctx,
+  backHref,
+  onRewind,
+}: {
+  trail: Crumb[];
+  ctx?: string;
+  backHref?: string;
+  onRewind: (i: number) => void;
+}) {
+  const ctxClass =
+    "rounded-full border border-white text-white bg-transparent px-2 py-1 font-medium transition-opacity hover:opacity-70";
   return (
     <nav aria-label="Answer trail" className="mb-6 -mx-4 px-4 overflow-x-auto">
       <ol className="flex flex-wrap gap-x-2 gap-y-1 text-xs">
         {ctx && (
           <li className="flex items-center gap-2">
-            <span
-              className="rounded-full border border-[#5865F2] text-[#5865F2] px-2 py-1 font-medium"
-              title="Handed off from another tool"
-            >
-              {ctx}
-            </span>
+            {backHref ? (
+              <a href={backHref} className={ctxClass} title="Back to where you came from">
+                ← {ctx}
+              </a>
+            ) : (
+              <span className={ctxClass} title="Handed off from another tool">
+                {ctx}
+              </span>
+            )}
             {trail.length > 0 && <span aria-hidden className="text-muted-foreground">·</span>}
           </li>
         )}
@@ -223,7 +239,7 @@ function Breadcrumbs({ trail, ctx, onRewind }: { trail: Crumb[]; ctx?: string; o
             <button
               type="button"
               onClick={() => onRewind(i)}
-              className="rounded-full bg-card px-2 py-1 hover:bg-primary/10 text-foreground/80"
+              className="rounded-full bg-card px-2 py-1 hover:bg-foreground/10 text-foreground/80 transition-colors"
               title="Rewind to this step"
             >
               {c.kind === "step" ? (
@@ -303,16 +319,42 @@ function QuestionView({ node, onAnswer }: { node: QuestionNode; onAnswer: (a: An
       <div className="mt-6 space-y-3">
 
         {node.answers.map((a, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => onAnswer(a)}
-            className="w-full min-h-12 px-4 py-3 rounded-lg border border-border bg-surface text-left text-base font-medium hover:border-primary hover:bg-primary/5 transition-colors"
-          >
-            {a.label}
-          </button>
+          <div key={i}>
+            <button
+              type="button"
+              onClick={() => onAnswer(a)}
+              className="w-full min-h-12 px-4 py-3 rounded-lg border border-border bg-surface text-left text-base font-medium hover:border-primary hover:bg-primary/5 transition-colors"
+            >
+              {a.label}
+            </button>
+            {a.hint && <AnswerHint hint={a.hint} />}
+          </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function AnswerHint({ hint }: { hint: Hint }) {
+  const [open, setOpen] = useState(false);
+  const label = typeof hint === "string" ? "What counts?" : hint.label;
+  const body = typeof hint === "string" ? hint : hint.body;
+  return (
+    <div className="mt-2 rounded-lg border border-border bg-card">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between px-4 py-3 text-left"
+      >
+        <span className="text-sm font-medium">{label}</span>
+        <span aria-hidden className="text-muted-foreground">{open ? "−" : "+"}</span>
+      </button>
+      {open && (
+        <p className="px-4 pb-4 border-t border-border pt-3 text-sm text-foreground/80">
+          {body}
+        </p>
+      )}
     </div>
   );
 }
@@ -405,9 +447,6 @@ function EndpointView({
         <p className="text-xs uppercase tracking-wide opacity-80">
           {node.urgency === "emergency" ? "Emergency" : node.urgency === "action" ? "Do this" : "For your info"}
         </p>
-        {node.category && !showModPrimary && (
-          <p className="mt-1 text-xs uppercase tracking-wide opacity-70">{node.category}</p>
-        )}
         <h1 className="mt-1 font-display text-2xl sm:text-3xl font-semibold">{primaryHeadline}</h1>
       </div>
 

@@ -49,7 +49,7 @@
     },
     "s1": {
       "type": "step",
-      "headline": "First, together",
+      "headline": "Keep this in mind",
       "steps": [
         "Don’t go it alone. Loop in the Manager of Youth Programs — or the COO if unavailable — right away. Flag it in #flags-log.",
         "Contain it. Take sensitive conversations private (DM); restrict the offending account (mute or @Inactive role) if someone’s actively causing harm.",
@@ -63,13 +63,16 @@
     "q2": {
       "type": "question",
       "text": "What kind of incident is it?",
-      "hint": {
-        "label": "How do I recognize grooming?",
-        "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
-      },
       "answers": [
         { "label": "Danger to self or others — self-harm, suicide, threats", "goto": "end-a" },
-        { "label": "Grooming — an adult building an inappropriate relationship with a youth", "goto": "g1" },
+        {
+          "label": "Grooming — an adult building an inappropriate relationship with a youth",
+          "goto": "g1",
+          "hint": {
+            "label": "How do I recognize grooming?",
+            "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
+          }
+        },
         { "label": "Sexual exploitation / sexual content involving a minor", "goto": "end-b" },
         { "label": "Disclosure of abuse or neglect", "goto": "end-c" },
         { "label": "Doxxing / credible threats / targeted harassment", "goto": "end-d" },
@@ -103,7 +106,7 @@
         "This never waits and never gets handled quietly."
       ],
       "actions": [
-        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20grooming%20(staff)" }
+        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20grooming%20(staff)&back=/decide/critical-incident%3Fstart%3Dend-g-staff" }
       ]
     },
     "end-g-inperson": {
@@ -117,7 +120,7 @@
         "Continue in the Confidentiality Tool — it picks up at the right question: would contacting their emergency contact put them at more risk?"
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(in%20person)" }
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(in%20person)&back=/decide/critical-incident%3Fstart%3Dend-g-inperson" }
       ]
     },
     "end-g-online": {
@@ -131,7 +134,7 @@
         "Help them explain the situation to their trusted adult — unless contacting that adult would put them at more risk, in which case continue in the Confidentiality Tool, which picks up at exactly that question."
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(online)" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20grooming%20(online)&back=/decide/critical-incident%3Fstart%3Dend-g-online" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ]
     },
@@ -204,7 +207,7 @@
         "Report to the child-protection authority for where the youth lives."
       ],
       "actions": [
-        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20disclosure%20of%20abuse" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20disclosure%20of%20abuse&back=/decide/critical-incident%3Fstart%3Dend-c" },
         { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
       ],
       "roleVariants": {

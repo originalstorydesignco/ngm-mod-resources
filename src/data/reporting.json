@@ -27,7 +27,14 @@
       "type": "question",
       "text": "Is your concern about grooming?",
       "answers": [
-        { "label": "Yes", "goto": "q-grooming-staff" },
+        {
+          "label": "Yes",
+          "goto": "q-grooming-staff",
+          "hint": {
+            "label": "How do I recognize grooming?",
+            "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
+          }
+        },
         { "label": "No", "goto": "q2" }
       ]
     },
@@ -56,7 +63,7 @@
         "Continue in the Critical Incident Tool — it picks up at the grooming questions."
       ],
       "actions": [
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=g2&ctx=Reporting%3A%20grooming%2C%20no%20staff" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=g2&ctx=Reporting%3A%20grooming%2C%20no%20staff&back=/decide/reporting%3Fstart%3Dend-grooming-critical" }
       ]
     },
     "q2": {
@@ -102,7 +109,7 @@
         "If the concern is about a staff member harming a youth: it’s still a critical incident first. Report to child protection per that tool, loop in the level above whoever’s involved, and never let the internal hierarchy delay the report."
       ],
       "actions": [
-        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=q1&ctx=Reporting%3A%20youth%20at%20risk" }
+        { "label": "Critical Incident Tool →", "href": "/decide/critical-incident?start=q1&ctx=Young%20person%20at%20risk%20%E2%80%94%20from%20the%20Reporting%20Hierarchy%20Tool&back=/decide/reporting%3Fstart%3Dend-a" }
       ],
       "roleVariants": {
         "moderator": {
