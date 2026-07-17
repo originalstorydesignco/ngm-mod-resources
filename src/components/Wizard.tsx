@@ -203,10 +203,21 @@ function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
   );
 }
 
-function Breadcrumbs({ trail, onRewind }: { trail: Crumb[]; onRewind: (i: number) => void }) {
+function Breadcrumbs({ trail, ctx, onRewind }: { trail: Crumb[]; ctx?: string; onRewind: (i: number) => void }) {
   return (
     <nav aria-label="Answer trail" className="mb-6 -mx-4 px-4 overflow-x-auto">
       <ol className="flex flex-wrap gap-x-2 gap-y-1 text-xs">
+        {ctx && (
+          <li className="flex items-center gap-2">
+            <span
+              className="rounded-full border border-[#5865F2] text-[#5865F2] px-2 py-1 font-medium"
+              title="Handed off from another tool"
+            >
+              {ctx}
+            </span>
+            {trail.length > 0 && <span aria-hidden className="text-muted-foreground">·</span>}
+          </li>
+        )}
         {trail.map((c, i) => (
           <li key={i} className="flex items-center gap-2">
             <button
