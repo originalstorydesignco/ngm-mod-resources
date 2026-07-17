@@ -121,7 +121,7 @@ export function Wizard({ data }: { data: WizardData }) {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 sm:py-8">
-      {trail.length > 0 && <Breadcrumbs trail={trail} onRewind={rewindTo} />}
+      {(trail.length > 0 || ctx) && <Breadcrumbs trail={trail} ctx={ctx} onRewind={rewindTo} />}
 
       {current.type === "question" ? (
         <QuestionView node={current} onAnswer={answer} />
