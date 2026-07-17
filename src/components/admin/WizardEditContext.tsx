@@ -2,9 +2,11 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 import { useAuth } from "@/lib/auth";
 import {
   useWizardOverrideMutations,
+  getBaseValue,
   type OverridesMap,
   type WizardTool,
 } from "@/lib/wizard-overrides";
+import type { WizardData } from "@/components/Wizard";
 
 type EditTarget = {
   nodeId: string;
