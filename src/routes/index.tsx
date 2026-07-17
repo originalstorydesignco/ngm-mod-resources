@@ -61,14 +61,19 @@ type CardData = {
 };
 
 function Card({ c }: { c: CardData }) {
+  const isModCta = !!c.modCta;
   const borderClass = c.defaultHover
     ? "border-primary"
-    : "border-border hover:border-primary";
+    : isModCta
+      ? "border-border hover:border-mod"
+      : "border-border hover:border-primary";
   const dotClass = c.defaultHover
     ? "bg-primary"
-    : "bg-muted-foreground/40 group-hover:bg-primary";
-  const ctaClass = c.modCta
-    ? "mt-auto pt-4 text-sm font-medium text-[#F1C40F]"
+    : isModCta
+      ? "bg-muted-foreground/40 group-hover:bg-mod"
+      : "bg-muted-foreground/40 group-hover:bg-primary";
+  const ctaClass = isModCta
+    ? "mt-auto pt-4 text-sm font-medium text-mod"
     : "mt-auto pt-4 text-sm font-medium text-primary";
   const externalProps = c.external
     ? { target: "_blank" as const, rel: "noreferrer" as const }
