@@ -73,10 +73,10 @@
             "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
           }
         },
-        { "label": "Sexual exploitation / sexual content involving a minor", "goto": "end-b" },
-        { "label": "Disclosure of abuse or neglect", "goto": "end-c" },
-        { "label": "Doxxing / credible threats / targeted harassment", "goto": "end-d" },
-        { "label": "Other illegal activity", "goto": "end-e" }
+        { "label": "Sexual exploitation / sexual content involving a minor", "goto": "q-staff-b" },
+        { "label": "Disclosure of abuse or neglect", "goto": "q-staff-c" },
+        { "label": "Doxxing / credible threats / targeted harassment", "goto": "q-staff-d" },
+        { "label": "Other illegal activity", "goto": "q-staff-e" }
       ]
     },
     "g1": {
