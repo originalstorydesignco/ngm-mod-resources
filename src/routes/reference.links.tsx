@@ -5,7 +5,7 @@ import links from "@/data/reference/links.json";
 export const Route = createFileRoute("/reference/links")({
   head: () => ({
     meta: [
-      { title: "Common Links List — NGMA Staff Hub" },
+      { title: "Common Links List — NGM Alliance Mod Resources" },
       { name: "description", content: "Every link you reach for as NGMA staff — invites, registration and release forms, and reporting forms — in one place." },
     ],
   }),

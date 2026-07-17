@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/reference/contacts")({
   head: () => ({
     meta: [
-      { title: "Critical Incident Contact List — NGMA Staff Hub" },
+      { title: "Critical Incident Contact List — NGM Alliance Mod Resources" },
       { name: "description", content: "Who to call when it’s serious — emergency, crisis, exploitation, and child-protection lines." },
     ],
   }),

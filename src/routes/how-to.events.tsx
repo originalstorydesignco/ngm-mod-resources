@@ -5,7 +5,7 @@ import { Checklist } from "@/components/Checklist";
 export const Route = createFileRoute("/how-to/events")({
   head: () => ({
     meta: [
-      { title: "How to host server events — NGMA Staff Hub" },
+      { title: "How to host server events — NGM Alliance Mod Resources" },
       { name: "description", content: "From pick-what-and-when to Houses points, plus the event menu." },
     ],
   }),

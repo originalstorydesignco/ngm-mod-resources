@@ -4,7 +4,7 @@ import diagram from "@/assets/systems-of-care.png";
 export const Route = createFileRoute("/reference/systems-of-care")({
   head: () => ({
     meta: [
-      { title: "Systems of Care — NGMA Staff Hub" },
+      { title: "Systems of Care — NGM Alliance Mod Resources" },
       {
         name: "description",
         content:
