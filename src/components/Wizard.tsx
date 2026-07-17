@@ -204,18 +204,33 @@ function Intro({ data, onStart }: { data: WizardData; onStart: () => void }) {
   );
 }
 
-function Breadcrumbs({ trail, ctx, onRewind }: { trail: Crumb[]; ctx?: string; onRewind: (i: number) => void }) {
+function Breadcrumbs({
+  trail,
+  ctx,
+  backHref,
+  onRewind,
+}: {
+  trail: Crumb[];
+  ctx?: string;
+  backHref?: string;
+  onRewind: (i: number) => void;
+}) {
+  const ctxClass =
+    "rounded-full border border-white text-white bg-transparent px-2 py-1 font-medium transition-opacity hover:opacity-70";
   return (
     <nav aria-label="Answer trail" className="mb-6 -mx-4 px-4 overflow-x-auto">
       <ol className="flex flex-wrap gap-x-2 gap-y-1 text-xs">
         {ctx && (
           <li className="flex items-center gap-2">
-            <span
-              className="rounded-full border border-[#5865F2] text-[#5865F2] px-2 py-1 font-medium"
-              title="Handed off from another tool"
-            >
-              {ctx}
-            </span>
+            {backHref ? (
+              <a href={backHref} className={ctxClass} title="Back to where you came from">
+                ← {ctx}
+              </a>
+            ) : (
+              <span className={ctxClass} title="Handed off from another tool">
+                {ctx}
+              </span>
+            )}
             {trail.length > 0 && <span aria-hidden className="text-muted-foreground">·</span>}
           </li>
         )}
@@ -224,7 +239,7 @@ function Breadcrumbs({ trail, ctx, onRewind }: { trail: Crumb[]; ctx?: string; o
             <button
               type="button"
               onClick={() => onRewind(i)}
-              className="rounded-full bg-card px-2 py-1 hover:bg-primary/10 text-foreground/80"
+              className="rounded-full bg-card px-2 py-1 hover:bg-foreground/10 text-foreground/80 transition-colors"
               title="Rewind to this step"
             >
               {c.kind === "step" ? (
