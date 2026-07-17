@@ -73,10 +73,10 @@
             "body": "Grooming rarely looks alarming in any single interaction — it’s a pattern. Watch for an adult (or older teen) giving a youth special attention or flattery, gifts (Nitro, skins, gift cards), secrecy (‘just between us’), moving chats to DMs or other platforms, slowly boundary-pushing or sexualized talk, pulling them away from friends and family, or asking for photos or personal information. No single sign proves anything; the pattern is the signal. If your gut says something’s off, bring it to the team early — that’s what we’re here for."
           }
         },
-        { "label": "Sexual exploitation / sexual content involving a minor", "goto": "end-b" },
-        { "label": "Disclosure of abuse or neglect", "goto": "end-c" },
-        { "label": "Doxxing / credible threats / targeted harassment", "goto": "end-d" },
-        { "label": "Other illegal activity", "goto": "end-e" }
+        { "label": "Sexual exploitation / sexual content involving a minor", "goto": "q-staff-b" },
+        { "label": "Disclosure of abuse or neglect", "goto": "q-staff-c" },
+        { "label": "Doxxing / credible threats / targeted harassment", "goto": "q-staff-d" },
+        { "label": "Other illegal activity", "goto": "q-staff-e" }
       ]
     },
     "g1": {
@@ -261,6 +261,145 @@
           "steps": [
             "Ping @Facilitators immediately with the message link.",
             "Note context — who, where, when, links — and don’t investigate further."
+          ]
+        }
+      }
+    },
+    "q-staff-b": {
+      "type": "question",
+      "text": "Does this involve a staff member — a Facilitator, Moderator, or anyone on the team?",
+      "answers": [
+        { "label": "Yes", "goto": "end-b-staff" },
+        { "label": "No", "goto": "end-b" }
+      ]
+    },
+    "q-staff-c": {
+      "type": "question",
+      "text": "Does this involve a staff member — a Facilitator, Moderator, or anyone on the team?",
+      "answers": [
+        { "label": "Yes", "goto": "end-c-staff" },
+        { "label": "No", "goto": "end-c" }
+      ]
+    },
+    "q-staff-d": {
+      "type": "question",
+      "text": "Does this involve a staff member — a Facilitator, Moderator, or anyone on the team?",
+      "answers": [
+        { "label": "Yes", "goto": "end-d-staff" },
+        { "label": "No", "goto": "end-d" }
+      ]
+    },
+    "q-staff-e": {
+      "type": "question",
+      "text": "Does this involve a staff member — a Facilitator, Moderator, or anyone on the team?",
+      "answers": [
+        { "label": "Yes", "goto": "end-e-staff" },
+        { "label": "No", "goto": "end-e" }
+      ]
+    },
+    "end-b-staff": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "category": "Sexual exploitation / sexual content involving a minor",
+      "headline": "Report up the chain, then contain — and never save the imagery.",
+      "steps": [
+        "A staff member being involved means this also goes up the chain now — report it through the Reporting Hierarchy, to the level above whoever is involved. This never gets handled quietly.",
+        "Don’t engage or tip off the suspected predator.",
+        "Don’t delete the account if it would destroy the trail — restrict and contain instead.",
+        "Never save or screenshot imagery — note context only (who / where / when, links).",
+        "Report to Discord Trust & Safety (in-app), the child-exploitation tipline, and police.",
+        "Support the affected youth gently — they may not see themselves as a victim. Loop the team on who has the best rapport for follow-up."
+      ],
+      "actions": [
+        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20staff%20member%20involved&back=/decide/critical-incident%3Fstart%3Dend-b-staff" },
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Escalate now — a staff member is involved.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link — a staff member being involved means this goes up the chain, to the level above whoever is involved.",
+            "Don’t handle it yourself and don’t tip anyone off."
+          ]
+        }
+      }
+    },
+    "end-c-staff": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "category": "Disclosure of abuse or neglect",
+      "headline": "Report up the chain, and continue in the Confidentiality Tool.",
+      "steps": [
+        "A staff member being involved means this also goes up the chain now — report it through the Reporting Hierarchy, to the level above whoever is involved. This never gets handled quietly.",
+        "Continue in the Confidentiality Tool — it picks up at the right question: would contacting their emergency contact put them at more risk?",
+        "Our standard: a child is in need of intervention where there are reasonable and probable grounds to believe their survival, security, or development is endangered. Suspected abuse or neglect must be reported.",
+        "You report suspicions — no proof needed, you don’t investigate, and you can’t hand the duty to someone else. Unsure? Treat it as reportable and loop in the lead.",
+        "Report to the child-protection authority for where the youth lives."
+      ],
+      "actions": [
+        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20staff%20member%20involved&back=/decide/critical-incident%3Fstart%3Dend-c-staff" },
+        { "label": "Confidentiality Tool →", "href": "/decide/confidentiality?start=q3&ctx=Critical%20Incident%3A%20disclosure%20of%20abuse&back=/decide/critical-incident%3Fstart%3Dend-c-staff" },
+        { "label": "Critical Incident Contact List →", "href": "/reference/contacts" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Escalate now — a staff member is involved.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link — a staff member being involved means this goes up the chain, to the level above whoever is involved.",
+            "Don’t handle it yourself and don’t tip anyone off."
+          ]
+        }
+      }
+    },
+    "end-d-staff": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "category": "Doxxing / credible threats / targeted harassment",
+      "headline": "Report up the chain, then contain the harm.",
+      "steps": [
+        "A staff member being involved means this also goes up the chain now — report it through the Reporting Hierarchy, to the level above whoever is involved. This never gets handled quietly.",
+        "Contain: remove the offending content from public view — preserve evidence first — and restrict the account.",
+        "Credible threat → treat like danger to self or others and involve police.",
+        "Report the account to Discord.",
+        "Support anyone targeted."
+      ],
+      "actions": [
+        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20staff%20member%20involved&back=/decide/critical-incident%3Fstart%3Dend-d-staff" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Escalate now — a staff member is involved.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link — a staff member being involved means this goes up the chain, to the level above whoever is involved.",
+            "Don’t handle it yourself and don’t tip anyone off."
+          ]
+        }
+      }
+    },
+    "end-e-staff": {
+      "type": "endpoint",
+      "urgency": "action",
+      "closeout": true,
+      "category": "Other illegal activity",
+      "headline": "Report up the chain, then preserve context.",
+      "steps": [
+        "A staff member being involved means this also goes up the chain now — report it through the Reporting Hierarchy, to the level above whoever is involved. This never gets handled quietly.",
+        "Contain the situation and preserve context — message links, usernames, timestamps.",
+        "Escalate to the team.",
+        "Involve police and/or Discord as appropriate."
+      ],
+      "actions": [
+        { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Critical%20Incident%3A%20staff%20member%20involved&back=/decide/critical-incident%3Fstart%3Dend-e-staff" }
+      ],
+      "roleVariants": {
+        "moderator": {
+          "headline": "Escalate now — a staff member is involved.",
+          "steps": [
+            "Ping @Facilitators immediately with the message link — a staff member being involved means this goes up the chain, to the level above whoever is involved.",
+            "Don’t handle it yourself and don’t tip anyone off."
           ]
         }
       }
