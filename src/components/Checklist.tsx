@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 
-export type ChecklistItem = { id: string; label: ReactNode };
+export type ChecklistItem = { id: string; label: ReactNode; sectionBefore?: string };
 
 export function Checklist({ items }: { items: ChecklistItem[] }) {
   const [checked, setChecked] = useState<Record<string, boolean>>({});
