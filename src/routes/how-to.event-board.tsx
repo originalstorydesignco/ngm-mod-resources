@@ -4,7 +4,7 @@ import { Checklist } from "@/components/Checklist";
 export const Route = createFileRoute("/how-to/event-board")({
   head: () => ({
     meta: [
-      { title: "How to post the weekly event board — NGMA Staff Hub" },
+      { title: "How to post the weekly event board — NGM Alliance Mod Resources" },
       {
         name: "description",
         content:

@@ -5,7 +5,7 @@ import { useRole } from "@/lib/role";
 export const Route = createFileRoute("/how-to/screening")({
   head: () => ({
     meta: [
-      { title: "How to onboard new youth — NGMA Staff Hub" },
+      { title: "How to onboard new youth — NGM Alliance Mod Resources" },
       { name: "description", content: "The steps every new member goes through." },
     ],
   }),

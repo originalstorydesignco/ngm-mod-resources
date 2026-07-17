@@ -4,7 +4,7 @@ import { Checklist } from "@/components/Checklist";
 export const Route = createFileRoute("/how-to/announcement")({
   head: () => ({
     meta: [
-      { title: "How to post monthly announcements — NGMA Staff Hub" },
+      { title: "How to post monthly announcements — NGM Alliance Mod Resources" },
       {
         name: "description",
         content:

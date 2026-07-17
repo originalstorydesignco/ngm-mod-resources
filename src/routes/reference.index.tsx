@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/reference/")({
   head: () => ({
     meta: [
-      { title: "Reference — NGMA Staff Hub" },
+      { title: "Reference — NGM Alliance Mod Resources" },
       { name: "description", content: "Look up scope, channels, bots, key links, and critical-incident contacts." },
     ],
   }),

@@ -5,7 +5,7 @@ import { useRole } from "@/lib/role";
 export const Route = createFileRoute("/how-to/flags-log")({
   head: () => ({
     meta: [
-      { title: "How to use #flags-log — NGMA Staff Hub" },
+      { title: "How to use #flags-log — NGM Alliance Mod Resources" },
       { name: "description", content: "How to post a flag — minimal, factual, respectful." },
     ],
   }),

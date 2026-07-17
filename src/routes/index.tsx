@@ -99,12 +99,8 @@ function Index() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
-      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">
-        Something came up — what is it?
-      </h1>
-      <p className="mt-2 text-muted-foreground">Pick the closest match. It’ll walk you through the rest.</p>
+      <h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight">Safety &amp; reporting</h1>
 
-      <h2 className="mt-8 font-display text-xl font-semibold">Safety &amp; reporting</h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-3">
         <Card c={cards.criticalIncident} />
         <Card c={cards.confidentiality} />

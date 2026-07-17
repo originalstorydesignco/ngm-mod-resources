@@ -5,7 +5,7 @@ import reporting from "@/data/reporting.json";
 export const Route = createFileRoute("/decide/reporting")({
   head: () => ({
     meta: [
-      { title: "I’m not sure who to tell — NGMA Staff Hub" },
+      { title: "I’m not sure who to tell — NGM Alliance Mod Resources" },
       {
         name: "description",
         content: "Decision tool for reporting concerns about staff or safeguarding issues.",

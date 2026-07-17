@@ -6,7 +6,7 @@ import { Expandable } from "@/components/Expandable";
 export const Route = createFileRoute("/reference/scope")({
   head: () => ({
     meta: [
-      { title: "Scope of Practice — NGMA Staff Hub" },
+      { title: "Scope of Practice — NGM Alliance Mod Resources" },
       { name: "description", content: "Is this mine to do? What’s in our wheelhouse and what belongs to someone else." },
     ],
   }),
