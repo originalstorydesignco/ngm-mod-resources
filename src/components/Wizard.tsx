@@ -447,9 +447,6 @@ function EndpointView({
         <p className="text-xs uppercase tracking-wide opacity-80">
           {node.urgency === "emergency" ? "Emergency" : node.urgency === "action" ? "Do this" : "For your info"}
         </p>
-        {node.category && !showModPrimary && (
-          <p className="mt-1 text-xs uppercase tracking-wide opacity-70">{node.category}</p>
-        )}
         <h1 className="mt-1 font-display text-2xl sm:text-3xl font-semibold">{primaryHeadline}</h1>
       </div>
 
