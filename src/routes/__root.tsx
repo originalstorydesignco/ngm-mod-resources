@@ -98,8 +98,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "NGM Alliance Mod Resources" },
       { name: "twitter:description", content: "Decision tools and guides for NGM Alliance staff." },
-      { property: "og:image", content: "https://moderation.nextgenmen.ca/og-image.png" },
-      { name: "twitter:image", content: "https://moderation.nextgenmen.ca/og-image.png" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/mxHZAWif7UfZLJINukMJodOKEYE3/social-images/social-1784322984846-OG_Image_from_Lovable.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/mxHZAWif7UfZLJINukMJodOKEYE3/social-images/social-1784322984846-OG_Image_from_Lovable.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
