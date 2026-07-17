@@ -166,6 +166,11 @@ export function WizardEditProvider({
               You’re editing wording only. To change how a tool branches, that’s a
               code change — ask your developer.
             </p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Edits here save to the live site’s database, not the code. For
+              structural or safety-critical changes (how a tool branches, contact
+              numbers), use a code change instead.
+            </p>
 
             {error && (
               <p className="mt-3 text-sm text-accent">{error}</p>
