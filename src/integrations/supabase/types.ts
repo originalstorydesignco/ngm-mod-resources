@@ -164,6 +164,39 @@ export type Database = {
         }
         Relationships: []
       }
+      wizard_overrides: {
+        Row: {
+          created_at: string
+          field_path: string
+          id: string
+          node_id: string
+          tool: Database["public"]["Enums"]["wizard_tool"]
+          updated_at: string
+          updated_by: string | null
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          field_path: string
+          id?: string
+          node_id: string
+          tool: Database["public"]["Enums"]["wizard_tool"]
+          updated_at?: string
+          updated_by?: string | null
+          value: string
+        }
+        Update: {
+          created_at?: string
+          field_path?: string
+          id?: string
+          node_id?: string
+          tool?: Database["public"]["Enums"]["wizard_tool"]
+          updated_at?: string
+          updated_by?: string | null
+          value?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -182,6 +215,11 @@ export type Database = {
       card_arrow: "internal" | "external"
       card_page: "decide" | "reference" | "howto"
       card_variant: "default" | "critical" | "mod"
+      wizard_tool:
+        | "confidentiality"
+        | "critical-incident"
+        | "conflict"
+        | "reporting"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -313,6 +351,12 @@ export const Constants = {
       card_arrow: ["internal", "external"],
       card_page: ["decide", "reference", "howto"],
       card_variant: ["default", "critical", "mod"],
+      wizard_tool: [
+        "confidentiality",
+        "critical-incident",
+        "conflict",
+        "reporting",
+      ],
     },
   },
 } as const
