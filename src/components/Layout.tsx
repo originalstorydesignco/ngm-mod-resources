@@ -105,7 +105,7 @@ function Footer() {
     <footer className="border-t border-border mt-16">
       <div className="mx-auto max-w-5xl px-4 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <span className="text-sm text-muted-foreground">
-          Next Gen Men · Last updated July 16, 2026
+          Next Gen Men · Last updated July 22, 2026
         </span>
         <div className="flex flex-wrap items-center gap-4">
           {isAdmin && (
