@@ -705,12 +705,12 @@ function EndpointView({
             ))}
           </ol>
           {closeout.actions && closeout.actions.length > 0 && (
-            <div className="mt-4 flex flex-col sm:flex-row gap-2">
+            <div className="mt-4 flex flex-wrap gap-2">
               {closeout.actions.map((a, i) => (
                 <a
                   key={i}
                   href={a.href}
-                  className="inline-flex items-center justify-center min-h-11 px-4 rounded-md border border-border bg-surface text-sm font-medium hover:border-primary hover:text-primary transition-colors"
+                  className="inline-flex items-center justify-center min-h-11 px-4 py-3 rounded-md border border-border bg-surface text-sm font-medium leading-snug hover:border-primary hover:text-primary transition-colors"
                 >
                   {a.label}
                 </a>
