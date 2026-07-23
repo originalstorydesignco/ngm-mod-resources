@@ -423,7 +423,7 @@ function QuestionView({
             <button
               type="button"
               onClick={() => onAnswer(a)}
-              className="w-full min-h-12 px-4 py-3 rounded-lg border border-border bg-surface text-left text-base font-medium hover:border-primary hover:bg-primary/5 transition-colors"
+              className="w-full min-h-14 px-4 py-3.5 rounded-lg border border-border bg-surface text-left text-base font-medium leading-snug hover:border-primary hover:bg-primary/5 transition-colors"
             >
               <EditableText
                 nodeId={nodeId}
