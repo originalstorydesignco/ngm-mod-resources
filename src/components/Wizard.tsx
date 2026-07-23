@@ -579,8 +579,8 @@ function EndpointView({
 
   const actionBtnClass =
     node.urgency === "action" && showModPrimary
-      ? "inline-flex items-center justify-center min-h-12 px-4 rounded-md border-2 border-mod text-mod-foreground bg-mod/10 font-medium hover:bg-mod hover:text-mod-foreground transition-colors"
-      : "inline-flex items-center justify-center min-h-12 px-4 rounded-md border-2 border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors";
+      ? "inline-flex items-center justify-center min-h-12 px-4 py-3 rounded-md border-2 border-mod text-mod-foreground bg-mod/10 font-medium leading-snug hover:bg-mod hover:text-mod-foreground transition-colors"
+      : "inline-flex items-center justify-center min-h-12 px-4 py-3 rounded-md border-2 border-primary text-primary font-medium leading-snug hover:bg-primary hover:text-primary-foreground transition-colors";
 
   return (
     <div>
@@ -630,7 +630,7 @@ function EndpointView({
       </ol>
 
       {primaryActions.length > 0 && (
-        <div className="mt-6 flex flex-col sm:flex-row gap-2">
+        <div className="mt-6 flex flex-wrap gap-2">
           {primaryActions.map((a, i) => (
             <a key={i} href={a.href} className={actionBtnClass}>
               {a.label}
@@ -705,12 +705,12 @@ function EndpointView({
             ))}
           </ol>
           {closeout.actions && closeout.actions.length > 0 && (
-            <div className="mt-4 flex flex-col sm:flex-row gap-2">
+            <div className="mt-4 flex flex-wrap gap-2">
               {closeout.actions.map((a, i) => (
                 <a
                   key={i}
                   href={a.href}
-                  className="inline-flex items-center justify-center min-h-11 px-4 rounded-md border border-border bg-surface text-sm font-medium hover:border-primary hover:text-primary transition-colors"
+                  className="inline-flex items-center justify-center min-h-11 px-4 py-3 rounded-md border border-border bg-surface text-sm font-medium leading-snug hover:border-primary hover:text-primary transition-colors"
                 >
                   {a.label}
                 </a>
