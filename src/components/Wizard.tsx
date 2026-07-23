@@ -535,17 +535,9 @@ function StepView({
         onClick={onContinue}
         className="mt-8 w-full sm:w-auto h-12 px-6 rounded-md bg-primary text-primary-foreground font-medium"
       >
-        <EditableText
-          nodeId={nodeId}
-          fieldPath="continueLabel"
-          originalValue={
-            edit?.getOriginal(nodeId, "continueLabel") ?? node.continueLabel
-          }
-          label="Continue button label"
-        >
-          {node.continueLabel}
-        </EditableText>
+        {node.continueLabel}
       </button>
+
     </div>
   );
 }
