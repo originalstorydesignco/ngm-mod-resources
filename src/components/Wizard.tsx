@@ -630,7 +630,7 @@ function EndpointView({
       </ol>
 
       {primaryActions.length > 0 && (
-        <div className="mt-6 flex flex-col sm:flex-row gap-2">
+        <div className="mt-6 flex flex-wrap gap-2">
           {primaryActions.map((a, i) => (
             <a key={i} href={a.href} className={actionBtnClass}>
               {a.label}
