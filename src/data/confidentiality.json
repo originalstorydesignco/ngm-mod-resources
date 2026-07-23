@@ -23,8 +23,10 @@
     ],
     "actions": [
       { "label": "Critical Incident Report Form ↗", "href": "https://nextgenmen.ca/alliance/incident" },
-      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Confidentiality%3A%20closing%20out" }
+      { "label": "Reporting Hierarchy Tool →", "href": "/decide/reporting?start=q3&ctx=Confidentiality%3A%20closing%20out" },
+      { "label": "How to use #flags-log →", "href": "/how-to/flags-log" }
     ]
+
   },
   "start": "q1",
   "nodes": {
