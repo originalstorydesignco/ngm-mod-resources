@@ -579,8 +579,8 @@ function EndpointView({
 
   const actionBtnClass =
     node.urgency === "action" && showModPrimary
-      ? "inline-flex items-center justify-center min-h-12 px-4 rounded-md border-2 border-mod text-mod-foreground bg-mod/10 font-medium hover:bg-mod hover:text-mod-foreground transition-colors"
-      : "inline-flex items-center justify-center min-h-12 px-4 rounded-md border-2 border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors";
+      ? "inline-flex items-center justify-center min-h-12 px-4 py-3 rounded-md border-2 border-mod text-mod-foreground bg-mod/10 font-medium leading-snug hover:bg-mod hover:text-mod-foreground transition-colors"
+      : "inline-flex items-center justify-center min-h-12 px-4 py-3 rounded-md border-2 border-primary text-primary font-medium leading-snug hover:bg-primary hover:text-primary-foreground transition-colors";
 
   return (
     <div>
